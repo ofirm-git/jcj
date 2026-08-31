@@ -1,0 +1,636 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<style>
+html, body {
+  background-color: #C7EDCC !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh !important;
+}
+</style>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>西游·金蝉劫｜蝎子精：东方神话宇宙里，一场以情证道的妖王史诗</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#西游金蝉劫｜蝎子精东方神话宇宙里一场以情证道的妖王史诗">西游·金蝉劫｜蝎子精：东方神话宇宙里，一场以情证道的妖王史诗</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#------编剧视角对读者疑问和故事的再解读你会彻底明白何为东方神话的大女主史诗">——编剧视角，对读者疑问和故事的再解读，你会彻底明白，何为东方神话的大女主史诗？</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#妖王现世五百年蛮荒她先活成自己的王">妖王现世：五百年蛮荒，她先活成自己的王</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#灵山惊变一念失控搅动三界大劫">灵山惊变：一念失控，搅动三界大劫</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#烈焰焚心六百年痴恋以神魂刻下宿命印记">烈焰焚心：六百年痴恋，以神魂刻下宿命印记</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#主动的放下遗忘是她自己做出的抉择">主动的放下：遗忘，是她自己做出的抉择？</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#彩蛋">彩蛋</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#写在最后何为东方神话的大女主史诗">写在最后：【何为东方神话的大女主史诗？】</a></div><ul class="outline-children"></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='西游金蝉劫｜蝎子精东方神话宇宙里一场以情证道的妖王史诗'><span>西游·金蝉劫｜蝎子精：东方神话宇宙里，一场以情证道的妖王史诗</span></h1><h2 id='------编剧视角对读者疑问和故事的再解读你会彻底明白何为东方神话的大女主史诗'><span>——编剧视角，对读者疑问和故事的再解读，你会彻底明白，何为东方神话的大女主史诗？</span></h2><blockquote><p><span>本文摘选自IP系列《西游·金蝉劫》，该IP为二十余部电影构成的完整西游重构宇宙，本篇聚焦蝎子精主线，串联《蝎子精·女妖王》《蝎子精·烈焰焚心》以及《金蝉子·前传·渡缘劫》的伏笔脉络，读懂这个角色，不能只截取片段，要看见整套故事背后</span><strong><span>有情成佛</span></strong><span>的核心哲学底色。</span></p></blockquote><p><span>很多人读蝎子精的片段梗概，很容易落入一种误读：把灵山解读成一套虚伪压抑人性的教条体系，把佛陀塑造成玩弄命运的上位者。但在《西游·金蝉劫》的世界观之中，灵山从不是虚伪的符号，佛陀洞悉万法因果，看透众生每一缕执念与灵识。</span></p><p><span>这套宇宙的终极命题，</span><strong><span>不是灭情见佛，而是有情成佛</span></strong><span>。 情，不是需要铲除的罪孽，是一切有情众生灵识的载体。爱恨、痴念、孤苦、赤诚，所有的情绪，都是修行的一部分。戒律是修行的标尺，却不等于要抹杀人心。末法时代的困顿，恰恰就诞生于众生把“戒律”误读为“灭绝情感”。</span><strong><span>蝎子精的整段命运，正是这套哲学最沉重、最壮烈的具象化缩影。</span></strong></p><h2 id='妖王现世五百年蛮荒她先活成自己的王'><span>妖王现世：五百年蛮荒，她先活成自己的王</span></h2><p><span>出自120分钟电影剧本《蝎子精·女妖王》，这是属于蝎子精独立完整的人生开篇，发生在她遇见金蝉子之前。</span></p><p><span>父母被妖山混战所杀，自幼石缝之中孤生。 蛮荒妖域危机四伏，弱肉强食，没有神明眷顾，没有师门庇护。蝎子精在无尽厮杀之中熬过整整五百年。凭一身狠厉、坚韧与绝顶的神通，硬生生打出一片疆土，成为毒敌山西山的一代妖王。 她要统御妖众，平衡领地纷争，对抗世代宿敌黑蟒精，守护麾下流离求生的妖族子民。妖王的身份，绝非一个简单头衔。影片大段铺陈妖域生存的残酷，写她杀伐之下尚存的恻隐，写妖与神之间与生俱来的隔阂。蝎子精首先是一方妖王，拥有自己的领地、仇敌、子民与生存信念。情爱，是她漫长妖王生命里降临的一场劫，而不是她人生的全部起点。</span></p><p><span>可强敌环伺，宿敌黑蟒精心怀滔天恨意，布下死局。一场惨烈大战，蝎子精惨遭陷阱围剿，近乎身死道消。濒临寂灭之际，一缕灵山蓝光指引，她拼尽残躯逃向灵山，在这里，她遇见金蝉子。</span></p><p><span>这是她一生之中，第一次被人温柔善待，被细心照拂。 在灵山的岁月，她不再是时刻要搏命厮杀的妖王。她听经、辩经，与金蝉子平等论道。她看他的眼神逐渐变化。赤焰红蟒作乱三界，金蝉子战力盖世，她再一次真切体会到，何为强者的庇护。</span></p><p><span>灵山杏林之下，蝎子精坦露心底炽烈爱意。 金蝉子委婉推拒。 她带着娇羞与甜蜜，留下一句振聋发聩的告白： </span><strong><span>“佛说因果不虚，可若我把命刻进你的骨血，这因，你逃得掉吗？”</span></strong></p><p><span>爱恋，就此在心底深种。</span></p><h2 id='灵山惊变一念失控搅动三界大劫'><span>灵山惊变：一念失控，搅动三界大劫</span></h2><p><span>变故来得猝不及防。 蝎子精无意间，撞见灵山后崖，金蝉子与白鼠精逾越戒律的一幕。她爱了三百年的人，妖心寸断！恰逢灵山法会，如来宣讲戒淫戒贪之法理。双重冲击之下，</span><strong><span>蝎子精第一次彻底陷入情绪的崩塌</span></strong><span>。</span></p><p><span>她最初的本心，仅仅只想拆散二人，从未想过要将金蝉子推入万劫不复的轮回。情绪崩溃之中，她出面告发，结果事与愿违。 但因果一旦转动，便再也不受个人意志掌控。事态彻底失控，金蝉子被判打入十世轮回。</span></p><p><strong><span>巨大的绝望淹没了蝎子精</span></strong><span>。盛痛之下，</span><strong><span>她举尾钩蜇伤如来发功拖拽金蝉入轮回的手</span></strong><span>，引爆灵山大劫。 </span><strong><span>孔雀张开巨口吞纳众生</span></strong><span>，混沌黑暗的腹中，妖王本色尽数爆发。蝎子精不顾生死，</span><strong><span>拼死护住金蝉子，甚至替他硬接致命一击</span></strong><span>，身受难以复原的重创。</span></p><p><span>即便如此，金蝉子堕入轮回的定数，已然成型。</span></p><p><span>《金蝉子前传》完整交代了这一段背后的深层逻辑：如来洞悉全部前因后果，降罚不是单纯的惩戒，是成全。金蝉子的轮回，本就是他证得“有情成佛”大道必经的历练。如来保全蝎子精性命，留下一句预言：</span><strong><span>十世之后，这段情缘自有了结</span></strong><span>。</span></p><p><span>不是强权的随意摆弄，而是一场早已看见终点的因果等候。</span></p><p><span>死战过后，蝎子精重返毒敌山。依仗在灵山习得的三百年修为，再度夺回属于自己的西山领地。琵琶洞石壁之上，密密麻麻，全部刻满金蝉子的模样。无数个日与夜，她伫立山脊，遥望东方——那是心上人轮回转世所在的方向。 一等，便是三百年。</span></p><h2 id='烈焰焚心六百年痴恋以神魂刻下宿命印记'><span>烈焰焚心：六百年痴恋，以神魂刻下宿命印记</span></h2><p><span>十世轮回终于走到终点。唐僧师徒，踏足毒敌山。</span></p><p><span>小妖匆匆来报，等待六百年的人终于来了。蝎子精满心狂喜，对镜贴花黄，卸下妖王的凛冽锋芒，奔赴相见。 她掳走唐僧，娓娓诉说灵山旧梦：当年的救赎、相伴辩经、杏林之下的告白，几百年来沉沉压在心底的全部过往。</span></p><p><span>孙悟空、猪八戒前来救人。蝎子精出战，坦荡劝悟空：不必执着取经，她愿与唐僧相思相守。悟空战败，只能远赴搬请救兵。</span></p><p><span>唐僧独自漫步琵琶洞。洞内处处残留着属于金蝉子的痕迹。石桌上，还静静摆放金蝉子当年赠予她的金蝉玉雕、佛经书签。恍惚之间，破碎记忆碎片不断翻涌，可凡僧唐僧，始终无法拼凑完整的前尘往事。</span></p><p><span>昴日星官应召而来，告悟空，正午时分，正是蝎子精妖力最弱的时刻。混战再起。 就在战局胶着之际，宿敌黑蟒精骤然偷袭。他一眼看穿唐僧便是金蝉子转世，刀锋直取唐僧性命。</span></p><p><span>这一刻，蝎子精眼中脑中，只有金蝉子。蝎子精当即舍弃与悟空缠斗，不顾一切扑向宿敌，展开世纪死战。 大战落幕，在唐僧跟前，蝎子精拼死斩杀黑蟒，护住唐僧，自身承受致命重创，生命走向终点【为爱绝命】。</span></p><p><span>濒死时刻，妖王倒在唐僧怀中。过往一幕幕在脑海回放：石缝孤生的苦寒，灵山杏林的温柔，孔雀腹中共患难，毒敌山脊数百年期盼和守望。</span></p><p><span>她转动尾钩，以钩背抵住唐僧面颊，燃烧自己全部生命本源，将自己完整一生——孤苦、厮杀、荣光、整整六百年的痴恋，尽数刻印进唐僧神魂。 一道赤红狭长烙印烙在唐僧脸庞，鳞片状红‑紫‑灰‑白的光斑漫天飘散，铺满整个荧幕。</span></p><p><span>气息断续，她再一次说出那句跨越数百年的告白： “</span><strong><span>金蝉，我爱你。佛说，因果不虚，可若我把命，刻进你的骨血，这因，你逃得掉吗？</span></strong><span>”</span></p><p><span>泪水坠落，蝎子精躯体一层层褪色消散。 海量记忆洪流轰然灌入唐僧脑海。凡僧唐僧，借由蝎子精的视角，看完她跌宕的一生，亲见她六百年的痴恋。他怀抱着消散的妖王，泪流满面，满面泪流，立下誓言： “</span><strong><span>佛祖，如果成佛是一种背负，我愿意背负这一生的苦难，辉煌，痴情与爱恋。</span></strong><span>”</span></p><h2 id='主动的放下遗忘是她自己做出的抉择'><span>主动的放下：遗忘，是她自己做出的抉择？</span></h2><p><span>很多人只读片段，会误以为如来强行抹除蝎子精记忆，剥夺她的自我。 但结合《金蝉子前传》前后伏笔，</span><strong><span>遗忘不是外力强加的刑罚，是蝎子精劫难之后，自己做出的主动选择</span></strong><span>。电影没有这样主动表达，编剧也在犹豫中，不知如何呈现这种因果。</span><strong><span>但是都有画面伏笔，供观众自己解读。</span></strong></p><p><span>香花宝烛之下，如来将蝎子精复活。</span></p><p><span>看到这里，很多观众已经泪流满面了。</span>
+<span>如果你是在电影院里，此刻银幕上的光斑正缓缓飘散，配乐大概已经静了下来。蝎子精的躯体褪色消散的那几秒，你会发现自己屏住了呼吸。</span>
+<span>这不是一个让你痛快哭出来的时刻。它是一种更复杂的东西——你知道她完成了自己，你知道她心甘情愿，但你还是会觉得心底有什么东西被狠狠揪住了。</span>
+<strong><span>然后你开始回想：她这一生，真正为自己活的时间有多久？</span></strong>
+<strong><span>答案是：全部。</span></strong>
+<span>从石缝里睁眼的那一刻起，到她主动选择遗忘的那一刻，她从来没有把自己交给别人。她的每一次厮杀、每一次等待、每一次说“我爱你”，都是她自己选的。</span><strong><span>【你也会内心深处，发问：我的选择，是否是自己的选择？！】</span></strong></p><p><span>她亲身走完轰轰烈烈的一世，承受爱与死的极致煎熬。</span></p><p><strong><span>她是否主动选择抹去关于金蝉子的全部爱恨记忆，了结这份滚烫沉重的情缘。 由观众的解读来回答，，，就像佛祖对金蝉的轮回，是成全，而不是惩罚一样。</span></strong></p><p><span>【很多人会因为，这一段都在泪流满面，而无法看清荧幕画面，那些细节，会让大量的二刷三刷存在。】</span></p><p><span>她改换装束，昔日杀伐妖域的毒敌山妖王，成为灵山护法。</span></p><p><span>远方，唐僧师徒一步步走向灵山山门。 蝎子精远远望见那个走来的身影。记忆被封印，可灵魂层面刻印下的因果业力无法彻底消除。心底没来由翻涌阵阵不安，身躯不受控制阵阵颤抖。 唐僧一步步走近，她的颤抖愈发剧烈【灵魂唤醒】。也会后续章节铺垫了引子。</span></p><p><strong><span>黑屏，正片结束。</span></strong></p><h3 id='彩蛋'><span>彩蛋</span></h3><p><span>金蝉子终成就佛果【在数亿人哭泣中的蝎子精灵魂刻印之后，会期待那个金蝉成就有情佛果的时刻《西游·金蝉劫·有情佛》】。 万千五色情丝环绕周身，众生千万种执念，万千爱恨，化作丝丝缕缕。 其中，有一道炽烈赤红情丝，向着无尽远方</span><strong><span>无限延伸，飘得最远，最远，最远。赤红尾端定格。荧幕落幕</span></strong><span>。</span></p><p><strong><span>记忆可以自我封印，但灵魂烙下的情，永远不会彻底消亡。</span></strong></p><h2 id='写在最后何为东方神话的大女主史诗'><span>写在最后：【何为东方神话的大女主史诗？】</span></h2><p><span>传统《西游记》原著中，蝎子精仅仅是取经路上用来试炼唐僧定力的工具妖，是“色邪”的符号，一笔潦草了结性命。</span></p><p><span>而在《西游·金蝉劫》的宇宙之中，蝎子精的完整弧光，是： </span><strong><span>石缝孤生 → 五百年厮杀成就一代妖王 → 遇救赎坠入情劫 → 历经毁灭、牺牲、以命刻印因果 → 主动选择放下执念，封印记忆，完成自我了结，灵魂深处依旧留存不灭情丝。</span></strong></p><p><span>灵山的风，与毒敌山截然不同。</span>
+<span>毒敌山的风裹着黄沙与血腥，刮在脸上生疼。灵山的风却是温的，穿过杏林时带着若有若无的檀香。</span>
+<span>蝎子精曾经在那片杏林里说了此生最勇敢的一句话。后来她再回去，已经忘却了曾经的漫步和表白。</span>
+<span>三百年的等待里，她偶尔会想：如果当年没有说出口，是不是一切都会不一样？但每次答案都一样——她还是会说。</span>
+<span>石壁上的刻痕越来越深，她的手指早就磨出了茧。</span>
+<span>她不觉得苦。</span>
+<span>等待这件事，只有对不情愿的人来说才是刑罚。对她而言，每一刀刻下去，都是离他更近一寸。</span></p><p><strong><span>爱情是她生命里分量极重的劫</span></strong><span>，但绝非她人生的全部。在</span><strong><span>遇见金蝉子之前，她已经完成自我的确立，有领地，有子民，有妖王的担当与挣扎</span></strong><span>。 </span></p><p><span>整套故事的内核，也并非暗中黑化叙事的反抗灵山、批判佛法虚伪。恰恰相反，它深刻理解佛陀真正的懂得，立足于大乘菩萨道</span><strong><span>有情成佛</span></strong><span>：情不是要被斩除的业障，是有情众生灵识本身。戒律是修行的参照，而不是消灭人性。</span><strong><span>佛陀洞悉一切因果，所有劫难，都是众生自我完成的证道。</span></strong></p><p><strong><span>蝎子精，不是一个恋爱脑的女妖。她是孤绝、强悍、敢爱敢舍，在杀伐与深情之间走完完整生命的东方神话女性史诗。</span></strong></p><blockquote><p><span>故事没有廉价大团圆。遗忘是她的选择，悸动是灵魂的回响，那根飘向远方的赤红情丝，留给观众无尽的留白。</span></p></blockquote><hr /><p>&nbsp;</p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>
