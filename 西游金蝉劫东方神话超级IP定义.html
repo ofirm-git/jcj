@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《西游金蝉劫》东方神话超级IP · 定义</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #08060a;
+    background-image:
+      radial-gradient(ellipse at 15% 0%, rgba(180, 20, 30, 0.18) 0%, transparent 45%),
+      radial-gradient(ellipse at 85% 100%, rgba(201, 160, 74, 0.10) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 50%, rgba(120, 15, 20, 0.06) 0%, transparent 70%);
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    color: #e8dcc8;
+    min-height: 100vh;
+    padding: 70px 20px 100px;
+    overflow-x: hidden;
+    line-height: 1.8;
+  }
+
+  /* ===== 顶部 ===== */
+  .hero {
+    max-width: 920px;
+    margin: 0 auto 72px;
+    text-align: center;
+    position: relative;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .hero .eyebrow {
+    font-size: 11px;
+    letter-spacing: 10px;
+    color: #8a6a3a;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    background: linear-gradient(135deg, #f5e6b8 0%, #d4b06a 30%, #f5e6b8 50%, #b8944a 75%, #f5e6b8 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shine 6s linear infinite;
+    line-height: 1.3;
+    text-shadow: 0 0 80px rgba(201, 160, 74, 0.12);
+  }
+
+  @keyframes shine {
+    to { background-position: 200% center; }
+  }
+
+  .hero .sub {
+    font-size: 14px;
+    letter-spacing: 6px;
+    color: #8a7a5a;
+    margin-top: 22px;
+  }
+
+  .hero .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 34px;
+    color: rgba(201, 160, 74, 0.4);
+    font-size: 10px;
+    letter-spacing: 6px;
+  }
+
+  .hero .divider::before,
+  .hero .divider::after {
+    content: "";
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 160, 74, 0.4), transparent);
+  }
+
+  /* ===== 容器 ===== */
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  /* ===== 定义条目 ===== */
+  .def-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .def-item {
+    position: relative;
+    padding: 32px 40px 32px 100px;
+    border-bottom: 1px solid rgba(201, 160, 74, 0.08);
+    transition: all 0.4s ease;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .def-item:nth-child(1) { animation-delay: 0.1s; }
+  .def-item:nth-child(2) { animation-delay: 0.15s; }
+  .def-item:nth-child(3) { animation-delay: 0.2s; }
+  .def-item:nth-child(4) { animation-delay: 0.25s; }
+  .def-item:nth-child(5) { animation-delay: 0.3s; }
+  .def-item:nth-child(6) { animation-delay: 0.35s; }
+  .def-item:nth-child(7) { animation-delay: 0.4s; }
+  .def-item:nth-child(8) { animation-delay: 0.45s; }
+  .def-item:nth-child(9) { animation-delay: 0.5s; }
+
+  .def-item:hover {
+    background: rgba(201, 160, 74, 0.03);
+    border-bottom-color: rgba(201, 160, 74, 0.25);
+  }
+
+  .def-item .num {
+    position: absolute;
+    left: 40px;
+    top: 34px;
+    font-family: "Georgia", serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: rgba(201, 160, 74, 0.18);
+    line-height: 1;
+    transition: color 0.4s ease;
+    letter-spacing: -2px;
+  }
+
+  .def-item:hover .num {
+    color: rgba(201, 160, 74, 0.45);
+  }
+
+  .def-item p {
+    font-size: 16px;
+    color: #c8c0b0;
+    letter-spacing: 0.5px;
+  }
+
+  .def-item p strong {
+    color: #f0e0b8;
+    font-weight: 600;
+  }
+
+  .def-item p em {
+    color: #d4b06a;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* 高亮关键词 */
+  .hl {
+    color: #d4b06a;
+    font-weight: 600;
+  }
+
+  .hl-red {
+    color: #e85a5a;
+    font-weight: 600;
+  }
+
+  /* ===== 宣言区 ===== */
+  .manifesto {
+    margin-top: 80px;
+    padding: 56px 48px;
+    background: linear-gradient(180deg, rgba(30, 14, 16, 0.7) 0%, rgba(18, 10, 12, 0.85) 100%);
+    border: 1px solid rgba(201, 160, 74, 0.22);
+    border-radius: 4px;
+    position: relative;
+    animation: fadeUp 0.8s ease 0.6s both;
+  }
+
+  .manifesto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #8a6a2a, #d4b06a, #f0dca0, #d4b06a, #8a6a2a);
+  }
+
+  .manifesto p {
+    font-size: 15.5px;
+    color: #c8c0b0;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .manifesto p:last-child {
+    margin-bottom: 0;
+  }
+
+  .manifesto .accent {
+    color: #f0e0b8;
+    font-weight: 600;
+  }
+
+  .manifesto .quote {
+    display: block;
+    padding: 18px 24px;
+    margin: 24px 0;
+    background: rgba(201, 160, 74, 0.05);
+    border-left: 3px solid #b8944a;
+    border-radius: 0 4px 4px 0;
+    font-size: 17px;
+    color: #f0e0b8;
+    letter-spacing: 1px;
+    line-height: 1.9;
+  }
+
+  /* ===== 挑战区 ===== */
+  .challenge {
+    margin-top: 56px;
+    animation: fadeUp 0.8s ease 0.7s both;
+  }
+
+  .challenge-title {
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 6px;
+    color: #d4b06a;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .challenge-title::before,
+  .challenge-title::after {
+    content: "◆";
+    font-size: 8px;
+    color: rgba(201, 160, 74, 0.4);
+    margin: 0 16px;
+    vertical-align: middle;
+  }
+
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .challenge-card {
+    padding: 34px 32px;
+    background: linear-gradient(180deg, rgba(26, 14, 16, 0.85) 0%, rgba(16, 9, 11, 0.9) 100%);
+    border: 1px solid rgba(201, 160, 74, 0.18);
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+
+  .challenge-card:hover {
+    border-color: rgba(201, 160, 74, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(180, 20, 30, 0.12);
+  }
+
+  .challenge-card .badge {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #8a6a3a;
+    border: 1px solid rgba(201, 160, 74, 0.25);
+    padding: 4px 14px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .challenge-card p {
+    font-size: 15px;
+    color: #c8c0b0;
+    line-height: 1.9;
+  }
+
+  .challenge-card p strong {
+    color: #f0e0b8;
+    font-weight: 600;
+  }
+
+  .challenge-card .punchline {
+    display: block;
+    margin-top: 18px;
+    font-size: 15px;
+    color: #d4b06a;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== 结尾 ===== */
+  .finale {
+    margin-top: 80px;
+    text-align: center;
+    animation: fadeUp 0.8s ease 0.8s both;
+  }
+
+  .finale .big {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: #f0e0b8;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .finale .big .hl {
+    color: #e85a5a;
+  }
+
+  .finale .sub-line {
+    font-size: 15px;
+    color: #8a7a5a;
+    letter-spacing: 3px;
+    line-height: 2.2;
+  }
+
+  .finale .signature {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(201, 160, 74, 0.12);
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #6a5f50;
+  }
+
+  .finale .signature .brand {
+    font-size: 15px;
+    color: #a88a5a;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+  }
+
+  /* ===== 动画 ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 768px) {
+    body { padding: 40px 14px 60px; }
+    .hero h1 { font-size: 28px; letter-spacing: 4px; }
+    .hero .eyebrow { letter-spacing: 6px; font-size: 10px; }
+    .def-item { padding: 24px 20px 24px 68px; }
+    .def-item .num { left: 20px; top: 26px; font-size: 26px; }
+    .def-item p { font-size: 14.5px; }
+    .manifesto { padding: 36px 24px; }
+    .manifesto p { font-size: 14px; }
+    .manifesto .quote { font-size: 15px; padding: 14px 18px; }
+    .challenge-grid { grid-template-columns: 1fr; }
+    .challenge-card { padding: 26px 22px; }
+    .finale .big { font-size: 22px; letter-spacing: 4px; }
+    .challenge-title { font-size: 15px; letter-spacing: 3px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== 顶部 ==================== -->
+<div class="hero">
+  <div class="eyebrow">XIYOU · JINCHANJIE · IP UNIVERSE</div>
+  <h1>西游金蝉劫</h1>
+  <div class="sub">东方神话超级 IP 定义</div>
+  <div class="divider">DEFINITION</div>
+</div>
+
+<div class="container">
+
+  <!-- ==================== 九条定义 ==================== -->
+  <div class="def-list">
+
+    <div class="def-item">
+      <div class="num">01</div>
+      <p>我们正在打造 <strong>《西游金蝉劫》宇宙影视超级 IP</strong>，这是一套 <em>提前定稿、版权锁定、时间戳确权、完整闭环、哲学立根、情感铸魂、人物成阵、长线可续二十年</em> 的 <strong>顶级东方神话 IP 矩阵</strong>，是 <em>唯一能填补中国影视宇宙空白、真正对标漫威叙事体系的东方神话终局 IP</em>。</p>
+    </div>
+
+    <div class="def-item">
+      <div class="num">02</div>
+      <p>我们打破国产 IP“<span class="hl">单片爆红、后继无力</span>”的宿命，用 <strong>二十余部定稿大电影</strong>，搭建起 <em>完整、自洽、层层联动、无限延伸</em> 的东方神话世界观。</p>
+    </div>
+
+    <div class="def-item">
+      <div class="num">03</div>
+      <p>根植于《西游记》这一 <strong>国民级文化母体</strong>，观众 <em>自带人物认知与情感基因</em>，无需世界观科普，<span class="hl">零认知成本入场，零宣发依赖启动</span>。</p>
+    </div>
+
+    <div class="def-item">
+      <div class="num">04</div>
+      <p><strong>以创作者主权为核心</strong>，IP 母公司 <em>版权、股权锁定</em>，项目 <strong>SPV</strong> 开放资本与制作资源作价入股，形成 <span class="hl">创作、资本、制作三方利益共同体</span>。</p>
+    </div>
+
+    <div class="def-item">
+      <div class="num">05</div>
+      <p>同步卡位 <strong>AIGC 院线级拐点（2027 年中）</strong>，传统管线与 AIGC 路径 <em>双轨并行</em>，确保制作质量与制作效率的最优解。</p>
+    </div>
+
+    <div class="def-item">
+      <div class="num">06</div>
+      <p>这个 IP 的 <strong>故事质量、哲学根基、情感穿透力</strong>，正向文化主流叙事，宗教合规，<span class="hl">非黑化叙事，非说教叙事</span>，爽点、共情点密度，<em>目前国内独一档</em>。</p>
+    </div>
+
+    <div class="def-item">
+      <div class="num">07</div>
+      <p>衍生品、授权、文旅落地空间以 <strong>千亿为规模</strong>，独家几十个角色资产，独家上百个场景资产，<span class="hl">每一个角色可独立开发，每一个场景可独立授权</span>，支撑 20 年以上长线商业开发。</p>
+    </div>
+
+    <div class="def-item">
+      <div class="num">08</div>
+      <p>以东方哲学为底色，以人类共通情感为通道，具备 <strong>覆盖东亚文化圈、辐射全球市场</strong> 的文化出海能力。</p>
+    </div>
+
+    <div class="def-item">
+      <div class="num">09</div>
+      <p><strong>我们预测，未来 20 年，不会出现同档次的 IP 竞品。</strong></p>
+    </div>
+
+  </div>
+
+  <!-- ==================== 宣言 ==================== -->
+  <div class="manifesto">
+    <p>以上定义，我们用了很多绝对性的表述语言。这不是狂妄。</p>
+    <p>任何人都没有我们自己，对这个系列 IP 的质疑更多。我们从想做一部好电影，到建立整个庞大的宇宙级 IP，也是一步步走过来的，一点点认知到，这个 IP 的强大能力。</p>
+    <p>全方位的横向、纵向对比，一点点让我们意识到，这个 IP 就是那个唯一的——</p>
+
+    <span class="quote">记住，是唯一的——能填补中国影视宇宙空白、真正对标漫威叙事体系的东方神话终局 IP。</span>
+
+    <p>如果，您觉得我们在吹牛，没关系，就算吹牛吧。</p>
+    <p>质问您一句话，请在此时此刻——</p>
+  </div>
+
+  <!-- ==================== 两个挑战 ==================== -->
+  <div class="challenge">
+    <div class="challenge-title">两个挑战</div>
+
+    <div class="challenge-grid">
+
+      <div class="challenge-card">
+        <span class="badge">挑战 一</span>
+        <p>自己编一个 <strong>提前定稿、版权锁定、时间戳确权、完整闭环、哲学立根、情感铸魂、人物成阵、长线可续二十年</strong> 这样的宇宙级 IP 出来。</p>
+        <span class="punchline">→ 我们就不说这个是唯一啦！</span>
+      </div>
+
+      <div class="challenge-card">
+        <span class="badge">挑战 二</span>
+        <p>发动一切可发动的力量，找一个这样的宇宙级 IP 出来。</p>
+        <span class="punchline">→ 我们也不说这个是唯一的啦！</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== 结尾 ==================== -->
+  <div class="finale">
+
+    <div class="big">
+      如果写不出来，又找不出来，<br>
+      那我们还是毫不客气的，<span class="hl">要这样表述。</span>
+    </div>
+
+    <div class="sub-line">
+      我们问了自己，问了国内外 AI，问了业内行家，<br>
+      问了老师、同学、领导，问了无数人，问了几乎所有的途径。<br>
+      来阻止我们这样绝对的表述。<br><br>
+      但是，一个可以阻止的点和反馈，都没有。<br>
+      反而是深度理解 IP 之后，更多的认可和鼓励。<br><br>
+      所有 LLM 大模型，充分计算后，一致给出：<br>
+      未来 20 年，能够出现对标《西游金蝉劫》超级 IP 的可能性，<br>
+      全部 <span class="hl-red">低于 10%</span>。<br><br>
+      这个在文创电影行业内，可以说就是，<br>
+      <span class="hl-red" style="font-size: 20px; letter-spacing: 4px;">概率为零。</span>
+    </div>
+
+    <div class="signature">
+      <div class="brand">西游金蝉劫 · 陈小二创意工坊</div>
+      <div>我们欢迎质疑。但更期待答案。</div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
