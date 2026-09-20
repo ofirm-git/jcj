@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西游金蝉劫 · IP宇宙架构图</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --gold: #b8862b;
+    --gold-deep: #8a6114;
+    --gold-soft: #d8b96a;
+    --ink: #2e2820;
+    --ink-2: #6b6155;
+    --ink-3: #9a8f80;
+    --paper: #f8f5ef;
+    --line: #e9e0d0;
+  }
+
+  body {
+    background-color: var(--paper);
+    background-image:
+      radial-gradient(ellipse at 12% 0%, rgba(200, 160, 74, 0.16) 0%, transparent 55%),
+      radial-gradient(ellipse at 88% 100%, rgba(190, 90, 70, 0.08) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 45%, rgba(210, 180, 120, 0.10) 0%, transparent 70%);
+    background-attachment: fixed;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 60px 20px 80px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部标题 */
+  .header {
+    text-align: center;
+    margin-bottom: 70px;
+    position: relative;
+  }
+
+  .header::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
+    margin: 28px auto 0;
+  }
+
+  .header .subtitle {
+    font-size: 12px;
+    letter-spacing: 8px;
+    color: #b09049;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, #c79a3a 0%, #8a6114 45%, #c9a04a 75%, #a87d2e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header .desc {
+    font-size: 13px;
+    color: var(--ink-3);
+    letter-spacing: 3px;
+    margin-top: 16px;
+  }
+
+  /* 主容器 */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* 顶层平台卡片 */
+  .top-platform {
+    position: relative;
+    text-align: center;
+    padding: 44px 40px;
+    background: linear-gradient(180deg, #ffffff 0%, #fdf8ee 100%);
+    border: 1px solid rgba(184, 134, 43, 0.32);
+    border-radius: 16px;
+    box-shadow:
+      0 2px 4px rgba(120, 90, 40, 0.04),
+      0 18px 44px rgba(150, 115, 50, 0.10);
+    overflow: hidden;
+  }
+
+  .top-platform::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    border-radius: 0 0 3px 3px;
+    background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
+  }
+
+  .top-platform .label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .top-platform h2 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #7d5714;
+    margin-bottom: 12px;
+  }
+
+  .top-platform .role {
+    font-size: 13px;
+    color: var(--ink-2);
+    letter-spacing: 2px;
+  }
+
+  .top-platform .badge {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 6px 18px;
+    font-size: 12px;
+    color: var(--gold-deep);
+    border: 1px solid rgba(184, 134, 43, 0.35);
+    border-radius: 20px;
+    letter-spacing: 2px;
+    background: rgba(216, 185, 106, 0.14);
+  }
+
+  /* 连接线 */
+  .connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90px;
+    position: relative;
+  }
+
+  .connector .line {
+    width: 1px;
+    flex: 1;
+    background: linear-gradient(180deg, rgba(184, 134, 43, 0.55), rgba(184, 134, 43, 0.22));
+  }
+
+  .connector .arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid rgba(184, 134, 43, 0.55);
+    margin-top: -1px;
+  }
+
+  .connector .label-tag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fffdf8;
+    padding: 4px 16px;
+    font-size: 11px;
+    color: var(--gold-deep);
+    letter-spacing: 4px;
+    border: 1px solid rgba(184, 134, 43, 0.28);
+    border-radius: 12px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(150, 115, 50, 0.08);
+  }
+
+  /* 运营主体卡片 */
+  .operator-platform {
+    text-align: center;
+    padding: 36px 40px;
+    background: linear-gradient(180deg, #fffdf8 0%, #fbf4e6 100%);
+    border: 1px solid rgba(184, 134, 43, 0.22);
+    border-radius: 14px;
+    position: relative;
+    box-shadow:
+      0 2px 4px rgba(120, 90, 40, 0.03),
+      0 12px 32px rgba(150, 115, 50, 0.07);
+  }
+
+  .operator-platform .label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: #a98a4e;
+    margin-bottom: 12px;
+  }
+
+  .operator-platform h3 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #8a6114;
+    margin-bottom: 10px;
+  }
+
+  .operator-platform .role {
+    font-size: 12px;
+    color: var(--ink-2);
+    letter-spacing: 2px;
+  }
+
+  .operator-platform .note {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 4px 14px;
+    font-size: 11px;
+    color: #9a7b3c;
+    border: 1px dashed rgba(184, 134, 43, 0.38);
+    border-radius: 14px;
+    letter-spacing: 1px;
+  }
+
+  /* SPV 分组区域 */
+  .spv-group {
+    margin-bottom: 40px;
+  }
+
+  .group-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-left: 4px;
+  }
+
+  .group-title .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    box-shadow: 0 0 0 4px rgba(216, 185, 106, 0.22);
+    flex-shrink: 0;
+  }
+
+  .group-title .text {
+    font-size: 14px;
+    color: var(--gold-deep);
+    letter-spacing: 4px;
+    font-weight: 600;
+  }
+
+  .group-title .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(184, 134, 43, 0.30), transparent);
+  }
+
+  /* 分组色点微调 */
+  .spv-group:nth-child(1) .group-title .dot { background: #d8b96a; box-shadow: 0 0 0 4px rgba(216,185,106,0.22); }
+  .spv-group:nth-child(2) .group-title .dot { background: #d99a6c; box-shadow: 0 0 0 4px rgba(217,154,108,0.20); }
+  .spv-group:nth-child(3) .group-title .dot { background: #8fbfae; box-shadow: 0 0 0 4px rgba(143,191,174,0.20); }
+  .spv-group:nth-child(4) .group-title .dot { background: #b3a0cf; box-shadow: 0 0 0 4px rgba(179,160,207,0.20); }
+
+  /* SPV 卡片网格 */
+  .spv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .spv-card {
+    position: relative;
+    padding: 24px 22px;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: default;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(120, 90, 40, 0.03);
+  }
+
+  .spv-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .spv-card:hover {
+    border-color: rgba(184, 134, 43, 0.45);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(150, 115, 50, 0.14);
+    background: #fffefb;
+  }
+
+  .spv-card:hover::before {
+    opacity: 1;
+  }
+
+  .spv-card .icon {
+    font-size: 20px;
+    margin-bottom: 12px;
+    display: block;
+    opacity: 0.95;
+  }
+
+  .spv-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #4a3f2e;
+    margin-bottom: 8px;
+  }
+
+  .spv-card p {
+    font-size: 12px;
+    color: var(--ink-2);
+    letter-spacing: 1px;
+    line-height: 1.6;
+  }
+
+  .spv-card .tag {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 3px 10px;
+    font-size: 10px;
+    color: var(--gold-deep);
+    border: 1px solid rgba(184, 134, 43, 0.28);
+    border-radius: 10px;
+    letter-spacing: 1px;
+    background: rgba(216, 185, 106, 0.12);
+  }
+
+  /* 底部注释 */
+  .footer-note {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(184, 134, 43, 0.18);
+  }
+
+  .footer-note p {
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 2px;
+    line-height: 2;
+  }
+
+  .footer-note .brand {
+    font-size: 14px;
+    color: #a98a4e;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+  }
+
+  /* 响应式 */
+  @media (max-width: 768px) {
+    body { padding: 36px 14px 60px; }
+    .header { margin-bottom: 48px; }
+    .header h1 { font-size: 28px; letter-spacing: 3px; }
+    .top-platform { padding: 32px 22px; }
+    .top-platform h2 { font-size: 22px; }
+    .operator-platform { padding: 28px 22px; }
+    .operator-platform h3 { font-size: 19px; }
+    .spv-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .spv-card { padding: 18px 16px; }
+    .spv-card h4 { font-size: 13px; }
+    .spv-card p { font-size: 11px; }
+    .connector { height: 70px; }
+  }
+
+  @media (max-width: 480px) {
+    .spv-grid { grid-template-columns: 1fr; }
+  }
+
+  /* 入场动画 */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .header { animation: fadeUp 0.8s ease both; }
+  .top-platform { animation: fadeUp 0.8s ease 0.1s both; }
+  .connector:nth-of-type(1) { animation: fadeUp 0.6s ease 0.2s both; }
+  .operator-platform { animation: fadeUp 0.8s ease 0.3s both; }
+  .connector:nth-of-type(2) { animation: fadeUp 0.6s ease 0.4s both; }
+  .spv-section { animation: fadeUp 0.8s ease 0.5s both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 顶部标题 -->
+  <div class="header">
+    <div class="subtitle">XIYOU · JINCHANJIE</div>
+    <h1>西游金蝉劫</h1>
+    <div class="desc">IP 宇宙 · 顶层架构</div>
+  </div>
+
+  <!-- 顶层 IP 母平台 -->
+  <div class="top-platform">
+    <div class="label">顶层 IP 母平台</div>
+    <h2>陈小二创意工坊</h2>
+    <div class="role">持有全部 IP 著作权</div>
+    <div class="badge">◆ 版权锁定 · 时间戳确权 ◆</div>
+  </div>
+
+  <!-- 连接线 -->
+  <div class="connector">
+    <div class="line"></div>
+    <div class="label-tag">IP 授权</div>
+    <div class="line"></div>
+    <div class="arrow"></div>
+  </div>
+
+  <!-- 核心运营主体 -->
+  <div class="operator-platform">
+    <div class="label">核心运营主体</div>
+    <h3>拉格朗日光影动画</h3>
+    <div class="role">IP 商业化运营 · 项目统筹</div>
+    <div class="note">备选主体 · 灵活设立</div>
+  </div>
+
+  <!-- 连接线 -->
+  <div class="connector">
+    <div class="line"></div>
+    <div class="label-tag">分项目授权</div>
+    <div class="line"></div>
+    <div class="arrow"></div>
+  </div>
+
+  <!-- SPV 分组 -->
+  <div class="spv-section">
+
+    <!-- 动画电影主线 -->
+    <div class="spv-group">
+      <div class="group-title">
+        <span class="dot"></span>
+        <span class="text">动画电影主线</span>
+        <span class="line"></span>
+      </div>
+      <div class="spv-grid">
+
+        <div class="spv-card">
+          <span class="icon">🐍</span>
+          <h4>拉格朗日蝎子动画</h4>
+          <p>蝎子精主线动画电影</p>
+          <span class="tag">核心主线</span>
+        </div>
+
+        <div class="spv-card">
+          <span class="icon">🪷</span>
+          <h4>拉格朗日金蝉动画</h4>
+          <p>金蝉子主线动画电影</p>
+          <span class="tag">核心主线</span>
+        </div>
+
+        <div class="spv-card">
+          <span class="icon">🔄</span>
+          <h4>拉格朗日金蝉再世</h4>
+          <p>金蝉子故事线延展项目</p>
+          <span class="tag">故事线</span>
+        </div>
+
+        <div class="spv-card">
+          <span class="icon">⏳</span>
+          <h4>拉格朗日前世今生</h4>
+          <p>前传类项目开发</p>
+          <span class="tag">前传</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 内容形式拓展 -->
+    <div class="spv-group">
+      <div class="group-title">
+        <span class="dot"></span>
+        <span class="text">内容形式拓展</span>
+        <span class="line"></span>
+      </div>
+      <div class="spv-grid">
+
+        <div class="spv-card">
+          <span class="icon">🎬</span>
+          <h4>拉格朗日漫剧动画</h4>
+          <p>漫剧 / 番剧业务</p>
+          <span class="tag">剧集</span>
+        </div>
+
+        <div class="spv-card">
+          <span class="icon">🎥</span>
+          <h4>拉格朗日真人影画</h4>
+          <p>真人电影主体</p>
+          <span class="tag">真人电影</span>
+        </div>
+
+        <div class="spv-card">
+          <span class="icon">💫</span>
+          <h4>拉格朗日尾钩刻印</h4>
+          <p>爱情系衍生 · 短片</p>
+          <span class="tag">衍生内容</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 衍生商业 -->
+    <div class="spv-group">
+      <div class="group-title">
+        <span class="dot"></span>
+        <span class="text">衍生商业</span>
+        <span class="line"></span>
+      </div>
+      <div class="spv-grid">
+
+        <div class="spv-card">
+          <span class="icon">🧸</span>
+          <h4>拉格朗日蝎子尾钩</h4>
+          <p>潮玩 · 手办</p>
+          <span class="tag">潮玩衍生</span>
+        </div>
+
+        <div class="spv-card">
+          <span class="icon">💄</span>
+          <h4>拉格朗日蝎子彩妆</h4>
+          <p>蝎子彩妆系列运营</p>
+          <span class="tag">美妆衍生</span>
+        </div>
+
+        <div class="spv-card">
+          <span class="icon">📦</span>
+          <h4>拉格朗日文化传播</h4>
+          <p>文旅 · IP 衍生品</p>
+          <span class="tag">文化产业</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 文旅落地与独立项目 -->
+    <div class="spv-group">
+      <div class="group-title">
+        <span class="dot"></span>
+        <span class="text">文旅落地 · 独立项目</span>
+        <span class="line"></span>
+      </div>
+      <div class="spv-grid">
+
+        <div class="spv-card">
+          <span class="icon">🏔️</span>
+          <h4>拉格朗日毒敌望东</h4>
+          <p>文旅落地项目</p>
+          <span class="tag">文旅</span>
+        </div>
+
+        <div class="spv-card">
+          <span class="icon">⚡</span>
+          <h4>朗格拉日蝎子金蝉</h4>
+          <p>独立限定项目 SPV</p>
+          <span class="tag">限定项目</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <div class="brand">陈小二创意工坊 · 拉格朗日光影动画</div>
+    <p>顶层版权锁定 · 分布式 SPV 授权 · 全产业链覆盖</p>
+    <p>XIYOU JINCHANJIE · IP UNIVERSE</p>
+  </div>
+
+</div>
+
+</body>
+</html>
