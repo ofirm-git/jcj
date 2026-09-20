@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《金蝉子·前传·渡缘劫》A轮融资方案 V1.0</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #050406;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  /* ===== 页面容器：固定16:9 ===== */
+  .slide {
+    width: 1280px;
+    height: 720px;
+    background: #08060a;
+    background-image:
+      radial-gradient(ellipse at 12% 0%, rgba(180, 20, 30, 0.16) 0%, transparent 50%),
+      radial-gradient(ellipse at 88% 100%, rgba(201, 160, 74, 0.09) 0%, transparent 50%);
+    border: 1px solid rgba(201, 160, 74, 0.16);
+    position: relative;
+    overflow: hidden;
+    color: #e8dcc8;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 顶部金色饰线 */
+  .slide::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, #8a6a2a, #d4b06a, #f5e6b8, #d4b06a, #8a6a2a);
+  }
+
+  /* 页码 */
+  .pagenum {
+    position: absolute;
+    bottom: 28px;
+    right: 40px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: rgba(201, 160, 74, 0.35);
+    font-family: "Georgia", serif;
+  }
+
+  /* 角标 */
+  .corner {
+    position: absolute;
+    top: 32px;
+    left: 44px;
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: rgba(138, 106, 58, 0.7);
+    text-transform: uppercase;
+  }
+
+  /* ===== 第1页：封面 ===== */
+  .s1 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .s1 .main-title {
+    font-size: 62px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    background: linear-gradient(135deg, #f5e6b8 0%, #d4b06a 35%, #f5e6b8 55%, #b8944a 80%, #f5e6b8 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shine 6s linear infinite;
+    line-height: 1.3;
+  }
+  @keyframes shine { to { background-position: 200% center; } }
+
+  .s1 .sub-title {
+    font-size: 22px;
+    letter-spacing: 8px;
+    color: #b8944a;
+    margin-top: 28px;
+  }
+
+  .s1 .line {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #b8944a, transparent);
+    margin: 40px 0;
+  }
+
+  .s1 .tagline {
+    font-size: 17px;
+    letter-spacing: 6px;
+    color: #8a7a5a;
+  }
+
+  .s1 .footer {
+    position: absolute;
+    bottom: 48px;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #5a4f40;
+  }
+
+  /* ===== 通用内容布局 ===== */
+  .content {
+    flex: 1;
+    padding: 78px 80px 60px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-title {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #f0e0b8;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(201, 160, 74, 0.2);
+    margin-bottom: 40px;
+  }
+
+  .page-title .num {
+    color: #d4b06a;
+    font-family: "Georgia", serif;
+    margin-right: 16px;
+  }
+
+  /* ===== 第2页：三数字 ===== */
+  .s2 .triple {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .s2 .row {
+    display: flex;
+    align-items: center;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(201, 160, 74, 0.1);
+  }
+  .s2 .row:last-child { border-bottom: none; }
+
+  .s2 .big-num {
+    font-size: 76px;
+    font-weight: 700;
+    color: #f5e6b8;
+    font-family: "Georgia", serif;
+    letter-spacing: -2px;
+    width: 380px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .s2 .big-num .unit {
+    font-size: 26px;
+    color: #b8944a;
+    margin-left: 8px;
+    font-family: -apple-system, "PingFang SC", sans-serif;
+    letter-spacing: 2px;
+  }
+
+  .s2 .desc {
+    font-size: 24px;
+    color: #c8c0b0;
+    letter-spacing: 2px;
+    line-height: 1.5;
+  }
+
+  .s2 .desc strong { color: #e85a5a; font-weight: 600; }
+
+  .s2 .banner {
+    margin-top: 40px;
+    padding: 22px 32px;
+    background: rgba(232, 90, 90, 0.07);
+    border-left: 3px solid #e85a5a;
+    font-size: 17px;
+    color: #e8d5a8;
+    letter-spacing: 1px;
+    line-height: 1.7;
+  }
+
+  /* ===== 第3页：SPV ===== */
+  .s3 .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 60px;
+    margin-bottom: 44px;
+  }
+
+  .s3 .info-item {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(201, 160, 74, 0.1);
+  }
+
+  .s3 .info-item .label {
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #8a7a5a;
+    margin-bottom: 12px;
+  }
+
+  .s3 .info-item .value {
+    font-size: 24px;
+    color: #f0e0b8;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .s3 .info-item .value .accent {
+    color: #d4b06a;
+    font-family: "Georgia", serif;
+  }
+
+  .s3 .warn-box {
+    margin-top: auto;
+    padding: 26px 34px;
+    background: linear-gradient(180deg, rgba(30, 16, 18, 0.8), rgba(18, 10, 12, 0.9));
+    border: 1px solid rgba(201, 160, 74, 0.28);
+    border-radius: 3px;
+    font-size: 17px;
+    color: #c8c0b0;
+    letter-spacing: 0.5px;
+    line-height: 1.9;
+  }
+
+  .s3 .warn-box strong { color: #d4b06a; font-weight: 600; }
+
+  /* ===== 第4页：票房阶梯 ===== */
+  .s4 .axis-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+  }
+
+  .s4 .axis {
+    position: relative;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(201,160,74,0.5), rgba(201,160,74,0.15));
+    margin: 60px 0 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .s4 .node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-50%);
+  }
+
+  .s4 .node .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #d4b06a;
+    box-shadow: 0 0 20px rgba(212, 176, 106, 0.7);
+    border: 3px solid #08060a;
+  }
+
+  .s4 .node .lbl-top {
+    position: absolute;
+    bottom: 28px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #f5e6b8;
+    font-family: "Georgia", serif;
+    white-space: nowrap;
+    letter-spacing: -1px;
+  }
+
+  .s4 .node .lbl-bottom {
+    position: absolute;
+    top: 28px;
+    font-size: 16px;
+    color: #b8944a;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .s4 .node.hot .dot { background: #e85a5a; box-shadow: 0 0 24px rgba(232,90,90,0.8); }
+  .s4 .node.hot .lbl-top { color: #e85a5a; }
+
+  .s4 .bottom-note {
+    margin-top: auto;
+    padding: 24px 32px;
+    background: rgba(232, 90, 90, 0.07);
+    border-left: 3px solid #e85a5a;
+    font-size: 16px;
+    color: #e8d5a8;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+
+  /* ===== 第5页：对标表 ===== */
+  .s5 table {
+    width: 100%;
+    border-collapse: collapse;
+    flex: 1;
+    margin-bottom: 30px;
+  }
+
+  .s5 thead th {
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: #8a7a5a;
+    font-weight: 500;
+    padding: 0 24px 22px;
+    text-align: left;
+    border-bottom: 1px solid rgba(201, 160, 74, 0.25);
+  }
+
+  .s5 thead th:nth-child(2) { color: #7a6a5a; }
+  .s5 thead th:nth-child(3) { color: #d4b06a; }
+
+  .s5 tbody td {
+    font-size: 17px;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(201, 160, 74, 0.08);
+    color: #b8b0a0;
+    line-height: 1.6;
+  }
+
+  .s5 tbody td:first-child {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #8a7a5a;
+    width: 160px;
+  }
+
+  .s5 tbody td:nth-child(3) {
+    color: #f0e0b8;
+    font-weight: 500;
+  }
+
+  .s5 .conclusion {
+    padding: 22px 32px;
+    background: rgba(201, 160, 74, 0.06);
+    border-left: 3px solid #b8944a;
+    font-size: 16px;
+    color: #e8d5a8;
+    letter-spacing: 0.5px;
+    line-height: 1.7;
+  }
+
+  /* ===== 第6页：时间轴 ===== */
+  .s6 .timeline {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+  }
+
+  .s6 .tl-line {
+    position: relative;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(201,160,74,0.15), rgba(201,160,74,0.6), rgba(232,90,90,0.8));
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+
+  .s6 .tl-node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-50%);
+  }
+
+  .s6 .tl-node .dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #d4b06a;
+    border: 3px solid #08060a;
+    box-shadow: 0 0 20px rgba(212, 176, 106, 0.6);
+  }
+
+  .s6 .tl-node.hot .dot {
+    background: #e85a5a;
+    box-shadow: 0 0 26px rgba(232, 90, 90, 0.9);
+    width: 20px; height: 20px;
+  }
+
+  .s6 .tl-node .tl-year {
+    position: absolute;
+    bottom: 34px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #f5e6b8;
+    font-family: "Georgia", serif;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .s6 .tl-node.hot .tl-year { color: #e85a5a; }
+
+  .s6 .tl-node .tl-desc {
+    position: absolute;
+    top: 34px;
+    font-size: 15px;
+    color: #b8944a;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .s6 .quote-box {
+    margin-top: auto;
+    padding: 26px 34px;
+    background: rgba(201, 160, 74, 0.05);
+    border-left: 3px solid #b8944a;
+    font-size: 16px;
+    color: #c8c0b0;
+    letter-spacing: 0.5px;
+    line-height: 1.9;
+  }
+
+  .s6 .quote-box .src {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #8a7a5a;
+    letter-spacing: 2px;
+  }
+
+  /* ===== 第7页：融资结构 ===== */
+  .s7 .struct {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .s7 .circle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+  }
+
+  .s7 .circle {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 2px solid rgba(201, 160, 74, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(201,160,74,0.08), transparent 70%);
+    box-shadow: 0 0 60px rgba(201, 160, 74, 0.1) inset;
+    flex-shrink: 0;
+  }
+
+  .s7 .circle .big {
+    font-size: 58px;
+    font-weight: 700;
+    color: #f5e6b8;
+    font-family: "Georgia", serif;
+    line-height: 1;
+  }
+
+  .s7 .circle .unit {
+    font-size: 18px;
+    color: #b8944a;
+    margin-top: 10px;
+    letter-spacing: 3px;
+  }
+
+  .s7 .list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .s7 .list .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 19px;
+    color: #c8c0b0;
+    letter-spacing: 1px;
+    line-height: 1.6;
+  }
+
+  .s7 .list .item::before {
+    content: "◆";
+    color: #b8944a;
+    font-size: 11px;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .s7 .bottom-note {
+    margin-top: 50px;
+    padding: 22px 32px;
+    background: rgba(201, 160, 74, 0.06);
+    border-left: 3px solid #b8944a;
+    font-size: 16px;
+    color: #e8d5a8;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+    width: 100%;
+  }
+
+  /* ===== 第8页：权益边界 ===== */
+  .s8 .split {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-content: center;
+  }
+
+  .s8 .col-head {
+    font-size: 20px;
+    letter-spacing: 4px;
+    padding-bottom: 18px;
+    margin-bottom: 26px;
+    border-bottom: 1px solid rgba(201, 160, 74, 0.2);
+  }
+
+  .s8 .col-head.yes { color: #d4b06a; }
+  .s8 .col-head.no { color: #7a6a5a; }
+
+  .s8 ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .s8 li {
+    font-size: 17px;
+    line-height: 1.7;
+    padding-left: 24px;
+    position: relative;
+    letter-spacing: 0.5px;
+  }
+
+  .s8 li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 12px;
+  }
+
+  .s8 .yes ul li { color: #c8c0b0; }
+  .s8 .yes ul li::before { content: "✓"; color: #d4b06a; }
+
+  .s8 .no ul li { color: #8a7a65; }
+  .s8 .no ul li::before { content: "✕"; color: #6a5f50; }
+
+  .s8 .bottom-note {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 16px;
+    color: #d4b06a;
+    letter-spacing: 3px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(201, 160, 74, 0.15);
+  }
+
+  /* ===== 第9页：宣言 ===== */
+  .s9 {
+    justify-content: center;
+  }
+
+  .s9 .manifesto-text {
+    padding: 0 120px;
+  }
+
+  .s9 .manifesto-text p {
+    font-size: 19px;
+    color: #b8b0a0;
+    line-height: 2.1;
+    letter-spacing: 0.8px;
+    margin-bottom: 26px;
+  }
+
+  .s9 .manifesto-text p strong { color: #f0e0b8; font-weight: 600; }
+
+  .s9 .manifesto-text .sep {
+    width: 60px;
+    height: 1px;
+    background: rgba(201, 160, 74, 0.35);
+    margin: 40px 0;
+  }
+
+  .s9 .final-word {
+    font-size: 22px;
+    color: #d4b06a;
+    letter-spacing: 3px;
+    line-height: 1.9;
+  }
+
+  /* ===== 第10页：封底 ===== */
+  .s10 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .s10 .main {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    color: #f5e6b8;
+    margin-bottom: 40px;
+  }
+
+  .s10 .sub {
+    font-size: 18px;
+    letter-spacing: 6px;
+    color: #b8944a;
+    line-height: 2.2;
+    margin-bottom: 56px;
+  }
+
+  .s10 .poem {
+    font-size: 20px;
+    letter-spacing: 6px;
+    color: #8a7a5a;
+    line-height: 2.2;
+    margin-bottom: 60px;
+  }
+
+  .s10 .footer {
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: #6a5f50;
+    line-height: 2;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ========== 第1页 封面 ========== -->
+<div class="slide s1">
+  <div class="main-title">金蝉子·前传·渡缘劫</div>
+  <div class="sub-title">A 轮 融 资 方 案 V1.0</div>
+  <div class="line"></div>
+  <div class="tagline">超 级 电 影 共 享 季 · 同 频 者 入 场</div>
+  <div class="footer">拉格朗日光影动画 · 西游金蝉劫项目组</div>
+</div>
+
+<!-- ========== 第2页 一句话讲明白 ========== -->
+<div class="slide s2">
+  <div class="corner">THE OFFER</div>
+  <div class="content">
+    <div class="page-title"><span class="num">01</span>一句话讲明白</div>
+    <div class="triple">
+      <div class="row">
+        <div class="big-num">7500<span class="unit">万</span></div>
+        <div class="desc">票房 —— 即 全 额 回 本</div>
+      </div>
+      <div class="row">
+        <div class="big-num">2<span class="unit">亿</span></div>
+        <div class="desc">票房 —— 即 赚 <strong>2.5 倍</strong>（总回报 8000 万）</div>
+      </div>
+      <div class="row">
+        <div class="big-num">50<span class="unit">亿</span></div>
+        <div class="desc">票房 —— 即 <strong>10 倍</strong> 总回报（3 亿兑付）</div>
+      </div>
+    </div>
+    <div class="banner">
+      2 亿以内，IP 方分文不取。全部片方分账归出资方。<br>
+      <strong>IP 方劣后，你优先。</strong>
+    </div>
+  </div>
+  <div class="pagenum">02 / 10</div>
+</div>
+
+<!-- ========== 第3页 你投的是什么 ========== -->
+<div class="slide s3">
+  <div class="corner">THE ASSET</div>
+  <div class="content">
+    <div class="page-title"><span class="num">02</span>你投的到底是什么</div>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="label">项 目</div>
+        <div class="value">3D 院线大电影《金蝉子·前传·渡缘劫》</div>
+      </div>
+      <div class="info-item">
+        <div class="label">主 体</div>
+        <div class="value">单项目独立 SPV 拉格朗日金蝉动画</div>
+      </div>
+      <div class="info-item">
+        <div class="label">融 资 额</div>
+        <div class="value"><span class="accent">2000</span> 万人民币</div>
+      </div>
+      <div class="info-item">
+        <div class="label">出 资 总 盘</div>
+        <div class="value"><span class="accent">3000</span> 万（含前期等效作价 1000 万）</div>
+      </div>
+      <div class="info-item" style="grid-column: 1 / -1;">
+        <div class="label">资 金 用 途</div>
+        <div class="value">动画制作 · AIGC 高精度渲染 · AIGC特效 · 全国院线宣发</div>
+      </div>
+    </div>
+    <div class="warn-box">
+      本轮融资主体为 <strong>单项目 SPV</strong>，与 IP 母公司股权、版权完全隔离。<br>
+      你投的是这部电影，不是整个宇宙。<strong>风险隔离，收益独立。</strong>
+    </div>
+  </div>
+  <div class="pagenum">03 / 10</div>
+</div>
+
+<!-- ========== 第4页 票房阶梯 ========== -->
+<div class="slide s4">
+  <div class="corner">THE LADDER</div>
+  <div class="content">
+    <div class="page-title"><span class="num">03</span>票房收益阶梯</div>
+    <div class="axis-wrap">
+      <div class="axis">
+        <div class="node">
+          <div class="lbl-top">7500万</div>
+          <div class="dot"></div>
+          <div class="lbl-bottom">全额回本</div>
+        </div>
+        <div class="node">
+          <div class="lbl-top">2亿</div>
+          <div class="dot"></div>
+          <div class="lbl-bottom">总回报 8000 万<br>2.5 倍<br>小于2亿<br>IP方劣后 不拿分文</div>
+        </div>
+        <div class="node hot">
+          <div class="lbl-top">50亿</div>
+          <div class="dot"></div>
+          <div class="lbl-bottom">总回报 3 亿<br>10 倍<br>达到50亿<br>IP方回馈出资方10倍回报</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-note">
+      2 亿以上，全部片方分账归 IP 方，出资方不参与超额分账。【IP方内容为王对赌条款】。<br>
+      <strong>票房低于 2 亿，IP 方自愿放弃全部片方分账，出资方拿全部。【IP方内容为王对赌条款】。</strong><br>
+      你唯一的风险是：票房连 7500 万都不到。
+    </div>
+  </div>
+  <div class="pagenum">04 / 10</div>
+</div>
+
+<!-- ========== 第5页 对标 ========== -->
+<div class="slide s5">
+  <div class="corner">BENCHMARK</div>
+  <div class="content">
+    <div class="page-title"><span class="num">04</span>为什么这个 IP 值这个价</div>
+    <table>
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>《哪吒之魔童降世》</th>
+          <th>《金蝉子·前传·渡缘劫》</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>故事来源</td>
+          <td>传统神话现代改编</td>
+          <td>西游正典补完 · 100% 原创 · 金蝉，蝎子，白鼠的前世今生，400年来，第一次完美补全</td>
+        </tr>
+        <tr>
+          <td>情感内核</td>
+          <td>我命由我不由天</td>
+          <td>有情方能成佛 · 西游八十一难，最难过的情劫故事之源头</td>
+        </tr>
+        <tr>
+          <td>宇宙格局</td>
+          <td>单片起家 · 后续拼凑</td>
+          <td>20 余部定稿 · 完整闭环 · 全部前置开发</td>
+        </tr>
+        <tr>
+          <td>制作路径</td>
+          <td>传统管线 · 5 年周期</td>
+          <td>AIGC + 传统双轨 · 2028 上映 · GPT6加成时代，半年制作完成</td>
+        </tr>
+        <tr>
+          <td>版权状态</td>
+          <td>光线持有</td>
+          <td>IP 母公司锁定 · 时间戳确权 · 全球存档 · 版权铁证链</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="conclusion">
+      哪吒证明了「传统文化 + 现代情感 = 50 亿票房」。<br>
+      我们做的是同一件事，但<strong style="color:#d4b06a;">故事更完整，宇宙更早成型，成本更低。</strong>
+    </div>
+  </div>
+  <div class="pagenum">05 / 10</div>
+</div>
+
+<!-- ========== 第6页 时间窗口 ========== -->
+<div class="slide s6">
+  <div class="corner">TIMING</div>
+  <div class="content">
+    <div class="page-title"><span class="num">05</span>AIGC 时代的时间窗口</div>
+    <div class="timeline">
+      <div class="tl-line">
+        <div class="tl-node">
+          <div class="tl-year">2026</div>
+          <div class="dot"></div>
+          <div class="tl-desc">AIGC 抽卡<br>视频 80% 水准<br>AI中长剧开始上线</div>
+        </div>
+        <div class="tl-node hot">
+          <div class="tl-year">2027 中</div>
+          <div class="dot"></div>
+          <div class="tl-desc">院线级拐点<br>情感表达达标<br>战斗场景达标</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-year">2028</div>
+          <div class="dot"></div>
+          <div class="tl-desc">上映<br>50 亿目标<br>西游金蝉劫 超级ip<br>扬帆起航<br>创辉煌</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-box">
+      「未来 1—3 年内，线上影视成本会大幅降低到三分之一、五分之一、甚至十分之一以下；院线电影成本则在 3—5 年内有明显降低。」
+      <span class="src">—— 爱奇艺龚宇 · 2026 年 4 月</span>
+    </div>
+  </div>
+  <div class="pagenum">06 / 10</div>
+</div>
+
+<!-- ========== 第7页 融资结构 ========== -->
+<div class="slide s7">
+  <div class="corner">STRUCTURE</div>
+  <div class="content">
+    <div class="page-title"><span class="num">06</span>本轮募资结构</div>
+    <div class="struct">
+      <div class="circle-wrap">
+        <div class="circle">
+          <div class="big">5+</div>
+          <div class="unit">家 · 投 资 方</div>
+        </div>
+        <div class="list">
+          <div class="item">机构、个人均可参与</div>
+          <div class="item">单一出资方最低门槛：1元（前体你看懂这个IP的价值，我们要的是更多的一起前行的同频人）</div>
+          <div class="item">多家参与 = 风险分散 + 资源叠加 + 宣发协同</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-note">
+      融资目的：找到同频者。资金在 AIGC 时代的重要性会极速下降，<br>
+      <strong>真正的内容为王才是稀缺资源。<br>对于第一部的AIGC制作，自筹资金已可以完成，开放共享，是为找同频人</strong>
+    </div>
+  </div>
+  <div class="pagenum">07 / 10</div>
+</div>
+
+<!-- ========== 第8页 权益边界 ========== -->
+<div class="slide s8">
+  <div class="corner">BOUNDARY</div>
+  <div class="content">
+    <div class="page-title"><span class="num">07</span>你的权益边界</div>
+    <div class="split">
+      <div class="col yes">
+        <div class="col-head yes">你 有</div>
+        <ul>
+          <li>本部电影档期票房收益权益</li>
+          <li>后续续作 SPV 投资的优先权</li>
+          <li>IP 母公司未来股权融资时的优先认购权</li>
+        </ul>
+      </div>
+      <div class="col no">
+        <div class="col-head no">你 没 有</div>
+        <ul>
+          <li>不参与全 IP 宇宙其他任何环节（番剧、游戏、文旅、衍生品、联名）（一事一议，所有SPV均开放股权）</li>
+          <li>不参与 IP 版权和股权的任何决策</li>
+          <li>不参与 2 亿票房以上的任何超额分账（十倍回报承诺除外）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-note">
+      边界清晰 · 一事一议 · 收益独立核算 · 风险完全隔离
+    </div>
+  </div>
+  <div class="pagenum">08 / 10</div>
+</div>
+
+<!-- ========== 第9页 宣言 ========== -->
+<div class="slide s9">
+  <div class="corner">MANIFESTO</div>
+  <div class="content">
+    <div class="manifesto-text">
+      <p>文创电影行业，本质是人类马太效应的再放大。<strong>头部拥有全部，其他成为陪跑。</strong></p>
+      <p>市面行业通病：IP 平移，叙事无根，打斗空洞，情感牵强，无统一世界观。观众不买账，不进场。</p>
+      <p>所有这些毛病，在《西游金蝉劫》中都不存在。故事是自然生长的，因果前后闭环，角色有自己的思想，每次行为都是自己的选择。</p>
+      <div class="sep"></div>
+      <p>好不好，自己看完公开文案，自己判断。</p>
+      <p class="final-word">任何投资都要慎重。<br>请充分考察，思考，沉淀，再做决定。</p>
+    </div>
+  </div>
+  <div class="pagenum">09 / 10</div>
+</div>
+
+<!-- ========== 第10页 封底 ========== -->
+<div class="slide s10">
+  <div class="main">内容为王 · 践行为先</div>
+  <div class="sub">
+    文稿已定 · 版权已固<br>
+    宇宙已成 · 东风已来
+  </div>
+  <div class="poem">
+    乘风破浪会有时<br>
+    西游再起济沧海
+  </div>
+  <div class="footer">
+    拉格朗日光影动画 · 西游金蝉劫项目组<br>
+    xiyoujinchanjie@163.com
+  </div>
+  <div class="pagenum">10 / 10</div>
+</div>
+
+</body>
+</html>
