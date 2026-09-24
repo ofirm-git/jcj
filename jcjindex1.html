@@ -49,21 +49,15 @@
 	  }
 	}
 
-	/* ===== 行文中的小图外框（并排双图版）===== */
+	/* ===== 新增：行文中的小图外框 ===== */
 	.img-frame-mini {
-	  --img-h: 700px;                   /* 两张图的统一高度，改这里即可 */
-	  --frame-w: 760px;        				/* 默认框宽 */
-	  max-width: var(--frame-w);                 /* 两张图并排，容器要加宽 */
+	  max-width: 360px;                 /* 控制图片显示宽度，想更小改这里 */
 	  margin: 20px auto;                /* 上下间距 + 水平居中 */
-	  padding: 12px;                    /* 框内留白 */
+	  padding: 10px;                    /* 框内留白 */
 	  background: #fff;
 	  border: 1px solid #d8e6d8;
 	  border-radius: 14px;
 	  box-shadow: 0 6px 20px rgba(34, 139, 34, .12);
-	  display: flex;
-	  gap: 12px;                        /* 两张图之间的间距 */
-	  justify-content: center;          /* 整体居中 */
-	  align-items: center;              /* 垂直居中对齐 */
 	  transition: transform .3s ease, box-shadow .3s ease;
 	}
 
@@ -72,25 +66,21 @@
 	  box-shadow: 0 12px 30px rgba(34, 139, 34, .22);
 	}
 
-	/* 两张图：等高、宽度各自按比例 */
+	/* 框内图片：取消原 paper-img 的宽高和间距干扰 */
 	.img-frame-mini .paper-img {
-	  height: var(--img-h);   /* 统一高度 → 等高 */
-	  width: auto;            /* 宽度自动 → 各自保持原比例 */
-	  max-width: 100%;
-	  object-fit: contain;
+	  width: 100%;
+	  height: auto;
+	  max-width: none;
 	  margin: 0;
 	  border-radius: 8px;
 	  display: block;
-	  flex: 0 0 auto;
 	}
 
-	/* 手机端：高度降下来，避免图太大 */
+	/* 手机端：宽度收窄一点，避免贴边 */
 	@media (max-width: 600px) {
 	  .img-frame-mini {
-	    --img-h: 160px;
-	    max-width: 96%;
+	    max-width: 88%;
 	    padding: 8px;
-	    gap: 8px;
 	  }
 	}
 
@@ -156,9 +146,6 @@
     <!-- 一句话核心定义 -->
     <div class="core-def">
 		<h1> <strong>🔥 拉格朗日光影动画 之 《西游金蝉劫》东方神话超级 IP 定义：🔥</strong> </h1>
-		<div class="img-frame-mini" style="--img-h: 500px; --frame-w: 460px;">
-			<img src="weibo.png" alt="官方微博" class="paper-img">
-		</div>
 
 		<br><h3> 1、《西游金蝉劫》宇宙影视超级 IP。是一套提前定稿、版权锁定、时间戳确权、完整闭环、哲学立根、情感铸魂、人物成阵、长线可续二十年的顶级东方神话 IP 矩阵，是唯一能填补中国影视宇宙空白、真正对标漫威叙事体系的东方神话终局 IP。</h3>
 
@@ -200,8 +187,8 @@
 			<br><h3>⚡ 东方神话超级 IP 定义的9条内容，很多人都会觉得太狂了，没关系，咱们来一条条过。最好呢，你用你的手机或电脑，跟着这个分析对话，一条条测试你的豆包或者DeepSeek，看看你手机的回答有什么不一样的。自己也活了几十岁，也有行业经验，自己判断一下就好了。</h3><h2 style="color: #ff0000;">⏩看完你会觉得，好IP，100%是极度稀缺品。本IP的SPV项目已经开放融资，优先给看得懂的同频者机会。</h2>
 		</div>	
 
-		<!-- ===== 十部完稿 + 项目简介：并排、等高、各自等比例 ===== -->
-		<div class="img-frame-mini" style="--img-h: 700px; --frame-w: 1060px;">
+		<!-- ===== 改动：十部完稿 图，改成居中小框 ===== -->
+		<div class="img-frame-mini">
 			<img src="shibuwg.png" alt="十部完稿" class="paper-img">
 			<img src="jianjie.png" alt="项目简介" class="paper-img">
 		</div>
@@ -231,15 +218,9 @@
 		</div>	
 
 		<!-- 在这里插入图片 -->
-		<div class="img-frame-mini" style="--img-h: 600px; --frame-w: 480px;">
-			<img src="xzjkh.png" alt="蝎子精口红" class="paper-img">
-		</div>
-        
+        <img src="xzjkh.png" alt="蝎子精口红" class="paper-img">
 		<img src="zjcp.png" alt="IP最佳CP组合" class="paper-img">
-		
-		<div class="img-frame-mini" style="--img-h: 600px; --frame-w: 600px;">
-			<img src="lglr001.png" alt="拉格朗日光影动画" class="paper-img">
-		</div>
+		<img src="lglr001.png" alt="拉格朗日光影动画" class="paper-img">
 		<img src="sanren01.png" alt="三女主角" class="paper-img">
 
 		<div class="paper-gallery">
