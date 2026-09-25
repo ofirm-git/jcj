@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!--<link rel="icon" type="image/svg+xml" href="/my-icon.svg">-->
+<!--<link rel="icon" type="image/png" href="/gouzi.png" sizes="32x32">-->
+<!--<link rel="icon" href="/gouzi.ico" type="image/x-icon">-->
+<!--<link rel="icon" href="/gouzi.ico?v=2" type="image/x-icon">-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西游金蝉劫 东方神话宇宙 超级IP</title>
+	<!--<link rel="icon" href="/gouzi.ico?v=2" type="image/x-icon">-->
+	<link rel="icon" type="image/png" href="xzjnyw.png">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif;}
+        body {max-width: 1200px; margin: 0 auto; padding: 40px 20px; color: #333; line-height: 1.8;}
+        .top-logo {margin-bottom: 18px; border-bottom: 1px solid #228B22; padding-bottom: 20px;}
+        .top-logo h1 {font-size: 32px; font-weight: 700; margin-bottom: 10px;}
+        .top-logo p {font-size: 18px; color: #666;}
+        .core-def {font-size: 16px; margin-bottom: 18px; padding: 10px 0;}
+
+.core-entrance {
+  margin-bottom: 40px;
+  padding: 22px 20px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f0f9f0 0%, #f8f8f8 50%, #eef7ee 100%);
+  border: 1px solid #dcebdc;
+  box-shadow: inset 0 1px 0 #fff, 0 4px 16px rgba(34, 139, 34, .06);
+
+  display: flex;
+  flex-wrap: wrap;          /* 放不下自动换行 *//* ← 关键：允许换行 */
+  gap: 14px;                /* 卡片间距 */
+  position: relative;
+  overflow: hidden;
+}
+
+/* 顶部一条流动的光带，增加科技感 */
+.core-entrance::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -50%;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent, #228B22, #7cc47c, #228B22, transparent);
+  animation: flowLine 4s linear infinite;
+}
+
+@keyframes flowLine {
+  0%   { transform: translateX(-25%); }
+  100% { transform: translateX(25%); }
+}
+
+/* ===== 每个入口卡片 ===== */
+.core-entrance a {
+  position: relative;
+  flex: 1 1 160px;          /* 自适应宽度，最小 160px */
+  min-width: 300px;			/* 卡片的最小宽度 */
+  padding: 14px 18px 14px 22px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2eee2;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  overflow: hidden;
+  transition: transform .28s ease,
+              box-shadow .28s ease,
+              border-color .28s ease,
+              background .28s ease;
+  box-shadow: 0 2px 6px rgba(34, 139, 34, .06);
+}
+
+/* 左侧绿色竖条 */
+.core-entrance a::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 12%;
+  width: 4px;
+  height: 76%;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, #228B22, #7cc47c);
+  transition: height .28s ease, top .28s ease;
+}
+
+/* 斜向光扫过效果 */
+.core-entrance a::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(100deg,
+    transparent, rgba(34, 139, 34, .10), transparent);
+  transform: skewX(-20deg);
+  transition: left .6s ease;
+  pointer-events: none;
+}
+
+.core-entrance a:hover {
+  transform: translateY(-4px);
+  border-color: #228B22;
+  background: #fbfffb;
+  box-shadow: 0 10px 24px rgba(34, 139, 34, .18);
+}
+
+.core-entrance a:hover::before {
+  top: 0;
+  height: 100%;
+}
+
+.core-entrance a:hover::after {
+  left: 130%;
+}
+
+.core-entrance {
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(34,139,34,.10), transparent 40%),
+    radial-gradient(circle at 90% 100%, rgba(124,196,124,.12), transparent 45%);
+}
+
+.core-entrance a:hover b {
+  text-shadow: 0 0 12px rgba(34, 139, 34, .45);
+}
+
+/* 标题文字 */
+.core-entrance a b {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1d5c1d;
+  letter-spacing: .5px;
+  margin-bottom: 2px;
+}
+
+/* 英文小字 */
+.core-entrance a span {
+  display: block;
+  font-size: 13px;
+  color: #7a8a7a;
+  line-height: 1.4;
+}
+
+/* 悬浮时小字变绿 */
+.core-entrance a:hover span {
+  color: #228B22;
+}
+
+/* 手机端：一列铺满 */
+@media (max-width: 600px) {
+  .core-entrance {
+    padding: 16px 12px;
+    gap: 10px;
+  }
+  .core-entrance a {
+    flex: 1 1 100%;
+    min-width: 0;
+    padding: 12px 14px 12px 18px;
+  }
+}
+
+
+
+	.paper-img {
+    display: block;          /* 让图片独占一行，不跟在文字后面 */
+    margin-top: 10px;        /* 距离上面文字一点间距 */
+	 margin-bottom: 10px;          /* 距离下面文字一点间距 */
+    max-width: 100%;         /* 图片最大宽度不超过父容器（适配手机） */
+    height: auto;            /* 高度自动缩放，保持比例 */
+	width: 100%;      /* 填满自己那一格 */
+	object-fit: contain;   /* 完整显示，留白 */
+	border-radius: 8px;
+	}
+
+	.paper-gallery {
+	  display: grid;
+	  grid-template-columns: repeat(3, 1fr); /* 三等分，自动等宽 */
+	  gap: 16px;                             /* 图片间距 */
+	}
+
+	@media (max-width: 600px) {
+	  .paper-gallery {
+		grid-template-columns: 1fr;
+	  }
+	}
+
+	/* ===== 行文中的小图外框（并排双图版）===== */
+	.img-frame-mini {
+	  --img-h: 700px;                   /* 两张图的统一高度，改这里即可 */
+	  --frame-w: 760px;        				/* 默认框宽 */
+	  max-width: var(--frame-w);                 /* 两张图并排，容器要加宽 */
+	  margin: 20px auto;                /* 上下间距 + 水平居中 */
+	  padding: 12px;                    /* 框内留白 */
+	  background: #fff;
+	  border: 1px solid #d8e6d8;
+	  border-radius: 14px;
+	  box-shadow: 0 6px 20px rgba(34, 139, 34, .12);
+	  display: flex;
+	  gap: 12px;                        /* 两张图之间的间距 */
+	  justify-content: center;          /* 整体居中 */
+	  align-items: center;              /* 垂直居中对齐 */
+	  transition: transform .3s ease, box-shadow .3s ease;
+	}
+
+	.img-frame-mini:hover {
+	  transform: translateY(-3px);
+	  box-shadow: 0 12px 30px rgba(34, 139, 34, .22);
+	}
+
+	/* 两张图：等高、宽度各自按比例 */
+	.img-frame-mini .paper-img {
+	  height: var(--img-h);   /* 统一高度 → 等高 */
+	  width: auto;            /* 宽度自动 → 各自保持原比例 */
+	  max-width: 100%;
+	  object-fit: contain;
+	  margin: 0;
+	  border-radius: 8px;
+	  display: block;
+	  flex: 0 0 auto;
+	}
+
+	/* 手机端：高度降下来，避免图太大 */
+	@media (max-width: 600px) {
+	  .img-frame-mini {
+	    --img-h: 160px;
+	    max-width: 96%;
+	    padding: 8px;
+	    gap: 8px;
+	  }
+	}
+
+
+.paper-block {
+  position: relative;
+  margin-bottom: 15px;
+  padding: 14px 18px 14px 20px;
+  background: #fff;
+  border: 1px solid #e4ede4;
+  border-left: 4px solid #228B22;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(34, 139, 34, .08);
+  transition: transform .25s ease,
+              box-shadow .25s ease,
+              border-color .25s ease,
+              background .25s ease;
+  overflow: hidden;
+}
+
+.paper-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(34, 139, 34, .20);
+  border-color: #228B22;
+  background: #fbfffb;
+}
+
+.paper-block a {
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+.paper-block a:hover {
+  text-decoration: none;
+}
+
+.paper-title {
+  font-weight: 700;
+  display: block;
+}
+
+.paper-desc {
+  font-size: 14px;
+  color: #666;
+  flex-shrink: 0;
+  display: block;
+  margin-top: 6px;
+}
+    </style>
+</head>
+<body style="background-color: #c1f2c1;">
+
+		<div class="paper-block" id="firm-cosmic" >
+				<span class="paper-title" style="color: black;"><h2>《西游金蝉劫》IP宇宙 世界观圣经</h2></span>
+				<span class="paper-desc" ><h2></h2><span style="color: #ff0000;"> </span></span>
+			<br><h3>西游金蝉劫 世界观圣经 名句摘录：<br><br>
+
+1.有情佛—— 能理解、背负并包容世间至情至执，将伤痕与情债升华为悲悯的更高阶佛性。<br>
+
+2.满怀敬意，为所有被辜负女人的深情正名。<br>
+
+3.佛本是人，修佛先修心。成佛不是消灭过往，是背负所有痕迹，仍愿前行。<br>
+
+4.妖也是人，欲望是底色。放下固然是解脱，但，守望，也是生命的一种。<br>
+
+5.每位女性都能在她身上，看见自己的成长，照见自身的怯懦。<br>
+
+6.女人的情感中，多少都藏有痴傻的成分，这便是这份痴傻共同的底色。<br>
+
+7.佛说，因果不虚，可若我把命刻进你的骨血，这因，你逃得掉吗？<br>
+
+8.佛祖，如果成佛是一种背负，我愿意背负这一生的苦难，辉煌，痴情与爱恋。<br>
+
+9.我判你轮回，不是惩罚，是成全——渡你去凡尘，亲自看一看，何为情，何为苦，何为众生。</h3><h3 style="color: #ff0000;">⏩欢迎阅读，批评指正。</h3>
+		</div>	
+		
+		<div class="paper-block" id="firm-cosmic" >
+				<span class="paper-title" style="color: black;"><h2>《西游金蝉劫》IP宇宙 简介</h2></span>
+				<span class="paper-desc" ><h2></h2><span style="color: #ff0000;"> </span></span>
+			<br><h3>粤产电影，会成为中国电影的珠穆朗玛！！！<br><br>
+
+《西游金蝉劫》IP系列电影<br><br>
+
+《金蝉子·前传·渡缘劫》<br>
+《蝎子精·女妖王》<br>
+《蝎子精·烈焰焚心》<br>
+《女儿国·上》<br>
+《女儿国·中》<br>
+《女儿国·下》<br>
+《白鼠精·痴情·香花烛》<br>
+《白鼠精·痴情·男儿泪》<br>
+《赤焰红蟒·妖王》<br>
+《西游·金蝉劫·有情佛》<br><br>
+
+10部主线大电影完成定稿，10+部妖族支线故事线确定。包含玉兔，杏仙，悟空，青狮等等<br>
+够20年以上开发周期。<br><br>
+
+以《金蝉子前传渡缘劫》为故事基准线，一部比一部炸裂，这是事实描述，不是夸张，更不是营销话术。<br>
+绿泡泡，围脖，搜【金蝉子前传渡缘劫】就可以看第一部的小说，好不好，看完再评。<br>
+
+100%原创故事，可全网查重。<br>
+100%版权证书多本，可信时间戳一堆，分阶段国内外服务器存档，全网创作留痕，版权铁证链。<br><br>
+
+​​这是 影视领航人 王总，一年多来，不断喊的那个，梦寐以求的那个东方神话宇宙超级IP！<br>
+没有半点虚言！文本小说都在，请亲自验证！<br>
+不靠猜测，不靠盲目，靠绝对实力！<br><br>
+西游金蝉劫，东方漫威，独一档，20年内无竞品！
+</h3><h3 style="color: #ff0000;">⏩欢迎阅读，批评指正。</h3>
+		</div>	
+		
+		<div class="paper-block" id="firm-cosmic" >
+				<span class="paper-title" style="color: black;"><h2>《西游金蝉劫》IP宇宙 佛哲核心</h2></span>
+				<span class="paper-desc" ><h2></h2><span style="color: #ff0000;"> </span></span>
+			<br><h3>三首偈语，阐述《西游金蝉劫》的哲学核心<br><br>
+
+<h2>知了・金蝉偈</h2><br>
+
+蝉不懂禅，妄称知了。<br>
+蝉亦为禅，共佛新生。<br>
+蜕壳重生，夏鸣短暂。<br>
+顿悟超脱，静心修行。<br>
+心静蝉声，无字禅神。<br>
+静为终道，鸣为有情。<br><br>
+
+心静蝉声伴安眠， 蝉声便是无字禅。 <br>
+遍历千情终有果， 渡尽心劫有情佛。<br>
+---<br>
+<h2>知了・悲欣交集</h2><br>
+
+路返程，归来途,<br>
+尘烟尽，皆峴佛。<br><br>
+
+霜侵骨，念销磨，<br>
+千峰过，自渡河。<br><br>
+
+云栖壑，妄痕没，<br>
+心无缚，赴寥阔。<br>
+---<br>
+<h2>《知了・西游金蝉劫》</h2><br>
+
+文稿已定，<br>
+版权已固，<br>
+宇宙已成，<br>
+东风已至。<br><br>
+
+内容为王，<br>
+践行为先。<br>
+乘风破浪会有时，<br>
+西游再起济沧海。<br><br>
+
+立东方神话哲思之基，铸华夏 IP 血肉之魂。<br>
+弃浮泛平移无根之弊，开神州史诗长线之门。<br><br>
+
+筑国人精神情寄之锚，竞寰宇 IP 浩瀚之林。<br>
+承西游千载未尽之绪，启有情成佛崭新乾坤。<br>
+</h3><h3 style="color: #ff0000;">⏩欢迎阅读，批评指正。</h3>
+		</div>	
+		
+		<div class="paper-block" id="firm-cosmic" >
+			<a href="https://mp.weixin.qq.com/s/SvXGXj-5dGCBLzq5ED6ERA"  target="_blank">
+				<span class="paper-title" style="color: black;"><h2>🌈《西游金蝉劫》之 从唐三藏到旃檀功德佛的有情成佛之路，顽石与灵识</h2></span>
+				<span class="paper-desc" ><h2>https://mp.weixin.qq.com/s/SvXGXj-5dGCBLzq5ED6ERA</h2><span style="color: #ff0000;">点击，看公众号文案</span></span>
+			</a>
+			<br><h3>⚡ 深度文案，能识此文者，必为大智也！</h3><h3 style="color: #ff0000;">⏩无需解释，自己看即可。若果看了，在某个瞬间，你能内心有几个“何其自性”的感悟，那就善莫大焉！</h3>
+		</div>	
+		
+		<div class="paper-block" id="firm-cosmic" >
+			<a href="https://mp.weixin.qq.com/s/0YZ6PlgNz5--IgJ0iz9hsw"  target="_blank">
+				<span class="paper-title" style="color: black;"><h2>🌈《西游·金蝉劫》宇宙根基｜有情灵识，各赴证佛之路</h2></span>
+				<span class="paper-desc" ><h2>https://mp.weixin.qq.com/s/0YZ6PlgNz5--IgJ0iz9hsw</h2><span style="color: #ff0000;">点击，看公众号文案</span></span>
+			</a>
+			<br><h3>⚡ 有情成佛，从来不是独属于金蝉子的一条专属归途。</h3><h3 style="color: #ff0000;">⏩一切有情灵识，自性本自具足佛性，没有高低贵贱之分，只有灵识震荡的轨迹不同，情念浓烈的程度迥异。</h3>
+		</div>	
+
+		<!-- 在这里插入图片 -->
+		
+		<img src="haibao1.png" alt="西游金蝉劫小海报" class="paper-img">
+		
+		
+		<div class="img-frame-mini" style="--img-h: 600px; --frame-w: 480px;">
+			<img src="xzjkh.png" alt="蝎子精口红" class="paper-img">
+		</div>
+        
+		<img src="zjcp.png" alt="IP最佳CP组合" class="paper-img">
+		
+		<div class="img-frame-mini" style="--img-h: 600px; --frame-w: 600px;">
+			<img src="lglr001.png" alt="拉格朗日光影动画" class="paper-img">
+		</div>
+		<img src="sanren01.png" alt="三女主角" class="paper-img">
+
+		<div class="paper-gallery">
+		  <img src="xzj.png" alt="蝎子精" class="paper-img">
+		  <img src="neggw.png" alt="女儿国国王" class="paper-img">
+		  <img src="bsj.png" alt="白鼠精" class="paper-img">
+		</div>
+
+	</div>
+
+	<!-- 页脚 -->
+	<div class="footer">
+		<hr style="margin:40px 0 20px 0; border:none; border-top:1px solid #228B22;">
+	    <p>© 2026 OFIRM (Origin-Field Intuitive Resonance Model) | All Rights Reserved</p>
+	    <p>本源 · 信息 · 闭合 · 共振 · 意识</p>
+	    <p>OFIRM.org | 全球官方站</p>
+        <p>Founder: Haiting Allen Chen</p>
+		<span id="busuanzi_value_site_pv">0</span>. <span id="busuanzi_value_page_pv">0</span>.
+	</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="tracker.js"></script>
+</body>
+</html>
