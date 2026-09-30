@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>西游金蝉劫 · 公开招聘 | 东方神话宇宙 · 超级 IP</title>
+<meta name="description" content="《西游金蝉劫》东方神话宇宙超级IP公开招聘：顶级编剧、顶级导演、顶级AIGCer。找同频者、找共创者、找看懂的人上车。" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23f7c66b'/%3E%3C/svg%3E" />
+<style>
+/* ============ 基础 ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#140a05;
+  --bg-soft:#1d1008;
+  --gold:#f7c66b;
+  --gold-2:#e5a13c;
+  --amber:#ff8a3d;
+  --ember:#c2410c;
+  --cream:#f7ead6;
+  --muted:#c6a683;
+  --line:rgba(247,198,107,.18);
+  --serif:"Songti SC","STSong","Noto Serif SC","Source Han Serif SC","SimSun",serif;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  line-height:1.85;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:rgba(247,198,107,.32);color:#fff}
+
+/* 滚动条 */
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:#160c06}
+::-webkit-scrollbar-thumb{background:linear-gradient(#e5a13c,#8a4b12);border-radius:9px}
+
+/* ============ 背景层 ============ */
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+.vignette{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(120% 70% at 50% -10%, rgba(255,160,70,.13), transparent 60%),
+    radial-gradient(90% 55% at 50% 112%, rgba(255,90,20,.11), transparent 62%),
+    radial-gradient(140% 120% at 50% 50%, transparent 32%, rgba(8,4,2,.85) 100%);
+}
+.sheen{
+  position:fixed;inset:-25%;z-index:1;pointer-events:none;mix-blend-mode:screen;
+  background:linear-gradient(115deg,
+    transparent 36%,
+    rgba(255,190,110,.045) 47%,
+    rgba(255,225,160,.09) 50%,
+    rgba(255,190,110,.045) 53%,
+    transparent 64%);
+  animation:sheen 16s linear infinite;
+}
+@keyframes sheen{0%{transform:translateX(-28%)}100%{transform:translateX(28%)}}
+.cursor-glow{
+  position:fixed;left:0;top:0;width:560px;height:560px;z-index:1;pointer-events:none;
+  border-radius:50%;transform:translate(-50%,-50%);opacity:0;transition:opacity .5s;
+  background:radial-gradient(circle, rgba(255,175,85,.11), rgba(255,140,50,.045) 38%, transparent 68%);
+}
+
+/* ============ 布局层 ============ */
+header,main,footer{position:relative;z-index:2}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.section{padding:clamp(72px,10vw,132px) 0;position:relative}
+
+/* ============ 顶部导航 ============ */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:40;pointer-events:none}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffb347,#f7c66b,#ffe9c2);
+  box-shadow:0 0 14px rgba(247,198,107,.85);transition:width .12s linear}
+
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:35;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px clamp(16px,4vw,44px);
+  transition:background .45s, backdrop-filter .45s, border-color .45s, padding .45s;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  background:rgba(20,10,5,.84);
+  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px);
+  border-bottom-color:rgba(247,198,107,.13);
+  padding-top:10px;padding-bottom:10px;
+}
+.brand{display:flex;align-items:center;gap:12px;letter-spacing:.08em}
+.brand-mark{
+  width:38px;height:38px;flex:none;border-radius:50%;
+  display:grid;place-items:center;
+  font-family:var(--serif);font-size:1.02rem;font-weight:700;color:#1a0d05;
+  background:linear-gradient(140deg,#ffe6b0,#f0a63e 55%,#c9772a);
+  box-shadow:0 0 22px -4px rgba(240,166,62,.85), inset 0 0 8px rgba(255,255,255,.4);
+}
+.brand-text{font-size:.9rem;color:#efd8b4;white-space:nowrap}
+.brand-text em{font-style:normal;color:#a8845e;font-size:.82rem}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2.4vw,30px);font-size:.86rem}
+.nav-links a{color:#d9bf99;transition:color .3s;position:relative;letter-spacing:.05em}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:not(.nav-cta)::after{
+  content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1px;
+  background:linear-gradient(90deg,var(--gold),transparent);transition:right .35s;
+}
+.nav-links a:not(.nav-cta):hover::after{right:0}
+.nav-cta{
+  padding:9px 20px;border-radius:999px;color:#221204 !important;font-weight:700;
+  background:linear-gradient(135deg,#ffd894,#f0a63e 55%,#d9822b);
+  box-shadow:0 10px 26px -12px rgba(240,166,62,.95);
+  transition:transform .3s, box-shadow .3s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 16px 34px -14px rgba(240,166,62,1)}
+
+/* ============ Hero ============ */
+.hero{
+  position:relative;min-height:100vh;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:130px 0 90px;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 20px;border-radius:999px;border:1px solid var(--line);
+  background:rgba(255,180,90,.06);
+  font-size:.76rem;letter-spacing:.22em;color:#e8cb9b;margin-bottom:30px;
+}
+.eyebrow::before{
+  content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 12px 3px rgba(247,198,107,.85);animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.7)}}
+
+.hero h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(3rem,11.5vw,7.6rem);
+  line-height:1.04;letter-spacing:.14em;text-indent:.14em;
+  background:linear-gradient(180deg,#fff9ee 0%,#f9d089 36%,#e5a13c 62%,#8f5218 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 42px rgba(247,198,107,.3));
+  animation:breathe 7s ease-in-out infinite;
+}
+@keyframes breathe{
+  0%,100%{filter:drop-shadow(0 0 34px rgba(247,198,107,.22))}
+  50%{filter:drop-shadow(0 0 58px rgba(255,170,70,.42))}
+}
+.hero-sub{
+  margin-top:14px;font-family:var(--serif);
+  letter-spacing:.52em;text-indent:.52em;color:#e2c396;
+  font-size:clamp(.82rem,2.2vw,1.06rem);
+}
+.hero-desc{
+  margin:28px auto 0;
+  color:var(--muted);
+  font-size:clamp(.9rem,2vw,1.04rem);
+  line-height:2.1;
+  max-width:680px;
+}
+.hero-desc b{color:#f1d6a8;font-weight:600}
+.hero-tags{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:34px}
+.pill{
+  padding:8px 20px;border-radius:999px;font-size:.82rem;letter-spacing:.06em;
+  border:1px solid rgba(247,198,107,.3);color:#f2d8ab;
+  background:linear-gradient(180deg,rgba(255,190,100,.1),rgba(255,140,50,.03));
+  transition:transform .35s, border-color .35s, box-shadow .35s;
+}
+.pill:hover{transform:translateY(-3px);border-color:rgba(247,198,107,.75);box-shadow:0 12px 26px -14px rgba(240,166,62,.9)}
+.hero-btns{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:44px}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 32px;border-radius:999px;font-size:.94rem;letter-spacing:.07em;
+  border:1px solid transparent;cursor:pointer;transition:all .35s;white-space:nowrap;
+}
+.btn.gold{
+  background:linear-gradient(135deg,#ffd894,#f0a63e 52%,#d9822b);
+  color:#221204;font-weight:700;
+  box-shadow:0 14px 36px -14px rgba(240,166,62,.95);
+}
+.btn.gold:hover{transform:translateY(-3px);box-shadow:0 22px 48px -16px rgba(240,166,62,1)}
+.btn.ghost{border-color:var(--line);color:var(--gold);background:rgba(255,180,90,.03)}
+.btn.ghost:hover{background:rgba(247,198,107,.11);border-color:rgba(247,198,107,.55);transform:translateY(-3px)}
+.btn .arw{transition:transform .35s}
+.btn:hover .arw{transform:translateX(4px)}
+
+.scroll-hint{
+  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+  font-size:.7rem;letter-spacing:.34em;color:#9a7a56;text-indent:.34em;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.scroll-hint span{
+  width:1px;height:52px;
+  background:linear-gradient(180deg,rgba(247,198,107,.85),transparent);
+  animation:drop 2.2s ease-in-out infinite;
+}
+@keyframes drop{0%{transform:scaleY(.2);transform-origin:top;opacity:0}
+  40%{transform:scaleY(1);opacity:1}
+  100%{transform:scaleY(1);transform-origin:bottom;opacity:0}}
+
+/* ============ 通用标题 ============ */
+.sec-head{text-align:center;margin-bottom:clamp(40px,6vw,68px)}
+.sec-kicker{
+  display:inline-block;font-size:.7rem;letter-spacing:.44em;text-indent:.44em;
+  color:var(--gold-2);opacity:.85;margin-bottom:16px;text-transform:uppercase;
+}
+.sec-head h2{
+  font-family:var(--serif);font-weight:700;letter-spacing:.06em;
+  font-size:clamp(1.75rem,4.4vw,2.9rem);line-height:1.35;
+  background:linear-gradient(180deg,#fff5e0,#f7c66b 55%,#d98b30);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.sec-head p{
+  margin:18px auto 0;max-width:730px;color:var(--muted);
+  font-size:clamp(.92rem,2vw,1.04rem);
+}
+
+/* ============ 招聘卡片 ============ */
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.card{
+  position:relative;padding:36px 30px 34px;border-radius:20px;overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(160deg,rgba(255,190,110,.085),rgba(255,120,40,.028) 55%,rgba(255,255,255,.015));
+  -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);
+  transition:transform .5s cubic-bezier(.2,.7,.2,1), border-color .5s, box-shadow .5s;
+}
+.card::after{
+  content:"";position:absolute;top:-1px;left:12%;width:76%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(247,198,107,.9),transparent);
+  opacity:.65;
+}
+.card:hover{
+  transform:translateY(-9px);
+  border-color:rgba(247,198,107,.45);
+  box-shadow:0 30px 66px -26px rgba(255,140,40,.55);
+}
+.card-ico{
+  width:54px;height:54px;border-radius:15px;display:grid;place-items:center;margin-bottom:22px;
+  color:#1a0d05;
+  background:linear-gradient(140deg,#ffe6b0,#f0a63e 58%,#cd7d2b);
+  box-shadow:0 10px 26px -10px rgba(240,166,62,.95), inset 0 0 10px rgba(255,255,255,.35);
+}
+.card-ico svg{width:26px;height:26px;display:block}
+.card h3{
+  font-family:var(--serif);font-size:1.32rem;letter-spacing:.05em;
+  color:#fbe3b6;margin-bottom:12px;
+}
+.card p{color:#c4a583;font-size:.92rem;line-height:1.95}
+.card .kw{
+  margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;
+}
+.card .kw span{
+  font-size:.72rem;letter-spacing:.08em;padding:5px 12px;border-radius:6px;
+  color:#dbb98b;background:rgba(247,198,107,.07);border:1px solid rgba(247,198,107,.14);
+}
+
+/* 标签云 */
+.tagcloud{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:44px}
+.tagcloud span{
+  padding:8px 18px;border-radius:999px;font-size:.82rem;color:#e0c49a;
+  border:1px solid var(--line);background:rgba(255,180,90,.045);
+  transition:all .35s;
+}
+.tagcloud span:hover{color:#ffe9c4;border-color:rgba(247,198,107,.6);background:rgba(247,198,107,.1);transform:translateY(-2px)}
+
+/* ============ 收益 ============ */
+.reward-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:24px}
+.reward-card{
+  position:relative;padding:40px 34px;border-radius:22px;overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(150deg,rgba(255,175,90,.09),rgba(120,50,10,.08));
+  -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);
+  transition:transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s, border-color .5s;
+}
+.reward-card:hover{transform:translateY(-7px);border-color:rgba(247,198,107,.4);box-shadow:0 28px 62px -26px rgba(255,140,40,.5)}
+.reward-card .num{
+  font-family:var(--serif);font-size:3.6rem;line-height:1;font-weight:700;
+  background:linear-gradient(180deg,rgba(255,220,160,.95),rgba(200,120,40,.35));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:16px;
+}
+.reward-card h3{
+  font-family:var(--serif);font-size:1.3rem;color:#fbe3b6;letter-spacing:.05em;margin-bottom:14px;
+}
+.reward-card p{color:#c4a583;font-size:.93rem}
+.reward-card strong{
+  color:#ffd68f;font-size:1.12rem;font-weight:700;
+  text-shadow:0 0 20px rgba(255,190,90,.45);
+}
+.reward-card .note{
+  margin-top:18px;padding-top:16px;border-top:1px dashed rgba(247,198,107,.18);
+  font-size:.83rem;color:#a3855f;line-height:1.85;
+}
+
+/* ============ 链接卡 ============ */
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin-top:52px}
+.link-card{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:24px 26px;border-radius:16px;
+  border:1px solid var(--line);
+  background:linear-gradient(120deg,rgba(255,180,90,.05),rgba(255,120,40,.02));
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  transition:all .45s cubic-bezier(.2,.7,.2,1);
+}
+.link-card:hover{
+  background:linear-gradient(120deg,rgba(255,180,90,.13),rgba(255,120,40,.05));
+  border-color:rgba(247,198,107,.5);
+  transform:translateX(5px);
+  box-shadow:0 20px 46px -24px rgba(255,140,40,.75);
+}
+.link-card .lc-left{min-width:0}
+.link-card .lc-kicker{
+  font-size:.68rem;letter-spacing:.28em;color:#a8845e;text-transform:uppercase;margin-bottom:8px;
+}
+.link-card .lc-title{
+  font-size:1rem;color:#f5dcb4;font-weight:600;line-height:1.6;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.link-card .lc-desc{font-size:.78rem;color:#8f7355;margin-top:6px;word-break:break-all}
+.link-card .lc-arw{
+  flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;
+  color:var(--gold);border:1px solid rgba(247,198,107,.28);
+  transition:all .4s;
+}
+.link-card:hover .lc-arw{
+  background:linear-gradient(135deg,#ffd894,#f0a63e);color:#221204;
+  border-color:transparent;transform:translateX(4px);
+}
+
+/* ============ 引言块 ============ */
+.quote-block{text-align:center;max-width:900px;margin:0 auto}
+.quote-block .big{
+  font-family:var(--serif);font-size:clamp(1.45rem,4.6vw,2.7rem);
+  line-height:1.7;letter-spacing:.05em;color:#f2dcb8;
+}
+.quote-block .big b{
+  background:linear-gradient(180deg,#fff3d6,#f7c66b 50%,#dc9430);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-weight:700;
+}
+.quote-block .sub{
+  margin-top:22px;font-family:var(--serif);letter-spacing:.4em;text-indent:.4em;
+  color:#c9a06a;font-size:clamp(.86rem,2vw,1rem);
+}
+
+/* ============ 愿景 ============ */
+.question{
+  font-family:var(--serif);text-align:center;letter-spacing:.07em;line-height:1.6;
+  font-size:clamp(1.5rem,5vw,3.1rem);margin:26px 0 56px;
+  background:linear-gradient(180deg,#fff6e4,#f7c66b 48%,#d9822b);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 30px rgba(247,198,107,.22));
+}
+.answer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.answer{
+  padding:36px 32px;border-radius:20px;position:relative;overflow:hidden;
+  border:1px solid var(--line);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  transition:transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s, border-color .5s;
+}
+.answer:hover{transform:translateY(-6px)}
+.answer.yes{background:linear-gradient(150deg,rgba(255,190,100,.13),rgba(200,80,15,.06))}
+.answer.yes:hover{border-color:rgba(247,198,107,.55);box-shadow:0 28px 60px -26px rgba(255,150,50,.7)}
+.answer.no{background:linear-gradient(150deg,rgba(255,255,255,.028),rgba(255,180,90,.02))}
+.answer.no:hover{border-color:rgba(247,198,107,.3);box-shadow:0 28px 60px -30px rgba(0,0,0,.9)}
+.answer h4{
+  font-family:var(--serif);font-size:1.5rem;letter-spacing:.14em;margin-bottom:16px;
+  color:#fbe3b6;
+}
+.answer.no h4{color:#c9ab84}
+.answer p{color:#c4a583;font-size:.93rem}
+.answer.no p{color:#a68a6b}
+
+/* ============ 诗 ============ */
+.poem{
+  max-width:860px;margin:0 auto;text-align:center;
+  padding:clamp(44px,7vw,72px) clamp(18px,4vw,48px);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  position:relative;
+}
+.poem::before,.poem::after{
+  content:"";position:absolute;left:50%;transform:translateX(-50%);
+  width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.poem::before{top:-1px}
+.poem::after{bottom:-1px}
+.poem h3{
+  font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.75rem);
+  letter-spacing:.36em;text-indent:.36em;color:var(--gold);margin-bottom:38px;font-weight:700;
+}
+.poem-body{
+  font-family:var(--serif);font-size:clamp(.98rem,2.2vw,1.2rem);
+  line-height:2.5;letter-spacing:.14em;color:#f0dcc0;
+}
+.poem-body.alt{
+  margin-top:40px;padding-top:36px;border-top:1px dashed rgba(247,198,107,.16);
+  color:#bd9c72;font-size:clamp(.88rem,1.9vw,1.02rem);line-height:2.4;
+}
+
+/* ============ 话题标签 ============ */
+.hashtags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:48px}
+.hashtags a{
+  font-size:.79rem;letter-spacing:.05em;padding:7px 16px;border-radius:999px;
+  color:#c5a377;border:1px solid rgba(247,198,107,.13);background:rgba(255,180,90,.035);
+  transition:all .35s;
+}
+.hashtags a:hover{color:#ffdda3;border-color:rgba(247,198,107,.5);background:rgba(247,198,107,.1)}
+
+/* ============ CTA ============ */
+.cta{text-align:center}
+.cta h2{
+  font-family:var(--serif);font-size:clamp(1.5rem,4.2vw,2.5rem);line-height:1.6;
+  letter-spacing:.05em;
+  background:linear-gradient(180deg,#fff6e4,#f7c66b 52%,#d9822b);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.cta .cta-sub{margin-top:18px;color:#c9a87f;font-size:clamp(.9rem,2vw,1.05rem)}
+.cta-btns{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:40px}
+.cta-note{
+  margin:46px auto 0;max-width:760px;color:#9b7f5c;font-size:.85rem;line-height:2;
+  padding:22px 26px;border-radius:16px;border:1px dashed rgba(247,198,107,.16);
+  background:rgba(255,180,90,.025);
+}
+.cta-note + .cta-note{margin-top:18px}
+
+/* ============ 页脚 ============ */
+footer{
+  border-top:1px solid rgba(247,198,107,.1);
+  padding:56px 0 46px;text-align:center;
+  background:linear-gradient(180deg,transparent,rgba(255,140,50,.035));
+}
+.foot-brand{
+  font-family:var(--serif);letter-spacing:.3em;text-indent:.3em;
+  color:#dcbb8c;font-size:1rem;margin-bottom:18px;
+}
+.foot-links{
+  display:flex;flex-wrap:wrap;gap:22px;justify-content:center;
+  font-size:.82rem;color:#a2865f;margin-bottom:26px;
+}
+.foot-links a{transition:color .3s}
+.foot-links a:hover{color:var(--gold)}
+.disclaimer{
+  max-width:820px;margin:0 auto;color:#7d664a;font-size:.75rem;line-height:1.95;
+  padding:0 20px;
+}
+.copy{margin-top:24px;color:#6b563d;font-size:.75rem;letter-spacing:.1em}
+
+/* ============ 进场动画 ============ */
+.reveal{
+  opacity:0;transform:translateY(32px);
+  transition:opacity .95s cubic-bezier(.2,.7,.2,1), transform .95s cubic-bezier(.2,.7,.2,1);
+  transition-delay:var(--d,0s);
+  will-change:opacity,transform;
+}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ 响应式 ============ */
+@media (max-width:860px){
+  .nav-links a:not(.nav-cta){display:none}
+  .brand-text em{display:none}
+  .hero{padding-top:110px}
+  .hero-tags{gap:9px}
+  .pill{padding:7px 15px;font-size:.76rem}
+}
+@media (max-width:480px){
+  .btn{padding:13px 24px;font-size:.88rem}
+  .card,.reward-card,.answer{padding:30px 24px}
+  .reward-card .num{font-size:3rem}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero h1{animation:none}
+  .sheen{animation:none}
+  .eyebrow::before{animation:none}
+}
+
+/* ============ 背景音乐按钮 ============ */
+.music-btn{
+  position:fixed;
+  right:clamp(16px,3vw,34px);
+  bottom:clamp(16px,3vw,34px);
+  z-index:50;
+  width:54px;height:54px;
+  padding:0;
+  border-radius:50%;
+  border:1px solid rgba(247,198,107,.45);
+  cursor:pointer;
+  display:grid;place-items:center;
+  color:#221204;
+  background:linear-gradient(135deg,#ffd894,#f0a63e 55%,#d9822b);
+  box-shadow:0 10px 28px -10px rgba(240,166,62,.95), inset 0 0 10px rgba(255,255,255,.35);
+  transition:transform .35s, box-shadow .35s;
+  -webkit-tap-highlight-color:transparent;
+}
+.music-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 16px 36px -12px rgba(240,166,62,1)}
+.music-btn:active{transform:scale(.94)}
+.music-btn svg{
+  width:22px;height:22px;fill:currentColor;grid-area:1/1;
+  transition:opacity .3s, transform .3s;
+}
+.music-btn .ico-pause{opacity:0;transform:scale(.55)}
+.music-btn.playing .ico-play{opacity:0;transform:scale(.55)}
+.music-btn.playing .ico-pause{opacity:1;transform:scale(1)}
+
+/* 播放中的脉冲光环 */
+.music-btn::before,
+.music-btn::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  border:1px solid rgba(247,198,107,.6);
+  opacity:0;pointer-events:none;
+}
+.music-btn.playing::before{animation:musicPulse 2.6s ease-out infinite}
+.music-btn.playing::after{animation:musicPulse 2.6s ease-out infinite 1.3s}
+@keyframes musicPulse{
+  0%{transform:scale(.9);opacity:.75}
+  100%{transform:scale(1.7);opacity:0}
+}
+@media (max-width:480px){
+  .music-btn{width:46px;height:46px}
+  .music-btn svg{width:19px;height:19px}
+}
+</style>
+</head>
+<body>
+
+<!-- 背景粒子 / 光影层 -->
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="sheen" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- 阅读进度 -->
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+
+<!-- 导航 -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top">
+    <span class="brand-mark">蝉</span>
+    <span class="brand-text">西游金蝉劫 <em>· 项目组</em></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#jobs">招聘岗位</a>
+    <a href="#reward">收益机制</a>
+    <a href="#partner">共创合伙</a>
+    <a href="#vision">宇宙愿景</a>
+    <a class="nav-cta" href="#join">立即上车</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+
+      <div class="eyebrow reveal">东方神话宇宙 · 超级 IP · 全球公开招聘</div>
+
+      <h1 class="reveal" style="--d:.08s">西游金蝉劫</h1>
+      <p class="hero-sub reveal" style="--d:.16s">知了 · 西游金蝉劫</p>
+
+      <p class="hero-desc reveal" style="--d:.24s">
+        <b>20+ 部精彩剧集 · 漫剧 · 短剧 · 番剧 · 3D动画 · 真人电影 · 游戏 · 虚拟世界</b><br>
+        可改编版本巨多，一场属于东方的神话史诗，正在集结同频者。
+      </p>
+
+      <div class="hero-tags reveal" style="--d:.32s">
+        <span class="pill">【找同频者】</span>
+        <span class="pill">【找共创者】</span>
+        <span class="pill">【找看懂的人上车】</span>
+        <span class="pill">【找顶级人才】</span>
+      </div>
+
+      <div class="hero-btns reveal" style="--d:.4s">
+        <a class="btn gold" href="#jobs">查看招聘岗位 <span class="arw">→</span></a>
+        <a class="btn ghost" href="https://www.kdocs.cn/l/csLoAArwJRhd" target="_blank" rel="noopener">阅读融资方案 PPT</a>
+      </div>
+    </div>
+
+    <div class="scroll-hint">向下滚动<span></span></div>
+  </section>
+
+  <!-- ================= 招聘岗位 ================= -->
+  <section class="section" id="jobs">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-kicker">Recruitment</span>
+        <h2>寻 · 顶级人才</h2>
+        <p>《西游金蝉劫》顶级 IP，值得一群顶级人才，携手共创中国电影未来 20 年。</p>
+      </div>
+
+      <div class="cards3">
+        <article class="card reveal" style="--d:.05s">
+          <div class="card-ico">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+          </div>
+          <h3>顶级编剧</h3>
+          <p>《西游金蝉劫》重构东方神话的叙事骨架，让「有情成佛」和「情感弧光」成为可被世界读懂的故事。为 20+ 部剧集搭建一个能生长、能呼吸的宇宙。<br>20+部精彩剧集，20年开发周期，大电影，3D，真人，漫剧，番剧，网大中长剧，游戏，文旅，虚拟世界等等。<br>需要你的智慧来一起扩展无限边界。</p>
+          <div class="kw">
+            <span>世界观架构</span><span>人物弧光</span><span>多线剧集</span>
+          </div>
+        </article>
+
+        <article class="card reveal" style="--d:.14s">
+          <div class="card-ico">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+          </div>
+          <h3>顶级导演</h3>
+          <p>把哲思与情感落进镜头，让东方美学在大银幕上真正立起来。从概念到成片，定义这个宇宙的视觉语言。<br>一部剧，编剧是灵魂铸造者，导演就是灵魂呈现者。需要你用才华，用光与影，把哲思与深情给于观众，或共情，或热血，或悲伤与快乐，都在你手里的两个小时。<br>经验与创造，是你征服世界的力量。</p>
+          <div class="kw">
+            <span>影像美学</span><span>长线宇宙</span><span>类型突破</span>
+          </div>
+        </article>
+
+        <article class="card reveal" style="--d:.23s">
+          <div class="card-ico">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v2H7a2 2 0 0 0-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2h2V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9zm0 6h6v6H9V9z"/></svg>
+          </div>
+          <h3>顶级 AIGCer</h3>
+          <p>用 AI 加速一个宇宙的诞生。从概念设计到成片管线，重塑东方神话的生产方式，让不可能的成本变成可能。<br>这是一个最好的时代，这是一个创造者的时代，AIGC让影视生产变成思想的碰撞和落地，不再是手k的辛劳和漫长。从考验耐心到思想的确认。我们是幸运的一代影像人。<br>窗口期很短，尽情展现你的思维才华吧。</p>
+          <div class="kw">
+            <span>视觉开发</span><span>AI 管线</span><span>虚拟制作</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="tagcloud reveal" style="--d:.1s">
+        <span>动画师</span><span>概念设计师</span><span>AIGCer</span><span>制片人</span><span>视效总监</span>
+        <span>音乐制作</span><span>游戏策划</span><span>虚拟世界架构师</span><span>宣发操盘手</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 收益 ================= -->
+  <section class="section" id="reward">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-kicker">What You Get</span>
+        <h2>你会得到的</h2>
+        <p>不谈情怀画饼，先谈体面、尊重与长期共赢。</p>
+      </div>
+
+      <div class="reward-grid">
+        <div class="reward-card reveal" style="--d:.05s">
+          <div class="num">01</div>
+          <h3>远超行业平均的薪酬待遇</h3>
+          <p>这是超级人才的基本保证。我们相信，真正顶级的人才，理应拥有与之匹配的回报。</p>
+        </div>
+
+        <div class="reward-card reveal" style="--d:.14s">
+          <div class="num">02</div>
+          <h3>SPV 超额票房阶梯分账</h3>
+          <p>每个参与的电影 SPV，超额票房阶梯分账。原则是，管理和直接创作团队核心，按照超额收益部分的
+            <strong>3% – 10%</strong> 进行阶梯分润，票房越高，所得越多！</p>
+          <p class="note">超额收益定义，请参考融资方案 PPT —— 这是完整商业计划的一部分，也是认知统一和团队自信的标尺。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 共创合伙 ================= -->
+  <section class="section" id="partner">
+    <div class="wrap">
+      <div class="quote-block reveal">
+        <p class="big">这不是简单的市场招聘，<br>这是找可以同行 20 年的<b>共创合伙人</b>。</p>
+        <p class="sub">先看懂，再上车</p>
+      </div>
+
+      <div class="links">
+        <a class="link-card reveal" style="--d:.05s" href="https://www.kdocs.cn/l/csLoAArwJRhd" target="_blank" rel="noopener">
+          <span class="lc-left">
+            <span class="lc-kicker">Business Plan</span>
+            <span class="lc-title">《金蝉子前传渡缘劫》A 轮融资方案 PPT 01</span>
+            <span class="lc-desc">kdocs.cn/l/csLoAArwJRhd</span>
+          </span>
+          <span class="lc-arw">→</span>
+        </a>
+
+        <a class="link-card reveal" style="--d:.12s" href="https://www.ofirm.org/jcjindex" target="_blank" rel="noopener">
+          <span class="lc-left">
+            <span class="lc-kicker">Deep Understanding</span>
+            <span class="lc-title">《西游金蝉劫》深度理解</span>
+            <span class="lc-desc">www.ofirm.org/jcjindex</span>
+          </span>
+          <span class="lc-arw">→</span>
+        </a>
+
+        <a class="link-card reveal" style="--d:.19s" href="https://www.ofirm.org/jcjindex" target="_blank" rel="noopener">
+          <span class="lc-left">
+            <span class="lc-kicker">Official Site</span>
+            <span class="lc-title">项目官方网站 · 了解详情</span>
+            <span class="lc-desc">www.ofirm.org/jcjindex</span>
+          </span>
+          <span class="lc-arw">→</span>
+        </a>
+
+        <a class="link-card reveal" style="--d:.26s" href="#join">
+          <span class="lc-left">
+            <span class="lc-kicker">WeChat、WeiBo</span>
+            <span class="lc-title">公众号、微博搜索：西游金蝉劫</span>
+            <span class="lc-desc">第一时间获取项目进展与招募动态</span>
+          </span>
+          <span class="lc-arw">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 愿景之问 ================= -->
+  <section class="section" id="vision">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-kicker">The Question</span>
+        <h2>理解 IP 之后，只需问自己一个问题</h2>
+      </div>
+
+      <div class="question reveal">这个 IP，能否做成东方漫威？</div>
+
+      <div class="answer-grid">
+        <div class="answer yes reveal" style="--d:.06s">
+          <h4>如能</h4>
+          <p>不必犹豫。越靠后，您加入的身价可能越低。躬身入局，携手前行，开创辉煌。英雄者，惺惺相惜，诚意十足。</p>
+        </div>
+        <div class="answer no reveal" style="--d:.14s">
+          <h4>如不能</h4>
+          <p>静坐观望。只要您是真的人才，英雄所见，总有略同时刻。随时欢迎。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 诗 ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="poem reveal">
+        <h3>《知了 · 西游金蝉劫》</h3>
+        <div class="poem-body">
+          文稿已定，<br>
+          版权已固，<br>
+          宇宙已成，<br>
+          东风已至。
+          <br><br>
+          内容为王，<br>
+          践行为先。
+          <br><br>
+          乘风破浪会有时，<br>
+          西游再起济沧海。
+        </div>
+        <div class="poem-body alt">
+          立东方神话哲思之基，铸华夏 IP 血肉之魂；<br>
+          弃浮泛平移无根之弊，开神州史诗长线之门。<br>
+          筑国人精神情寄之锚，竞寰宇 IP 浩瀚之林；<br>
+          承西游千载未尽之绪，启有情成佛崭新乾坤。
+        </div>
+      </div>
+
+      <div class="hashtags reveal">
+        <a href="#top">#西游金蝉劫</a>
+        <a href="#top">#金蝉子前传渡缘劫</a>
+        <a href="#top">#蝎子精女妖王</a>
+        <a href="#top">#蝎子精烈焰焚心</a>
+        <a href="#top">#女儿国上中下</a>
+        <a href="#top">#白鼠精痴情香花烛</a>
+        <a href="#top">#白鼠精痴情男儿泪</a>
+        <a href="#top">#赤焰红蟒妖王</a>
+        <a href="#top">#西游金蝉劫有情佛</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="section cta" id="join">
+    <div class="wrap">
+      <h2 class="reveal">1 元即可参与，钱不重要，只找同频人</h2>
+      <p class="cta-sub reveal" style="--d:.08s">一起携手共创中国电影未来 20 年</p>
+
+      <div class="cta-btns reveal" style="--d:.16s">
+        <a class="btn gold" href="https://www.kdocs.cn/l/csLoAArwJRhd" target="_blank" rel="noopener">阅读融资方案 PPT <span class="arw">→</span></a>
+        <a class="btn ghost" href="https://www.ofirm.org/jcjindex" target="_blank" rel="noopener">深度理解项目</a>
+      </div>
+
+      <p class="cta-note reveal" style="--d:.24s">
+        我们已经深度讨论过：未来的AI时代，全民共创电影模式大概率会兴起，甚至剧情会根据投票而改变，好电影、好故事，
+        会开创国内电影行业的新风向。
+      </p>
+
+      <p class="cta-note reveal" style="--d:.24s">
+        邮箱：XiYouJinChanJie@163.com ， JinChanJie@outlook.com<br>
+        微信：XianYouShenJing ， OFIRMAGI<br>
+        项目网址：www.OFiRM.org/jcjindex
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= 页脚 ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">西游金蝉劫 · 项目组</div>
+    <div class="foot-links">
+      <a href="https://www.ofirm.org/jcjindex" target="_blank" rel="noopener">官方网站</a>
+      <a href="https://www.kdocs.cn/l/csLoAArwJRhd" target="_blank" rel="noopener">融资方案</a>
+      <a href="https://www.ofirm.org/jcjindex" target="_blank" rel="noopener">深度理解</a>
+      <a href="#jobs">招聘岗位</a>
+      <a href="#join">参与共创</a>
+    </div>
+    <p class="disclaimer">
+      本页面为项目人才招募与合作沟通用途，所载内容不构成任何投资邀约、收益承诺或法律要约；
+      相关合作方式、权益分配与收益安排，均以双方正式签署的法律文件为准。市场有风险，决策需谨慎。
+    </p>
+    <p class="copy">© 拉格朗日光影动画 · 西游金蝉劫项目组 · 东方神话宇宙 · 有情成佛</p>
+  </div>
+</footer>
+
+<!-- ================= 背景音乐 ================= -->
+<audio id="bgMusic" src="jdhk.MP3" loop preload="auto" playsinline></audio>
+
+<!-- 音乐播放按钮（固定在右下角，随页面滚动） -->
+<button class="music-btn" id="musicBtn" type="button" aria-label="播放/暂停背景音乐">
+  <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+  <svg class="ico-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+</button>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ==========================================================
+     拉格朗日光影粒子系统
+     ========================================================== */
+  var cvs = document.getElementById("fx");
+  var ctx = cvs.getContext("2d", { alpha: false });
+  var W = 0, H = 0, DPR = 1;
+  var particles = [];
+  var frame = 0;
+  var mouse = { x: -9999, y: -9999 };
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var BG = "20,10,5";
+
+  function makeSprite(rgb) {
+    var s = 64;
+    var c = document.createElement("canvas");
+    c.width = c.height = s;
+    var x = c.getContext("2d");
+    var g = x.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+    g.addColorStop(0, "rgba(" + rgb + ",1)");
+    g.addColorStop(0.22, "rgba(" + rgb + ",.62)");
+    g.addColorStop(0.55, "rgba(" + rgb + ",.16)");
+    g.addColorStop(1, "rgba(" + rgb + ",0)");
+    x.fillStyle = g;
+    x.beginPath();
+    x.arc(s / 2, s / 2, s / 2, 0, Math.PI * 2);
+    x.fill();
+    return c;
+  }
+
+  var SPRITES = ["255,228,172", "247,198,107", "255,152,62", "255,98,32"].map(makeSprite);
+
+  function makeParticle(init) {
+    var p = {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: 0,
+      vy: 0,
+      sp: 0.55 + Math.random() * 1.25,
+      size: 10 + Math.random() * 36,
+      alpha: 0.10 + Math.random() * 0.42,
+      spr: SPRITES[(Math.random() * SPRITES.length) | 0],
+      max: 260 + Math.random() * 540,
+      life: 0
+    };
+    if (init) p.life = Math.floor(Math.random() * p.max);
+    return p;
+  }
+
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth;
+    H = window.innerHeight;
+    cvs.width = Math.floor(W * DPR);
+    cvs.height = Math.floor(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.fillStyle = "rgb(" + BG + ")";
+    ctx.fillRect(0, 0, W, H);
+
+    var n = W < 640 ? 150 : (W < 1100 ? 280 : 440);
+    particles = [];
+    for (var i = 0; i < n; i++) particles.push(makeParticle(true));
+  }
+
+  var SPEED = reduceMotion ? 0.18 : 1;
+
+  function step() {
+    frame++;
+
+    ctx.globalCompositeOperation = "source-over";
+    ctx.fillStyle = "rgba(" + BG + ",0.075)";
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.globalCompositeOperation = "lighter";
+    var t = frame * 0.0026 * SPEED;
+    var mx = mouse.x, my = mouse.y;
+    var hasMouse = mx > -1000;
+
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+
+      var a =
+        Math.sin(p.x * 0.0032 + t) * 1.5 +
+        Math.cos(p.y * 0.0040 - t * 0.8) * 1.5 +
+        Math.sin((p.x + p.y) * 0.0016 + t * 0.5) * 1.1;
+
+      p.vx += Math.cos(a) * 0.30 * p.sp * SPEED;
+      p.vy += Math.sin(a) * 0.30 * p.sp * SPEED;
+
+      if (hasMouse) {
+        var dx = p.x - mx, dy = p.y - my;
+        var d2 = dx * dx + dy * dy;
+        if (d2 < 46000 && d2 > 0.01) {
+          var d = Math.sqrt(d2);
+          var f = (1 - d / 215) * 0.55;
+          p.vx += (dx / d) * f;
+          p.vy += (dy / d) * f;
+        }
+      }
+
+      p.vx *= 0.955;
+      p.vy *= 0.955;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life++;
+
+      var fade =
+        Math.min(1, p.life / 70) *
+        Math.min(1, (p.max - p.life) / 140);
+
+      if (fade <= 0 || p.x < -90 || p.x > W + 90 || p.y < -90 || p.y > H + 90) {
+        particles[i] = makeParticle(false);
+        continue;
+      }
+
+      ctx.globalAlpha = p.alpha * fade * 0.9;
+      ctx.drawImage(
+        p.spr,
+        p.x - p.size / 2,
+        p.y - p.size / 2,
+        p.size,
+        p.size
+      );
+    }
+
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(step);
+  }
+
+  window.addEventListener("resize", resize, { passive: true });
+  window.addEventListener("orientationchange", function () {
+    setTimeout(resize, 220);
+  });
+
+  resize();
+  requestAnimationFrame(step);
+
+  /* ==========================================================
+     鼠标光晕
+     ========================================================== */
+  var glow = document.getElementById("cursorGlow");
+  var glowX = 0, glowY = 0, curX = 0, curY = 0, glowActive = false;
+
+  window.addEventListener("mousemove", function (e) {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    glowX = e.clientX;
+    glowY = e.clientY;
+    if (!glowActive) {
+      glowActive = true;
+      glow.style.opacity = "1";
+      curX = glowX; curY = glowY;
+    }
+  }, { passive: true });
+
+  window.addEventListener("mouseleave", function () {
+    mouse.x = -9999;
+    mouse.y = -9999;
+    glow.style.opacity = "0";
+    glowActive = false;
+  });
+
+  (function followGlow() {
+    curX += (glowX - curX) * 0.08;
+    curY += (glowY - curY) * 0.08;
+    glow.style.transform = "translate(" + curX + "px," + curY + "px) translate(-50%,-50%)";
+    requestAnimationFrame(followGlow);
+  })();
+
+  /* ==========================================================
+     滚动：导航态 / 进度条
+     ========================================================== */
+  var nav = document.getElementById("nav");
+  var bar = document.getElementById("bar");
+  var ticking = false;
+
+  function onScroll() {
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    if (y > 40) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
+
+    var docH = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docH > 0 ? (y / docH) * 100 : 0;
+    bar.style.width = Math.min(100, Math.max(0, pct)) + "%";
+
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(onScroll);
+    }
+  }, { passive: true });
+
+  onScroll();
+
+  /* ==========================================================
+     进场动画
+     ========================================================== */
+  var reveals = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add("in");
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  /* ==========================================================
+     平滑锚点
+     ========================================================== */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var id = a.getAttribute("href");
+      if (id === "#" || id.length < 2) return;
+      var el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      var top = el.getBoundingClientRect().top + window.pageYOffset -
+        (id === "#top" ? 0 : 70);
+      window.scrollTo({ top: top, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  });
+
+})();
+</script>
+
+<script>
+/* ==========================================================
+   背景音乐控制
+   策略：
+   1. 页面加载先尝试自动播放（部分浏览器允许）；
+   2. 被拦截时，用户第一次点击/触摸/按键/滚动时自动恢复播放；
+   3. 右下角按钮始终可手动播放/暂停，状态实时同步；
+   4. 用户手动暂停后，不再自动续播。
+   ========================================================== */
+(function () {
+  "use strict";
+
+  var audio = document.getElementById("bgMusic");
+  var btn = document.getElementById("musicBtn");
+  if (!audio || !btn) return;
+
+  var TARGET_VOLUME = 0.55;
+  var userPaused = false;
+  var fading = null;
+
+  function fadeIn(to) {
+    if (fading) clearInterval(fading);
+    var v = audio.volume;
+    var step = (to - v) / 24;
+    fading = setInterval(function () {
+      v += step;
+      if ((step > 0 && v >= to) || (step < 0 && v <= to)) {
+        v = to;
+        clearInterval(fading);
+        fading = null;
+      }
+      audio.volume = Math.max(0, Math.min(1, v));
+    }, 40);
+  }
+
+  function tryPlay() {
+    if (!audio.paused) return;
+    var p = audio.play();
+    if (p && p.catch) p.catch(function () { /* 被拦截，静默等待用户交互 */ });
+  }
+
+  function syncUI() {
+    if (audio.paused) btn.classList.remove("playing");
+    else btn.classList.add("playing");
+  }
+  audio.addEventListener("play", syncUI);
+  audio.addEventListener("pause", syncUI);
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    if (audio.paused) {
+      userPaused = false;
+      tryPlay();
+    } else {
+      userPaused = true;
+      audio.pause();
+    }
+  });
+
+  /* 首次尝试自动播放，并从 0 音量淡入 */
+  audio.volume = 0;
+  tryPlay();
+  audio.addEventListener("playing", function once() {
+    audio.removeEventListener("playing", once);
+    fadeIn(TARGET_VOLUME);
+  });
+
+  /* 被浏览器拦截时：首次真实用户交互自动恢复播放
+     注意：只有 click / touchstart / keydown 算“用户激活”，
+     滚动、滚动条拖动、滚轮都不算。 */
+  function removeResume() {
+    window.removeEventListener("pointerdown", resume);
+    window.removeEventListener("click", resume);
+    window.removeEventListener("touchstart", resume);
+    window.removeEventListener("keydown", resume);
+  }
+
+  function resume() {
+    if (userPaused || !audio.paused) { removeResume(); return; }
+    var p = audio.play();
+    if (p && p.then) {
+      p.then(function () {
+        /* 成功，撤销所有监听 */
+        removeResume();
+      }).catch(function () {
+        /* 仍然被拒，保留监听，等待下一次交互 */
+      });
+    }
+  }
+
+  window.addEventListener("pointerdown", resume, { passive: true });
+  window.addEventListener("click", resume, { passive: true });
+  window.addEventListener("touchstart", resume, { passive: true });
+  window.addEventListener("keydown", resume);
+
+  /* 标签页切到后台时自动暂停，回来时恢复（更省电） */
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+      if (!audio.paused) {
+        audio.pause();
+        btn.dataset.autoResume = "1";
+      }
+    } else {
+      if (btn.dataset.autoResume === "1" && !userPaused) {
+        btn.dataset.autoResume = "";
+        tryPlay();
+      }
+    }
+  });
+
+  syncUI();
+})();
+</script>
+</body>
+</html>
