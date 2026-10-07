@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《西游金蝉劫》IP 落地洛阳项目决策参考</title>
+<style>
+  :root {
+    --bg-primary: #FDF6EE;
+    --bg-secondary: #FAF0E2;
+    --bg-card: #FFFFFF;
+    --bg-accent: #FFF8ED;
+    --text-primary: #2C1810;
+    --text-secondary: #5A3E2B;
+    --text-muted: #8B6F5E;
+    --accent-gold: #C8956C;
+    --accent-gold-dark: #A0724A;
+    --accent-red: #B85C4A;
+    --accent-red-dark: #8E3D2F;
+    --accent-warm: #D4A574;
+    --border-light: #E8D5C4;
+    --border-medium: #D4B896;
+    --shadow-soft: 0 2px 12px rgba(139,111,94,0.08);
+    --shadow-medium: 0 4px 24px rgba(139,111,94,0.12);
+    --shadow-strong: 0 8px 40px rgba(139,111,94,0.16);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.95;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === Hero Header === */
+  .hero {
+    background: linear-gradient(135deg, #2C1810 0%, #4A2A1A 30%, #6B3D28 60%, #8B5E3C 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 40px 60px;
+    text-align: center;
+    color: #FFF8ED;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 80%, rgba(200,149,108,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 80% 20%, rgba(184,92,74,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-deco {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,165,116,0.5), transparent);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 6px 24px;
+    border: 1px solid rgba(212,165,116,0.4);
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--accent-warm);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 4.4vw, 50px);
+    font-weight: 900;
+    line-height: 1.45;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+    font-family: "Microsoft YaHei", "微软雅黑", "SimHei", "黑体", sans-serif;
+  }
+
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--accent-warm), #E8C4A0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(17px, 2.2vw, 23px);
+    color: rgba(255,248,237,0.78);
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .hero-meta-item {
+    text-align: center;
+  }
+
+  .hero-meta-item .label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: rgba(212,165,116,0.65);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .hero-meta-item .value {
+    font-size: 16px;
+    color: rgba(255,248,237,0.92);
+  }
+
+  /* === Main Container === */
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === Summary Banner === */
+  .summary-banner {
+    margin: -30px auto 50px;
+    max-width: 1080px;
+    position: relative;
+    z-index: 10;
+    padding: 0 32px;
+  }
+
+  .summary-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 42px 50px;
+    box-shadow: var(--shadow-strong);
+    border-top: 3px solid var(--accent-gold);
+    position: relative;
+  }
+
+  .summary-card::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 40px;
+    right: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-red), var(--accent-gold));
+    border-radius: 3px;
+  }
+
+  .summary-label {
+    font-size: 14px;
+    color: var(--accent-gold-dark);
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+
+  .summary-text {
+    font-size: 19px;
+    line-height: 2.05;
+    color: var(--text-primary);
+    font-weight: 500;
+    text-align: justify;
+  }
+
+  .summary-text strong {
+    color: var(--accent-red-dark);
+    font-weight: 700;
+  }
+
+  /* === Section === */
+  .section {
+    margin-bottom: 60px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border-light);
+    position: relative;
+  }
+
+  .section-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: var(--accent-gold);
+  }
+
+  .section-num {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--accent-gold);
+    opacity: 0.35;
+    line-height: 1;
+    min-width: 54px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+    font-family: "Microsoft YaHei", "微软雅黑", "SimHei", "黑体", sans-serif;
+  }
+
+  /* === Typography === */
+  h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 32px 0 16px;
+    padding-left: 14px;
+    border-left: 3px solid var(--accent-gold);
+    line-height: 1.65;
+  }
+
+  h4 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 22px 0 12px;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    margin-bottom: 16px;
+    text-align: justify;
+  }
+
+  strong {
+    color: var(--accent-red-dark);
+    font-weight: 600;
+  }
+
+  a {
+    color: var(--accent-red);
+    text-decoration: underline;
+    word-break: break-all;
+  }
+
+  /* === Table === */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0 28px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    font-size: 16px;
+    min-width: 580px;
+  }
+
+  thead th {
+    background: linear-gradient(135deg, var(--text-primary), #3D2518);
+    color: var(--accent-warm);
+    font-weight: 600;
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 15px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--accent-gold);
+  }
+
+  tbody td {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-secondary);
+    vertical-align: top;
+    line-height: 1.85;
+  }
+
+  tbody tr:nth-child(even) {
+    background: var(--bg-accent);
+  }
+
+  tbody tr:hover {
+    background: rgba(200,149,108,0.08);
+    transition: background 0.2s;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* === Callout Boxes === */
+  .callout {
+    padding: 24px 30px;
+    border-radius: 12px;
+    margin: 22px 0 26px;
+    position: relative;
+  }
+
+  .callout-gold {
+    background: linear-gradient(135deg, #FFF8ED, #FAF0E2);
+    border: 1px solid var(--border-medium);
+    border-left: 4px solid var(--accent-gold);
+  }
+
+  .callout-red {
+    background: linear-gradient(135deg, #FDF2F0, #FAE8E4);
+    border: 1px solid #E8C4BE;
+    border-left: 4px solid var(--accent-red);
+  }
+
+  .callout-dark {
+    background: linear-gradient(135deg, var(--text-primary), #3D2518);
+    border-left: 4px solid var(--accent-warm);
+    color: rgba(255,248,237,0.92);
+    border-radius: 12px;
+  }
+
+  .callout-dark strong {
+    color: var(--accent-warm);
+  }
+
+  .callout-dark p {
+    color: rgba(255,248,237,0.88);
+  }
+
+  .callout-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  /* === List Styles === */
+  .styled-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 22px;
+  }
+
+  .styled-list li {
+    padding: 11px 0 11px 28px;
+    position: relative;
+    border-bottom: 1px dashed var(--border-light);
+  }
+
+  .styled-list li:last-child {
+    border-bottom: none;
+  }
+
+  .styled-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 4px;
+    color: var(--accent-gold);
+    font-size: 11px;
+    top: 16px;
+  }
+
+  /* === Numbered List === */
+  .numbered-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: list-counter;
+    margin: 18px 0 26px;
+  }
+
+  .numbered-list li {
+    counter-increment: list-counter;
+    padding: 14px 0 14px 52px;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .numbered-list li:last-child {
+    border-bottom: none;
+  }
+
+  .numbered-list li::before {
+    content: counter(list-counter, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 14px;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    opacity: 0.7;
+    min-width: 38px;
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 2px 8px;
+    line-height: 1.5;
+  }
+
+  /* === Key Fact Cards === */
+  .fact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin: 26px 0 34px;
+  }
+
+  .fact-card {
+    background: var(--bg-card);
+    border-radius: 14px;
+    padding: 30px 26px;
+    box-shadow: var(--shadow-soft);
+    border-top: 3px solid var(--accent-gold);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .fact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .fact-card .fact-num {
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--accent-gold);
+    opacity: 0.3;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .fact-card .fact-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    line-height: 1.55;
+  }
+
+  .fact-card .fact-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.85;
+  }
+
+  /* === Phase Timeline === */
+  .timeline {
+    display: flex;
+    gap: 24px;
+    margin: 26px 0 34px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .timeline-item {
+    flex: 1;
+    min-width: 280px;
+    background: var(--bg-card);
+    border-radius: 14px;
+    padding: 30px 26px;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    border-top: 3px solid var(--accent-gold);
+  }
+
+  .timeline-item:nth-child(2) {
+    border-top-color: var(--accent-red);
+  }
+
+  .timeline-item:nth-child(3) {
+    border-top-color: var(--accent-gold-dark);
+  }
+
+  .timeline-phase {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .timeline-period {
+    font-size: 13px;
+    color: var(--accent-gold-dark);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .timeline-tasks {
+    list-style: none;
+    padding: 0;
+  }
+
+  .timeline-tasks li {
+    font-size: 15px;
+    color: var(--text-secondary);
+    padding: 5px 0 5px 16px;
+    position: relative;
+    line-height: 1.75;
+  }
+
+  .timeline-tasks li::before {
+    content: '·';
+    position: absolute;
+    left: 2px;
+    color: var(--accent-gold);
+    font-size: 20px;
+    top: 2px;
+    font-weight: 700;
+  }
+
+  .timeline-result {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border-light);
+    font-size: 13px;
+    color: var(--accent-red);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* === Conclusion Block === */
+  .conclusion-block {
+    background: linear-gradient(135deg, var(--text-primary), #3D2518, #5A3E2B);
+    border-radius: 18px;
+    padding: 50px;
+    margin: 44px 0;
+    color: rgba(255,248,237,0.92);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .conclusion-block::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(200,149,108,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .conclusion-block h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent-warm);
+    margin-bottom: 26px;
+    letter-spacing: 2px;
+    font-family: "Microsoft YaHei", "微软雅黑", "SimHei", "黑体", sans-serif;
+  }
+
+  .conclusion-block p {
+    color: rgba(255,248,237,0.88);
+    font-size: 17px;
+    line-height: 2.05;
+  }
+
+  .conclusion-block strong {
+    color: var(--accent-warm);
+    font-weight: 600;
+  }
+
+  /* === Final CTA === */
+  .cta-block {
+    text-align: center;
+    padding: 52px 40px;
+    margin: 44px 0;
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-accent));
+    border-radius: 16px;
+    border: 2px solid var(--border-medium);
+  }
+
+  .cta-block .cta-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+
+  .cta-block .cta-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  /* === Footer === */
+  .footer {
+    margin-top: 60px;
+    padding: 32px 0 40px;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+  }
+
+  .footer p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 2;
+  }
+
+  /* === Responsive === */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+
+    .hero {
+      padding: 50px 20px 40px;
+    }
+
+    .hero h1 {
+      font-size: 26px;
+    }
+
+    .hero-meta {
+      gap: 20px;
+    }
+
+    .container {
+      padding: 0 16px;
+    }
+
+    .summary-banner {
+      padding: 0 16px;
+    }
+
+    .summary-card {
+      padding: 28px 24px;
+      border-radius: 12px;
+    }
+
+    .summary-text {
+      font-size: 16px;
+    }
+
+    .fact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline {
+      flex-direction: column;
+    }
+
+    .timeline-item {
+      min-width: unset;
+    }
+
+    .conclusion-block {
+      padding: 32px 24px;
+    }
+
+    .conclusion-block h2 {
+      font-size: 22px;
+    }
+
+    .section-num {
+      font-size: 30px;
+      min-width: 40px;
+    }
+
+    .section-title {
+      font-size: 20px;
+    }
+
+    table {
+      font-size: 14px;
+    }
+
+    thead th, tbody td {
+      padding: 11px 14px;
+    }
+  }
+
+  /* === Print Styles === */
+  @media print {
+    body {
+      background: white;
+      font-size: 13px;
+    }
+
+    .hero {
+      background: var(--text-primary) !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .section {
+      page-break-inside: avoid;
+    }
+
+    .conclusion-block {
+      page-break-inside: avoid;
+    }
+
+    .timeline {
+      flex-direction: column;
+    }
+  }
+
+  /* === Scroll animation === */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<header class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-badge">决策参考文件</div>
+  <h1>
+    <span class="highlight">《西游金蝉劫》</span><br>
+    IP 落地洛阳项目决策参考
+  </h1>
+  <p class="hero-subtitle">东方神话电影宇宙超级 IP · 玄奘故里 · 洛阳文化产业发展新引擎</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="label">呈报单位</div>
+      <div class="value">广州拉格朗日金蝉动画文化创意有限公司</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">文件性质</div>
+      <div class="value">决策参考 · 供市委市政府研判</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">日期</div>
+      <div class="value">2026 年 9 月</div>
+    </div>
+  </div>
+</header>
+
+<!-- ====== SUMMARY ====== -->
+<div class="summary-banner">
+  <div class="summary-card fade-in">
+    <div class="summary-label">「 一句话 」</div>
+    <div class="summary-text">
+      一个以<strong>玄奘故里</strong>为核心锚点、已完成 <strong>20 部电影故事架构与版权确权</strong>、由<strong>洛阳本地主创团队</strong>打造的<strong>东方神话电影宇宙超级 IP</strong>，请求以"<strong>资源合作</strong>"模式落地洛阳，需政府充分考察和论证。
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ====== 核心事实 ====== -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <h2 class="section-title">核心事实</h2>
+    </div>
+
+    <div class="fact-grid">
+      <div class="fact-card">
+        <div class="fact-num">I</div>
+        <div class="fact-title">20 部电影故事架构已定稿</div>
+        <div class="fact-desc">
+          10 部主线大电影＋10 部以上妖族支线。其中《金蝉子·前传·渡缘劫》《蝎子精·女妖王》《蝎子精·烈焰焚心》已完成定稿并落地制作中，三部故事已全网、全球公开，版权登记与可信时间戳存证体系完备。我们将打造金蝉子 IP 热度超过西游的孙悟空热度。
+        </div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-num">II</div>
+        <div class="fact-title">玄奘故里——全国唯一物理锚点</div>
+        <div class="fact-desc">
+          IP 核心人物金蝉子-陈玄奘（唐僧）的历史原型出生于洛阳偃师缑氏镇。"金蝉子转世的陈玄奘，出生在洛阳"——这一叙事闭环在全中国独一份，任何其他城市无法复制。
+        </div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-num">III</div>
+        <div class="fact-title">洛阳本地主创</div>
+        <div class="fact-desc">
+          主创团队几乎全部为洛阳本地人（创作团队目前不在洛阳本地工作），具备"人、地、作品"三者合一的独特渊源。项目方自筹资金制作，不要求政府投资或兜底，但也会有适当合适的落地要求。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== 一、项目概要 ====== -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2 class="section-title">项目概要</h2>
+    </div>
+
+    <p><strong>项目信息汇总网页链接：</strong><a href="https://nexus-nuwy.upma.site/" target="_blank">https://nexus-nuwy.upma.site/</a></p>
+	<p><strong>第一部《金蝉子前传渡缘劫》关键文案：</strong><a href="https://nexus-nuwy.upma.site/jczqzdyjzl.html" target="_blank">https://nexus-nuwy.upma.site/jczqzdyjzl.html</a></p>
+	<p><strong>第一部《金蝉子前传渡缘劫》票房预测：</strong><a href="https://mp.weixin.qq.com/s/AWA0G4vtnBbR_YtA76jbXw" target="_blank">https://mp.weixin.qq.com/s/AWA0G4vtnBbR_YtA76jbXw</a></p>
+
+    <p>本项目以<strong>《西游记》公有领域国民认知</strong>为基础，通过<strong>原创因果链叙事</strong>将原著散落的碎片（蝎子精为何蛰如来、老鼠精为何偷香花烛、金蝉子为何被贬轮回）重组为完整的因果链，全部原创情节已完成版权登记、可信时间戳存证、全网公开发表。<strong>这是受法律保护的核心资产。</strong></p>
+	<p><strong>《西游金蝉劫》IP系列电影</strong><br>
+	---<br>
+	《金蝉子·前传·渡缘劫》<br>
+	《蝎子精·女妖王》<br>
+	《蝎子精·烈焰焚心》<br>
+	《女儿国·上》<br>
+	《女儿国·中》<br>
+	《女儿国·下》<br>
+	《白鼠精·痴情·香花烛》<br>
+	《白鼠精·痴情·男儿泪》<br>
+	《赤焰红蟒·妖王》<br>
+	《西游·金蝉劫·有情佛》<br>
+	---<br>
+	10部主线大电影完成定稿，10+部妖族支线故事线确定。包含玉兔，杏仙，悟空，青狮等等<br>
+	前三部故事线，已经全网、全球公开，以供验证，并在先占位。整个IP故事够20年以上开发周期。<br>
+	我们在西游记的原著文本中，发掘出了东方神话宇宙，最大一块情感和故事的宝库。通过佛哲立本，情感筑魂，因果为链，搭建了一个庞大、前因后果逻辑自洽且感人至深的宇宙故事集。	<br>
+	100%原创故事，可全网查重。<br>
+	100%版权证书多本，可信时间戳一堆，分阶段国内外服务器存档，全网创作留痕，版权铁证链。<br>
+	---<br>
+	</p>
+    <p><strong>历史真实人物玄奘</strong>（602–666）出生于洛州缑氏（今偃师区缑氏镇），少年在洛阳净土寺出家。"金蝉子转世的陈玄奘，出生在洛阳"——<strong>这一叙事闭环在全中国独一份</strong>，是任何其他城市拿不走的。</p>
+
+    <div class="callout callout-gold">
+      <div class="callout-title">▎ 项目信息汇总</div>
+      <p>创作团队出身<strong>制造业</strong>，以工程化纪律打造影视作品，每一帧镜头反复打磨。项目方拥有完整的故事架构、版权链、制作团队与自筹资金，AIGC影视制作成本完全自己可控。</p>
+    </div>
+  </div>
+
+  <!-- ====== 二、解决洛阳的问题 ====== -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2 class="section-title">这个 IP 解决洛阳的什么问题</h2>
+    </div>
+
+    <p>2025 年 5 月，<strong>市人大常委会专题调研玄奘故里</strong>，明确指出四个痛点：</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:38%">洛阳的痛点（原文引用）</th>
+            <th style="width:62%">本 IP 的解法</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>"业态单一、流量转化不足"</strong></td>
+            <td>20 部电影＋衍生短剧＋游戏＋研学＋实景演艺＋衍生品，提供长期、多元的内容供给</td>
+          </tr>
+          <tr>
+            <td><strong>"文化价值未能充分转化为发展优势"</strong></td>
+            <td>"金蝉子转世的陈玄奘"将玄奘故里从静态故居升级为沉浸式文化体验目的地，把文化资源变成可消费的文旅产品</td>
+          </tr>
+          <tr>
+            <td><strong>"同源文脉景区碎片化发展、联动性不足"</strong></td>
+            <td>IP 叙事天然串联玄奘故里、白马寺、灵山寺、龙门石窟、隋唐洛阳城，提供统一的叙事总纲与研学产品框架</td>
+          </tr>
+          <tr>
+            <td><strong>"持续做强玄奘超级 IP"</strong></td>
+            <td>本 IP 是目前唯一以"玄奘前世今生"为核心叙事、已完成全系列架构的超级文化 IP，故事线一部比一部精彩，这是事实描述，不是夸张宣传。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-dark">
+      <p><strong>结论：</strong>这不是洛阳要不要引进一个项目的问题，是洛阳已经提出的问题，正好有一个现成的解法。</p>
+    </div>
+  </div>
+
+  <!-- ====== 三、核心资产 ====== -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2 class="section-title">核心资产与不可替代性</h2>
+    </div>
+
+    <h3>3.1 三大不可复制资产</h3>
+
+    <ol class="numbered-list">
+      <li>
+        <strong>《西游记》公有领域的国民认知。</strong>金蝉子、蝎子精、白鼠精、如来、孔雀大明王——所有核心人物自带国民认知，零认知门槛。这解决了"新 IP 教育市场"的最大成本项。
+      </li>
+      <li>
+        <strong>原创因果链的独家叙事。</strong>将原著散落的碎片重组为一条完整的因果链，全部原创情节已完成版权登记、可信时间戳存证、全网公开发表。<strong>这是受法律保护的核心资产。</strong>
+      </li>
+      <li>
+        <strong>玄奘故里的物理锚点。</strong>历史真实人物玄奘出生于洛州缑氏（今偃师区缑氏镇），少年在洛阳净土寺出家。<strong>这一叙事闭环在全中国独一份</strong>，是任何其他城市拿不走的。
+      </li>
+    </ol>
+
+    <h3>3.2 制作模式的时代优势</h3>
+
+    <p>2026 年 AI 影视技术已进入院线级应用阶段。生成成本以每年约十倍速度下降，制作门槛大幅降低。本项目采用 <strong>"AI 管线 + 专业精修"</strong> 的制作路线，成本完全自己可控：</p>
+
+    <ul class="styled-list">
+      <li>制作周期显著缩短：<strong>2027–2028 年预计 2–6 个月 / 部</strong></li>
+      <li>制作成本较传统 3D 动画管线<strong>降低 80% 以上</strong></li>
+      <li>角色资产库沉淀后，后续系列边际成本进一步降低</li>
+      <li>正好匹配洛阳"缺头部传统动画制作公司"的短板——<strong>AI 时代，制作不再是门槛，好故事、编剧能力、导演能力、文化锚点才是</strong></li>
+    </ul>
+
+    <h3>3.3 故事品质的差异化</h3>
+
+    <div class="table-wrap">
+      <table>
+		<p><strong>前三部电影故事梗概，微博文章：</strong><a href="https://weibo.com/ttarticle/p/show?id=2309405337742677770370" target="_blank">https://weibo.com/ttarticle/p/show?id=2309405337742677770370</a></p>
+		<p><strong>合作方深入了解IP阅读指引，微博文章：</strong><a href="https://weibo.com/ttarticle/p/show?id=2309405339116400410737" target="_blank">https://weibo.com/ttarticle/p/show?id=2309405339116400410737</a></p>
+	
+        <thead>
+          <tr>
+            <th style="width:28%">维度</th>
+            <th style="width:72%">内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>情感设计</strong></td>
+            <td>双女主情感线（白鼠精＝纯粹陪伴，蝎子精＝孤狼被治愈）互补不重复，具备国民级情感共鸣基础</td>
+          </tr>
+          <tr>
+            <td><strong>视觉符号体系</strong></td>
+            <td>信物锚定（信物/情绪表/系列符号、<strong>剧情暂不透露</strong>）、尾钩刻印（杀器翻转为爱的极致动作、公开宣发内容）、四色褪鳞（色彩叙事）——这些是可独立传播的视觉 IP</td>
+          </tr>
+          <tr>
+            <td><strong>系列级伏笔矩阵</strong></td>
+            <td>香花宝烛、黑蟒精、五色情丝、倒马毒桩等符号跨部复用，形成观众持续追看的情感黏性，《世界观圣经》全部精确定义</td>
+          </tr>
+          <tr>
+            <td><strong>女性向市场</strong></td>
+            <td>蝎子精"五百年女妖王第一次被善待、以命相护、六百年痴情、千年献祭"，填补中国神话电影无大女主史诗的品类空白</td>
+          </tr>
+		  
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ====== 四、项目方案 ====== -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2 class="section-title">项目方案</h2>
+    </div>
+
+    <h3>4.1 合作模式</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:22%">角色</th>
+            <th style="width:78%">内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>IP 方出</strong></td>
+            <td>内容与影视制作资本：完整故事架构、剧本定稿、版权链、制作团队、自筹资金、制作与宣发执行</td>
+          </tr>
+          <tr>
+            <td><strong>政府出</strong></td>
+            <td>资源与信用：场景授权、行政通道、官方背书、文旅承接、政策配套、涉宗协调。如大型文旅综合体SPV落地，需要配套政策和协调全业态资源整合。<strong>落地项目税收退返、省市区政策奖励补助等</strong>。</td>
+          </tr>
+          <tr>
+            <td><strong>双方共同</strong></td>
+            <td>按照落地 SPV 协议规则收益分成。文旅联营、衍生品授权、IP 使用费等按协议分成。<strong>城市拿超级城市 IP 名片，数百亿文旅增量，数十亿全网曝光流量等。</strong></td>
+          </tr>
+          <tr>
+            <td><strong>政府不承担</strong></td>
+            <td>投资风险（如果主动入股各个SPV也可以，比如地方专项投资基金等）、创作风险、市场风险。影视类项目不要求财政拨款、不要求政府兜底、不要求政府承担亏损。文旅落地、衍生品制造等仍需要政策支持和协调。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>4.2 需要政府支持的事项清单</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:5%">序号</th>
+            <th style="width:55%">事项</th>
+            <th style="width:22%">对接部门</th>
+            <th style="width:18%">性质</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>玄奘故里 IP 授权与联营合作（命名权、商标、景区联营、收益分成）</td><td>偃师区政府、文旅局、国资平台</td><td><strong style="color:var(--accent-red)">核心需求</strong></td></tr>
+          <tr><td>2</td><td>涉宗前置沟通（统战民宗、省市佛协、白马寺）</td><td>市委统战部、民宗局</td><td><strong style="color:var(--accent-red)">核心需求</strong></td></tr>
+          <tr><td>3</td><td>电影立项备案、拍摄许可、动画内容审查指导</td><td>市委宣传部、文旅局、广电</td><td>行政通道</td></tr>
+          <tr><td>4</td><td>产业配套政策（场地、人才、算力/渲染补贴等全国都在进行的文创扶持政策）</td><td>工信局、人社局、发改委</td><td>政策支持</td></tr>
+          <tr><td>5</td><td>文旅联动（研学线路、景区巡游、夜游、节庆活动）</td><td>文旅局、教育局、各县区</td><td>文旅承接</td></tr>
+          <tr><td>6</td><td>产学研合作（河南科技大学、洛阳师范学院等）</td><td>教育局、科技局</td><td>人才培养</td></tr>
+          <tr><td>7</td><td>衍生品正版基地与商标布局支持</td><td>市场监管局</td><td>产业配套</td></tr>
+          <tr><td>8</td><td>发行通道对接（平台 AI 长剧采购、院线发行、海外分发）</td><td>市委宣传部、商务局、外办</td><td>资源对接</td></tr>
+          <tr><td>9</td><td>文化出海通道（一带一路、佛教文化交流、国际电影节）</td><td>外办、文旅局</td><td>出口政绩</td></tr>
+          <tr><td>10</td><td>玄奘故里 4A 融入 IP 元素</td><td>偃师区政府、文旅局</td><td>与现有部署对接</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>4.3 三阶段推进路线</h3>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-phase">启动期</div>
+        <div class="timeline-period">0 – 12 个月</div>
+        <ul class="timeline-tasks">
+          <li>确权收口</li>
+          <li>SPV 项目公司注册</li>
+          <li>玄奘故里授权协议签署</li>
+          <li>涉宗沟通完成</li>
+          <li>电影备案</li>
+          <li>概念样片制作</li>
+          <li>引导基金设立</li>
+        </ul>
+        <div class="timeline-result">→ 项目落地 · 景区概念规划 · 首批舆情成果</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">建设期</div>
+        <div class="timeline-period">13 – 36 个月</div>
+        <ul class="timeline-tasks">
+          <li>首部电影制作</li>
+          <li>玄奘故里一期沉浸式改造</li>
+          <li>衍生品授权启动</li>
+          <li>研学产品上线</li>
+          <li>短剧 / 小说持续曝光</li>
+          <li>海外发行洽谈</li>
+        </ul>
+        <div class="timeline-result">→ 景区升级 · 就业岗位 · 产业链初成</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">收获期</div>
+        <div class="timeline-period">37 – 60 个月</div>
+        <ul class="timeline-tasks">
+          <li>首部上映</li>
+          <li>文旅全面承接</li>
+          <li>第二部启动</li>
+          <li>上下游企业落户</li>
+          <li>文化出海落地</li>
+        </ul>
+        <div class="timeline-result">→ 城市名片升级 · 经济增量兑现 · 政策标杆位</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== 五、经济与社会影响 ====== -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2 class="section-title">经济与社会影响评估</h2>
+    </div>
+
+    <h3>5.1 文旅端（增量最确定）</h3>
+
+    <ul class="styled-list">
+      <li>
+        <strong>玄奘故里升级：</strong>完整展示真实玄奘（陈祎）一生——缑氏出身、少年出家、西行求法、归国译经史实。让粉丝充分理解玄奘的一生，同时明白金蝉子<strong>"有情成佛"</strong>的真正含义。满足亿万粉丝的精神锚定需求。对接政府已部署的 4A 联创目标。
+      </li>
+      <li>
+        <strong>新建沙河畔金蝉宇宙娱乐度假区：</strong>充分利用"平地 + 沙河河谷山坳"立体地形。平地做建筑、大型游乐；河谷沟壑做山林水系秘境。规划<strong>"金蝉子·渡缘劫"</strong>沉浸式景区（菩提共生光影秀、渡缘阁实景、白鼠洞秘境、十世轮回长廊、蝉鸣夜游），目标是<strong>打造国内独一无二的神话 + 历史复合型国家级文旅度假综合体</strong>。
+		<br>娱乐度假区相关内容，参看下面规划文案。<br><p><strong>《西游金蝉劫》东方神话金蝉宇宙文旅综合体：</strong><a href="https://nexus-nuwy.upma.site/jcjlywl1.html" target="_blank">https://nexus-nuwy.upma.site/jcjlywl1.html</a></p>
+		  
+      </li>
+      <li>
+        <strong>全域文旅联动：</strong>白马寺（佛教祖庭）、隋唐洛阳城（应天门/九洲池）、洛邑古城、龙门石窟、二里头遗址、栾川老君山（妖族线取景）——IP 提供统一叙事，串联"同源文脉"。
+      </li>
+      <li>
+        <strong>研学产品：</strong>玄奘故里＋白马寺＋龙门＋金蝉宇宙娱乐度假区"丝路佛缘"研学线路，对接政府提出的"统一研学产品、统一文旅形象"。
+      </li>
+      <li>
+        <strong>预期影响：</strong>参照近年头部文化 IP 带动地方文旅的普遍倍数，核心景区客流提升 20%–60% 区间（视运营深度），新建沙河畔金蝉宇宙娱乐度假区，游客平均滞留时长提升 2–3 倍。衍生品与二次消费客单价提升通常高于客流增长。（具体数字需做本地客流与消费结构专项测算。）
+      </li>
+    </ul>
+
+    <h3>5.2 产业端（从 0 到 1）</h3>
+
+    <ul class="styled-list">
+      <li><strong>AI 影视资产与管线中心：</strong>角色资产库、场景地图、精修团队——AI 时代的核心护城河。</li>
+      <li><strong>上下游招引：</strong>配音、音乐、渲染、动作捕捉、出海发行、衍生品设计与制造。</li>
+      <li><strong>产学研基地：</strong>本地高校 AI 影视方向，培养并留住高端人才。</li>
+      <li><strong>衍生品制造业：</strong>洛阳的唐三彩、牡丹瓷、仿古青铜器、汉服生产链是"实物制造 + 文化符号"的独有组合，可承接 IP 衍生品的全品类开发。</li>
+    </ul>
+
+    <h3>5.3 文化端（政绩与出海）</h3>
+
+    <ul class="styled-list">
+      <li><strong>政策标杆：</strong>可争取"国家级文化产业示范基地""国家文化出口重点企业/项目""文旅融合示范区"。</li>
+      <li><strong>文化出海：</strong>玄奘故里＋佛教祖庭组合，对"一带一路"、东亚佛教文化交流有天然官方叙事价值。系列电影面向东亚汉字文化圈（约 25 亿人）发行，具备全球传播基础。</li>
+      <li><strong>城市名片升级：</strong>洛阳从"千年古都＋牡丹＋汉服"升级为<strong>"东方神话宇宙起源地"</strong>，对 Z 世代的吸引力显著提升，契合<strong>"文化出海"</strong>和<strong>"文旅融合"</strong>两项国策叠加。</li>
+    </ul>
+  </div>
+
+  <!-- ====== 六、风险分析 ====== -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <h2 class="section-title">风险分析与对策</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:14%">风险类别</th>
+            <th style="width:22%">具体描述</th>
+            <th style="width:50%">对策</th>
+            <th style="width:14%">可控程度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>涉宗风险</strong></td>
+            <td>玄奘法师在佛教界地位崇高，"佛子动情"题材需前置沟通</td>
+            <td>由政府搭桥，统战民宗、省市佛协、白马寺前置沟通；剧本定位"神话前传、非历史叙事、非宗教教义"；佛学顾问出具大乘菩萨道正统阐释。我方已完成金蝉情感阐释和大乘菩萨道阐释文案基础</td>
+            <td><strong style="color:#2D7A3E">高</strong><br><span style="font-size:13px;color:var(--text-muted)">（政府可主导）</span></td>
+          </tr>
+          <tr>
+            <td><strong>审查风险</strong></td>
+            <td>电影内容审查（宗教题材、情感尺度）</td>
+            <td>坚守"情动而不越界"红线；内容对标合家欢标准；提前与电影局沟通。金蝉之情皆为大乘慈悲之情，白鼠越界，设定白鼠具备魅惑之妖力，这是主要因。</td>
+            <td><strong style="color:#2D7A3E">高</strong></td>
+          </tr>
+          <tr>
+            <td><strong>舆情风险</strong></td>
+            <td>"魔改经典"争议</td>
+            <td>编制"原著出处对照表"（每处借用标注回目）；发布佛哲解读文本；以作品品质回应</td>
+            <td><strong style="color:#2D7A3E">高</strong></td>
+          </tr>
+          <tr>
+            <td><strong>市场风险</strong></td>
+            <td>单片票房不及预期<br><span style="font-size:13px;color:var(--accent-gold-dark)">（概率极小，前十部大概率都是爆款）</span></td>
+            <td>滚动开发（前传→蝎子精→白鼠精）；文旅与衍生品先行准备，第一部爆款立即投入复刻生产（广东产业齐全，上量极快，可补充）；口碑运营取代传统宣发</td>
+            <td><strong style="color:#C8956C">中高</strong></td>
+          </tr>
+          <tr>
+            <td><strong>盗版风险</strong></td>
+            <td>IP 起势后周边盗版泛滥</td>
+            <td>提前商标与外观专利布局；正版联名首发基地设在洛阳；监控与维权预案</td>
+            <td><strong style="color:#2D7A3E">高</strong></td>
+          </tr>
+          <tr>
+            <td><strong>AI 合规风险</strong></td>
+            <td>AI 生成内容标识、版权确权</td>
+            <td>履行《人工智能生成合成内容标识办法》标识义务；保留人工智力投入证据（分镜设计、提示词工程、后期修改记录）</td>
+            <td><strong style="color:#2D7A3E">高</strong></td>
+          </tr>
+          <tr>
+            <td><strong>政策连续性风险</strong></td>
+            <td>领导更替导致项目断档</td>
+            <td>走"公司化＋基金化＋协议化"路线，将支持固化为制度而非个人决策</td>
+            <td><strong style="color:#C8956C">中高</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-gold">
+      <div class="callout-title">▎ 总体风险评估</div>
+      <p><strong>无不可控风险。</strong>所有风险均有明确对策，且核心风险（涉宗、审查、舆情）均需政府协调——这恰恰说明政府参与是必要条件，而非可选项。对于提前预测到的风险，创作团队，已经完成所有关键对应阐释文案。</p>
+    </div>
+  </div>
+
+  <!-- ====== 七、竞争态势 ====== -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <h2 class="section-title">与同类城市的竞争态势</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:12%">城市</th>
+            <th style="width:38%">优势</th>
+            <th style="width:50%">对本 IP 的获取能力</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>成都</td><td>动画产业生态、爆款制作经验</td><td><strong>无法获取玄奘故里的物理锚点</strong></td></tr>
+          <tr><td>杭州</td><td>数字经济、AIGC 产业基础</td><td>同上</td></tr>
+          <tr><td>北京</td><td>发行渠道、资本、人才</td><td>同上</td></tr>
+          <tr><td>西安</td><td>大唐文化、长安城 IP</td><td><strong>叙事上时间差</strong>（西安是"取经起点"，洛阳是"玄奘出生地"，本 IP 开篇的根基在前世而非西行）</td></tr>
+          <tr style="background:rgba(200,149,108,0.12);font-weight:500;">
+            <td><strong style="color:var(--accent-red-dark)">洛阳</strong></td>
+            <td><strong>玄奘故里（全球唯一）、佛教祖庭白马寺、本地籍贯主创团队、文旅产业基础</strong></td>
+            <td><strong style="color:var(--accent-red-dark)">唯一能获取全部核心资产的城市</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-dark">
+      <p><strong>结论：</strong>本 IP 与其他城市的合作只能获取"拍摄地"或"出品地"，唯有在洛阳能获取<strong>"IP 精神原乡"</strong>。这一差异决定了洛阳在谈判中的不可替代性，也决定了如果洛阳不接，这个 IP 最终会流失到其他城市，<strong>洛阳将永久失去"东方神话宇宙起源地"的城市叙事。</strong></p>
+    </div>
+  </div>
+
+  <!-- ====== 八、建议 ====== -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <h2 class="section-title">建议</h2>
+    </div>
+
+    <h3>8.1 建议立即启动的三件事</h3>
+
+    <ol class="numbered-list">
+      <li>
+        <strong>牵头涉宗前置沟通。</strong>由统战民宗部门牵头，与省市佛协、白马寺方面做前置沟通，明确"神话前传、非历史叙事、非宗教教义"定位，争取佛教界中性或支持态度。<strong>这是最高优先级，无可替代，且只有政府能做。本地白马寺等具备宗教顶级话语资格。</strong>
+      </li>
+      <li>
+        <strong>启动玄奘故里 IP 授权与联营谈判。</strong>由偃师区政府、文旅局、国资平台与项目方就命名权、商标归属、联营收益分成、改造投入分担、独占期与退出机制等条款进行书面谈判，律师全程参与。
+      </li>
+      <li>
+        <strong>成立专项工作小组。</strong>由市领导牵头，宣传部、文旅局、统战民宗、偃师区政府、发改委、工信局等参与，统筹推进项目落地。
+      </li>
+    </ol>
+
+    <h3>8.2 建议在 6 个月内完成的事项</h3>
+
+    <ul class="styled-list">
+      <li>项目公司注册与落地</li>
+      <li>玄奘故里联营合作协议签署</li>
+      <li>电影立项备案与剧本审查沟通</li>
+      <li>产业配套政策制定（场地、人才、算力补贴）</li>
+      <li>产学研合作协议签署</li>
+      <li>玄奘故里 4A 融入 IP 元素的规划调整</li>
+      <li>衍生品商标布局启动</li>
+    </ul>
+
+    <h3>8.3 建议争取的政策与荣誉</h3>
+
+    <ul class="styled-list">
+      <li>国家级文化产业示范基地</li>
+      <li>国家文化出口重点企业 / 项目</li>
+      <li>文旅融合示范区</li>
+      <li>中国电影金鸡奖 / 华表奖参评</li>
+      <li>丝绸之路国际电影节展映</li>
+      <li>东亚佛教文化交流活动的官方叙事</li>
+    </ul>
+  </div>
+
+  <!-- ====== 九、结论 ====== -->
+  <div class="conclusion-block fade-in">
+    <h2>结 论</h2>
+    <p>这份项目的核心逻辑是一句话：<strong>洛阳出的是别人给不了的</strong>（玄奘故里、政府背书、文化通道），<strong>项目方出的是洛阳缺的</strong>（内容、团队、版权资产），双方互补，风险可控，收益可期。</p>
+	<p>核心主创团队有三名河南科技大学毕业生，属于<strong>朱锦洪教授</strong>亲自带的优秀毕业生。文创IP开发工作，也是在<strong>朱锦洪教授</strong>指导下进行全方位创作。</p>
+	<p><strong>朱锦洪教授</strong>担任本《西游金蝉劫》东方神话宇宙超级IP<strong>总学术顾问</strong>一职。</p>
+    <p>在 AI 使制作成本断崖式下降、而好故事和文化锚点加速升值的 2026 年，<strong>"内容为王"</strong>不再是口号，而是已经发生的产业现实。洛阳握着全国唯一的玄奘故里、最完整的佛教祖庭文脉、以及一支愿意把身家押在家乡的本地主创团队——<strong>三张牌同时在手，全中国没有第二个城市。</strong></p>
+    <p>洛阳市人大已经明确提出了<strong>"做强玄奘 IP"</strong>的战略方向。这个<strong>项目就是那个能落地的抓手</strong>。</p>
+	<p><strong>金蝉子=玄奘</strong></p>
+  </div>
+
+  <!-- ====== CTA ====== -->
+  <div class="cta-block fade-in">
+    <div class="cta-text">建 议：启动专项工作，进入合作谈判程序，一事一议，给洛阳的文创电影行业注入未来20年的希望，很可能成为中国影视的珠穆朗玛！</div>
+    <div class="cta-sub">广州拉格朗日金蝉动画文化创意有限公司 · 2026 年 9 月</div>
+  </div>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <p>
+      本文件所涉 IP 信息均来自项目方公开发布内容及已完成的版权登记存证，不涉及未公开剧本内容。<br>
+      具体合作条款以双方正式协议为准。<br>
+      <span style="color:var(--accent-gold-dark);letter-spacing:2px;">© 2026 广州拉格朗日金蝉动画文化创意有限公司 · 保留所有权利</span>
+    </p>
+  </footer>
+
+</div>
+
+<!-- ====== Scroll Animation ====== -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+  });
+</script>
+
+</body>
+</html>
