@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西游金蝉劫 · 东方神话宇宙超级IP | 拉格朗日光影动画</title>
+<meta name="description" content="《西游金蝉劫》东方神话宇宙超级IP，100%版权持有，10部主线大电影完成定稿，20年以上开发周期。拉格朗日光影动画 西游金蝉劫项目组。">
+<style>
+/* ============ 基础重置 ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --bg:#07070c;
+  --bg2:#0c0c15;
+  --gold:#c9a227;
+  --gold-l:#e9d191;
+  --gold-d:rgba(201,162,39,.30);
+  --gold-line:rgba(201,162,39,.16);
+  --red:#a32b22;
+  --text:#dcdce4;
+  --text-dim:#8b8b9b;
+  --card:rgba(255,255,255,.022);
+  --serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",sans-serif;
+}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;}
+
+/* ============ 背景光晕 ============ */
+.bg-layer{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.bg-layer::before{
+  content:"";position:absolute;top:-20%;left:50%;transform:translateX(-50%);
+  width:120vw;height:80vh;
+  background:radial-gradient(ellipse at center,rgba(201,162,39,.10) 0%,rgba(201,162,39,.03) 35%,transparent 70%);
+}
+.bg-layer::after{
+  content:"";position:absolute;bottom:-10%;right:-10%;
+  width:70vw;height:70vh;
+  background:radial-gradient(circle at center,rgba(163,43,34,.10) 0%,transparent 65%);
+}
+.grid-lines{
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.35;
+  background-image:linear-gradient(rgba(201,162,39,.035) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(201,162,39,.035) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 20%,#000 0%,transparent 85%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 20%,#000 0%,transparent 85%);
+}
+
+/* ============ 导航 ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .35s ease,border-color .35s ease,backdrop-filter .35s;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  background:rgba(7,7,12,.88);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--gold-line);
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;padding:14px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{display:flex;align-items:center;gap:11px;}
+.brand-mark{
+  width:32px;height:32px;flex:0 0 32px;
+  display:grid;place-items:center;
+  border:1px solid var(--gold-d);border-radius:50%;
+  font-family:var(--serif);font-size:15px;color:var(--gold-l);
+  background:radial-gradient(circle at 30% 25%,rgba(201,162,39,.22),transparent 70%);
+}
+.brand-text{
+  font-family:var(--serif);font-size:17px;letter-spacing:.14em;color:#f0ece2;font-weight:600;
+}
+.nav-links{display:flex;gap:30px;}
+.nav-links a{
+  font-size:13.5px;color:var(--text-dim);letter-spacing:.06em;
+  position:relative;transition:color .25s;padding:4px 0;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:linear-gradient(90deg,var(--gold),transparent);transition:width .3s ease;
+}
+.nav-links a:hover{color:var(--gold-l);}
+.nav-links a:hover::after{width:100%;}
+
+/* ============ 通用容器 ============ */
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2;}
+section{position:relative;z-index:2;}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:130px 0 80px;position:relative;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12.5px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;
+  margin-bottom:26px;
+}
+.hero-eyebrow::before{
+  content:"";width:38px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));
+}
+.hero-eyebrow::after{
+  content:"";width:38px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);
+}
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(46px,8.5vw,104px);
+  line-height:1.05;letter-spacing:.06em;font-weight:700;
+  background:linear-gradient(160deg,#fff8e6 0%,#e9d191 32%,#c9a227 62%,#8f6f14 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  margin-bottom:6px;
+}
+.hero-sub{
+  font-family:var(--serif);
+  font-size:clamp(15px,2.3vw,22px);
+  letter-spacing:.42em;color:rgba(233,209,145,.62);
+  margin-bottom:30px;padding-left:4px;
+}
+.hero-desc{
+  max-width:680px;font-size:16px;line-height:2.05;color:#a9a9ba;margin-bottom:38px;
+}
+.hero-desc strong{color:var(--gold-l);font-weight:600;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:52px;}
+.tag{
+  font-size:12.5px;letter-spacing:.1em;padding:7px 16px;border-radius:100px;
+  border:1px solid var(--gold-line);color:rgba(233,209,145,.8);
+  background:rgba(201,162,39,.045);
+  transition:all .3s ease;
+}
+.tag:hover{border-color:var(--gold-d);background:rgba(201,162,39,.1);transform:translateY(-2px);}
+
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--gold-line);border:1px solid var(--gold-line);border-radius:4px;overflow:hidden;
+}
+.stat{
+  background:linear-gradient(180deg,rgba(12,12,21,.92),rgba(7,7,12,.92));
+  padding:26px 22px;text-align:center;
+}
+.stat-num{
+  font-family:var(--serif);font-size:clamp(26px,3.4vw,38px);font-weight:700;
+  color:var(--gold-l);line-height:1.2;letter-spacing:.02em;
+}
+.stat-num small{font-size:.5em;letter-spacing:.05em;color:var(--gold);margin-left:2px;}
+.stat-label{font-size:12.5px;color:var(--text-dim);letter-spacing:.12em;margin-top:6px;}
+
+/* ============ 区块标题 ============ */
+.sec{padding:96px 0;}
+.sec-head{margin-bottom:52px;}
+.sec-num{
+  font-family:var(--serif);font-size:12px;letter-spacing:.35em;color:var(--gold);
+  display:block;margin-bottom:14px;opacity:.85;
+}
+.sec-title{
+  font-family:var(--serif);font-size:clamp(26px,4vw,40px);font-weight:700;
+  letter-spacing:.08em;color:#f2eee4;line-height:1.35;
+}
+.sec-title em{font-style:normal;color:var(--gold-l);}
+.sec-line{
+  width:56px;height:2px;margin-top:20px;
+  background:linear-gradient(90deg,var(--gold),rgba(201,162,39,0));
+}
+.sec-desc{margin-top:18px;color:var(--text-dim);max-width:760px;font-size:14.5px;}
+
+/* ============ 卡片通用 ============ */
+.card{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:6px;padding:28px 26px;
+  transition:border-color .35s ease,transform .35s ease,background .35s ease;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:"";position:absolute;top:0;left:0;width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,162,39,.5),transparent);
+  opacity:0;transition:opacity .4s ease;
+}
+.card:hover{
+  border-color:var(--gold-d);transform:translateY(-4px);
+  background:rgba(255,255,255,.035);
+}
+.card:hover::before{opacity:1;}
+
+/* ============ 基本信息 ============ */
+.info-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;
+}
+.info-item{
+  border-left:2px solid var(--gold-d);padding:16px 0 16px 20px;
+  transition:border-color .3s ease;
+}
+.info-item:hover{border-left-color:var(--gold);}
+.info-key{
+  font-size:11.5px;letter-spacing:.24em;color:var(--gold);opacity:.8;
+  margin-bottom:7px;text-transform:uppercase;
+}
+.info-val{font-size:16px;color:#e6e4dc;font-family:var(--serif);letter-spacing:.03em;line-height:1.7;}
+.info-val span{display:block;font-family:var(--sans);font-size:13.5px;color:var(--text-dim);letter-spacing:0;margin-top:3px;}
+
+/* ============ IP 能力 ============ */
+.ip-duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.ip-card{
+  border:1px solid var(--gold-line);border-radius:6px;padding:32px 28px;
+  background:linear-gradient(155deg,rgba(201,162,39,.055),rgba(255,255,255,.012) 55%);
+  position:relative;overflow:hidden;transition:transform .4s ease,border-color .4s ease;
+}
+.ip-card:hover{transform:translateY(-5px);border-color:var(--gold-d);}
+.ip-card::after{
+  content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;
+  border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.13),transparent 70%);
+}
+.ip-card h3{
+  font-family:var(--serif);font-size:21px;letter-spacing:.08em;color:#f4f0e6;margin-bottom:10px;
+}
+.ip-card .badge{
+  display:inline-block;font-size:11.5px;letter-spacing:.16em;padding:4px 12px;border-radius:3px;
+  background:rgba(163,43,34,.22);border:1px solid rgba(163,43,34,.45);color:#e8a89f;margin-bottom:16px;
+}
+.ip-card p{font-size:14px;color:#9d9dae;line-height:1.95;}
+
+/* ============ 电影矩阵 ============ */
+.film-group{margin-bottom:44px;}
+.film-group:last-child{margin-bottom:0;}
+.group-label{
+  display:flex;align-items:center;gap:14px;margin-bottom:22px;
+}
+.group-label h3{
+  font-family:var(--serif);font-size:17px;letter-spacing:.12em;color:var(--gold-l);font-weight:600;
+  white-space:nowrap;
+}
+.group-label .gline{flex:1;height:1px;background:linear-gradient(90deg,var(--gold-line),transparent);}
+.dot{
+  width:7px;height:7px;border-radius:50%;background:var(--gold);flex:0 0 7px;
+  box-shadow:0 0 12px rgba(201,162,39,.85);
+}
+.dot.pulse{animation:pulse 2.2s ease-in-out infinite;}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 8px rgba(201,162,39,.6);opacity:1;}
+  50%{box-shadow:0 0 22px rgba(201,162,39,1);opacity:.65;}
+}
+.film-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:16px;}
+.film{
+  border:1px solid rgba(255,255,255,.06);border-radius:5px;
+  padding:22px 22px 20px;background:rgba(255,255,255,.018);
+  display:flex;flex-direction:column;gap:10px;
+  transition:all .35s ease;position:relative;
+}
+.film:hover{
+  border-color:var(--gold-d);background:rgba(201,162,39,.05);transform:translateY(-3px);
+}
+.film-idx{
+  font-family:var(--serif);font-size:11px;letter-spacing:.2em;color:var(--gold);opacity:.6;
+}
+.film-name{
+  font-family:var(--serif);font-size:17px;letter-spacing:.05em;color:#efece3;line-height:1.5;
+}
+.film-status{
+  font-size:11.5px;letter-spacing:.1em;padding:4px 10px;border-radius:3px;
+  align-self:flex-start;margin-top:2px;
+}
+.s-making{background:rgba(163,43,34,.2);border:1px solid rgba(163,43,34,.5);color:#eaa79e;}
+.s-open{background:rgba(201,162,39,.12);border:1px solid var(--gold-d);color:var(--gold-l);}
+.s-done{background:rgba(120,140,160,.1);border:1px solid rgba(140,160,180,.25);color:#9fb2c4;}
+.film-note{font-size:12.5px;color:var(--text-dim);letter-spacing:.03em;}
+
+/* ============ IP 优势 ============ */
+.adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+.adv{
+  padding:26px 24px;border:1px solid rgba(255,255,255,.055);border-radius:6px;
+  background:var(--card);transition:all .35s ease;position:relative;
+}
+.adv:hover{border-color:var(--gold-d);background:rgba(201,162,39,.04);}
+.adv-icon{
+  font-family:var(--serif);font-size:13px;letter-spacing:.2em;color:var(--gold);
+  margin-bottom:14px;opacity:.85;
+}
+.adv h4{
+  font-family:var(--serif);font-size:17px;letter-spacing:.06em;color:#f0ede4;margin-bottom:10px;font-weight:600;
+}
+.adv p{font-size:13.8px;color:#9595a6;line-height:1.9;}
+
+/* ============ 角色 ============ */
+.chars{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+.char{
+  font-family:var(--serif);font-size:14px;letter-spacing:.08em;
+  padding:9px 18px;border-radius:100px;
+  border:1px solid rgba(255,255,255,.075);color:#c8c5bd;
+  background:rgba(255,255,255,.02);transition:all .3s ease;
+}
+.char:hover{
+  border-color:var(--gold-d);color:var(--gold-l);background:rgba(201,162,39,.08);
+  transform:translateY(-2px);
+}
+.char.core{
+  border-color:var(--gold-d);color:var(--gold-l);background:rgba(201,162,39,.07);
+}
+
+/* ============ OPC 合作 ============ */
+.opc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-bottom:34px;}
+.opc-card{
+  border:1px solid var(--gold-line);border-radius:6px;padding:28px 24px;
+  background:linear-gradient(170deg,rgba(201,162,39,.05),rgba(255,255,255,.012));
+  transition:all .35s ease;
+}
+.opc-card:hover{transform:translateY(-4px);border-color:var(--gold-d);}
+.opc-letter{
+  font-family:var(--serif);font-size:34px;line-height:1;color:rgba(201,162,39,.35);
+  font-weight:700;margin-bottom:14px;
+}
+.opc-card h4{
+  font-family:var(--serif);font-size:16.5px;letter-spacing:.06em;color:#f0ede4;margin-bottom:10px;
+}
+.opc-card p{font-size:13.6px;color:#9595a6;line-height:1.9;}
+
+.highlight{
+  border:1px solid rgba(163,43,34,.45);border-radius:6px;
+  padding:34px 32px;
+  background:linear-gradient(135deg,rgba(163,43,34,.14),rgba(201,162,39,.06) 60%,transparent);
+  position:relative;overflow:hidden;
+}
+.highlight::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--gold),var(--red));
+}
+.hl-label{
+  font-size:11.5px;letter-spacing:.3em;color:#e09b91;margin-bottom:12px;
+}
+.highlight h3{
+  font-family:var(--serif);font-size:clamp(19px,2.6vw,25px);letter-spacing:.06em;
+  color:#f6f2e8;line-height:1.6;margin-bottom:14px;
+}
+.highlight p{font-size:14.5px;color:#a9a3a0;line-height:1.95;max-width:860px;}
+.highlight p strong{color:var(--gold-l);font-weight:600;}
+
+/* ============ 联系 ============ */
+.contact{
+  border:1px solid var(--gold-line);border-radius:8px;
+  padding:48px 44px;
+  background:linear-gradient(150deg,rgba(201,162,39,.07),rgba(255,255,255,.012) 60%);
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+}
+.contact h3{
+  font-family:var(--serif);font-size:clamp(22px,3vw,30px);letter-spacing:.08em;
+  color:#f4f0e6;line-height:1.5;margin-bottom:14px;
+}
+.contact h3 em{font-style:normal;color:var(--gold-l);}
+.contact p{font-size:14px;color:#9494a5;line-height:1.9;}
+.c-list{display:flex;flex-direction:column;gap:18px;}
+.c-row{display:flex;gap:16px;align-items:baseline;}
+.c-key{
+  font-size:11.5px;letter-spacing:.2em;color:var(--gold);min-width:56px;flex:0 0 56px;
+  opacity:.85;padding-top:2px;
+}
+.c-val{font-size:15px;color:#e4e1d8;font-family:var(--serif);letter-spacing:.04em;word-break:break-all;}
+.c-val small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--text-dim);letter-spacing:0;margin-top:2px;}
+
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:13.5px;letter-spacing:.08em;padding:13px 24px;border-radius:4px;
+  border:1px solid var(--gold-d);color:var(--gold-l);
+  background:rgba(201,162,39,.07);transition:all .3s ease;
+}
+.btn:hover{background:rgba(201,162,39,.16);border-color:var(--gold);transform:translateY(-2px);}
+.btn.solid{
+  background:linear-gradient(120deg,#c9a227,#e9d191);color:#14100a;
+  border-color:transparent;font-weight:600;
+}
+.btn.solid:hover{background:linear-gradient(120deg,#e9d191,#c9a227);}
+.btn .arrow{transition:transform .3s ease;}
+.btn:hover .arrow{transform:translateX(4px);}
+
+/* ============ 页脚 ============ */
+footer{
+  border-top:1px solid rgba(255,255,255,.055);
+  padding:40px 0 46px;margin-top:40px;position:relative;z-index:2;
+}
+.foot-inner{
+  max-width:1180px;margin:0 auto;padding:0 28px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.foot-brand{
+  font-family:var(--serif);font-size:14px;letter-spacing:.12em;color:#7d7d8d;
+}
+.foot-note{font-size:12.5px;color:#55555f;letter-spacing:.05em;}
+
+/* ============ 滚动动效 ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1);}
+.reveal.on{opacity:1;transform:none;}
+
+/* ============ 响应式 ============ */
+@media (max-width:900px){
+  .ip-duo{grid-template-columns:1fr;}
+  .contact{grid-template-columns:1fr;padding:36px 28px;gap:30px;}
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+  .nav-links{display:none;}
+}
+@media (max-width:640px){
+  .wrap{padding:0 20px;}
+  .nav-inner{padding:12px 20px;}
+  .sec{padding:70px 0;}
+  .hero{padding:110px 0 60px;min-height:auto;}
+  .hero-sub{letter-spacing:.28em;}
+  .film-grid{grid-template-columns:1fr;}
+  .foot-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+  .stat{padding:20px 14px;}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-layer"></div>
+<div class="grid-lines"></div>
+
+<!-- ========== 导航 ========== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="brand-mark">蝉</span>
+      <span class="brand-text">西游金蝉劫</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#about">项目概况</a>
+      <a href="#films">电影矩阵</a>
+      <a href="#advantage">IP优势</a>
+      <a href="#roles">角色宇宙</a>
+      <a href="#opc">落地合作</a>
+      <a href="#contact">联系我们</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">东方神话宇宙 · 超级IP</div>
+    <h1>西游金蝉劫</h1>
+    <div class="hero-sub">有情 · 成佛</div>
+    <p class="hero-desc">
+      我们在西游记原著文本中，发掘出东方神话宇宙最大一块哲学、情感与故事的宝库。
+      以<strong>佛哲立本，情感筑魂，因果为链</strong>，搭建一个前因后果逻辑自洽、感人至深的宇宙故事集。
+      写透吴承恩先生五百年来未曾写就的故事。
+    </p>
+    <div class="hero-tags">
+      <span class="tag">100% 版权持有</span>
+      <span class="tag">10部主线大电影定稿</span>
+      <span class="tag">20年+ 开发周期</span>
+      <span class="tag">漫威式多主角叙事</span>
+      <span class="tag">AIGC 院线时代</span>
+      <span class="tag">全系列 100% 独创</span>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">10<small>部</small></div>
+        <div class="stat-label">主线大电影定稿</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">20<small>+</small></div>
+        <div class="stat-label">故事线剧情</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100<small>%</small></div>
+        <div class="stat-label">版权铁证链</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">15<small>人</small></div>
+        <div class="stat-label">核心制作团队</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 项目概况 ========== -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">01 / PROJECT PROFILE</span>
+      <h2 class="sec-title">项目与团队<em>基本信息</em></h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="info-grid reveal">
+      <div class="info-item">
+        <div class="info-key">Name</div>
+        <div class="info-val">万新春 / 陈海庭</div>
+      </div>
+      <div class="info-item">
+        <div class="info-key">Team</div>
+        <div class="info-val">拉格朗日光影动画<span>西游金蝉劫项目组</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-key">Location</div>
+        <div class="info-val">广州<span>立足广州 · 布局全国</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-key">Team Size</div>
+        <div class="info-val">15 人<span>核心制作团队</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-key">Contact</div>
+        <div class="info-val">17769981203<span>微信：XianYouShenJing</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-key">Email</div>
+        <div class="info-val">xiyoujinchanjie@163.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 能力方向 ========== -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">02 / CAPABILITY</span>
+      <h2 class="sec-title">主要能力<em>方向</em></h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">两大原创IP宇宙，版权 100% 自有，覆盖院线电影、剧集、漫剧、短剧、文旅、消费品全链路开发。</p>
+    </div>
+
+    <div class="ip-duo reveal">
+      <div class="ip-card">
+        <div class="badge">版权 100% 持有</div>
+        <h3>《西游金蝉劫》</h3>
+        <p>东方神话宇宙超级IP。佛哲立本，情感筑魂，因果为链。十部主线大电影完成定稿，10+ 部妖族支线故事线确定，包含玉兔、杏仙、悟空、青狮等，足以支撑 20 年以上开发周期。</p>
+      </div>
+      <div class="ip-card">
+        <div class="badge">版权 100% 持有</div>
+        <h3>《三国人物新解》</h3>
+        <p>三国新视角IP。以全新叙事角度重解三国人物，构建独立于传统认知之外的人物弧光与价值表达，形成与《西游金蝉劫》并行的第二原创宇宙。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 电影矩阵 ========== -->
+<section class="sec" id="films" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">03 / FILM MATRIX</span>
+      <h2 class="sec-title">《西游金蝉劫》<em>IP系列电影</em></h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">当前主要由自有团队制作。10 部主线大电影完成定稿，10+ 部妖族支线故事线已确定。</p>
+    </div>
+
+    <!-- 制作中 -->
+    <div class="film-group reveal">
+      <div class="group-label">
+        <span class="dot pulse"></span>
+        <h3>已落地制作中</h3>
+        <span class="gline"></span>
+      </div>
+      <div class="film-grid">
+        <div class="film">
+          <span class="film-idx">MAIN · 01</span>
+          <span class="film-name">金蝉子 · 前传 · 渡缘劫</span>
+          <span class="film-status s-making">制作中 · 预计 2028 上映</span>
+          <span class="film-note">剧情已全球、全网公开</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 剧情公开 -->
+    <div class="film-group reveal">
+      <div class="group-label">
+        <span class="dot"></span>
+        <h3>剧情已全球全网公开</h3>
+        <span class="gline"></span>
+      </div>
+      <div class="film-grid">
+        <div class="film">
+          <span class="film-idx">MAIN · 02</span>
+          <span class="film-name">蝎子精 · 女妖王</span>
+          <span class="film-status s-open">剧情公开</span>
+        </div>
+        <div class="film">
+          <span class="film-idx">MAIN · 03</span>
+          <span class="film-name">蝎子精 · 烈焰焚心</span>
+          <span class="film-status s-open">剧情公开</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 全系列定稿 -->
+    <div class="film-group reveal">
+      <div class="group-label">
+        <span class="dot"></span>
+        <h3>全系列定稿（10 部主线）</h3>
+        <span class="gline"></span>
+      </div>
+      <div class="film-grid">
+        <div class="film">
+          <span class="film-idx">MAIN · 04</span>
+          <span class="film-name">女儿国 · 上</span>
+          <span class="film-status s-done">已定稿</span>
+        </div>
+        <div class="film">
+          <span class="film-idx">MAIN · 05</span>
+          <span class="film-name">女儿国 · 中</span>
+          <span class="film-status s-done">已定稿</span>
+        </div>
+        <div class="film">
+          <span class="film-idx">MAIN · 06</span>
+          <span class="film-name">女儿国 · 下</span>
+          <span class="film-status s-done">已定稿</span>
+        </div>
+        <div class="film">
+          <span class="film-idx">MAIN · 07</span>
+          <span class="film-name">白鼠精 · 痴情 · 香花烛</span>
+          <span class="film-status s-done">已定稿</span>
+        </div>
+        <div class="film">
+          <span class="film-idx">MAIN · 08</span>
+          <span class="film-name">白鼠精 · 痴情 · 男儿泪</span>
+          <span class="film-status s-done">已定稿</span>
+        </div>
+        <div class="film">
+          <span class="film-idx">MAIN · 09</span>
+          <span class="film-name">赤焰红蟒 · 妖王</span>
+          <span class="film-status s-done">已定稿</span>
+        </div>
+        <div class="film">
+          <span class="film-idx">MAIN · 10</span>
+          <span class="film-name">西游 · 金蝉劫 · 有情佛</span>
+          <span class="film-status s-done">已定稿</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== IP 优势 ========== -->
+<section class="sec" id="advantage" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">04 / CORE ADVANTAGE</span>
+      <h2 class="sec-title">《西游金蝉劫》IP <em>核心优势</em></h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="adv-grid reveal">
+      <div class="adv">
+        <div class="adv-icon">Ⅰ</div>
+        <h4>全部前置开发定稿</h4>
+        <p>10 部主线大电影全部完成定稿，不用五年磨一部。AIGC 赋能下，我们一年可出两部，节奏与效率全面领先传统院线动画。</p>
+      </div>
+      <div class="adv">
+        <div class="adv-icon">Ⅱ</div>
+        <h4>西游基底 · 国民尽知</h4>
+        <p>有情成佛，哲学统一，世界观一致。完美留白叙事，正典补齐，国民认知升维，在大众脑中完成模糊IP的完整替代。</p>
+      </div>
+      <div class="adv">
+        <div class="adv-icon">Ⅲ</div>
+        <h4>漫威式叙事结构</h4>
+        <p>多角色、多主角，全部高光，完整生命弧光。独立成章又互相勾连，同一哲学底层，统一情感叙事，逻辑自洽，感情真挚。</p>
+      </div>
+      <div class="adv">
+        <div class="adv-icon">Ⅳ</div>
+        <h4>打斗即叙事</h4>
+        <p>超燃打斗一场不落，每一场打斗都是角色命运使然，都是角色弧光。不是空洞炫技，而是与角色深度绑定的叙事表达。</p>
+      </div>
+      <div class="adv">
+        <div class="adv-icon">Ⅴ</div>
+        <h4>100% 独创 · 版权铁证链</h4>
+        <p>全系列 100% 独创，版权铁证链完整。数十个高光独家角色，上百个独家精彩场景，灵山蛰佛、尾钩刻印等绝佳名场面。</p>
+      </div>
+      <div class="adv">
+        <div class="adv-icon">Ⅵ</div>
+        <h4>无限衍生空间</h4>
+        <p>可供无限文旅落地、文玩手办开发、消费品联名。自营联名彩妆、联名酒品、金蝉宇宙超级文旅度假区已在项目规划中。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 角色宇宙 ========== -->
+<section class="sec" id="roles" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">05 / CHARACTER UNIVERSE</span>
+      <h2 class="sec-title">数十个<em>高光独家角色</em></h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">每个角色皆可独立成章，亦可彼此勾连。高光角色可供不同城市分别承接落地，避免角色扎堆一城的拥挤。</p>
+    </div>
+
+    <div class="chars reveal">
+      <span class="char core">金蝉子</span>
+      <span class="char core">蝎子精</span>
+      <span class="char core">白鼠精</span>
+      <span class="char core">女儿国</span>
+      <span class="char">杏仙</span>
+      <span class="char">玉兔</span>
+      <span class="char">如来</span>
+      <span class="char">赤焰红蟒</span>
+      <span class="char">黑蟒精</span>
+      <span class="char">悟空</span>
+      <span class="char">悟能</span>
+      <span class="char">悟净</span>
+      <span class="char">青狮</span>
+      <span class="char">九灵元圣</span>
+      <span class="char">……</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== OPC 落地合作 ========== -->
+<section class="sec" id="opc" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">06 / COOPERATION</span>
+      <h2 class="sec-title">咨询 OPC、园区、地方 <em>主要目的</em></h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="opc-grid reveal">
+      <div class="opc-card">
+        <div class="opc-letter">A</div>
+        <h4>全国布局 · 分城落地</h4>
+        <p>《西游金蝉劫》超级IP具备十数个高光独立角色，准备在不同城市布局不同的高光角色落地，避免角色扎堆一城的拥挤，形成城市联动发展。</p>
+      </div>
+      <div class="opc-card">
+        <div class="opc-letter">B</div>
+        <h4>了解当地扶持政策</h4>
+        <p>了解目标城市对影视动画、IP产业、文旅融合相关项目的扶持政策与配套措施。</p>
+      </div>
+      <div class="opc-card">
+        <div class="opc-letter">C</div>
+        <h4>非核心视频业务合作</h4>
+        <p>剧集改编的漫剧、短剧等非核心视频业务，落地当地制作团队合作开发。</p>
+      </div>
+      <div class="opc-card">
+        <div class="opc-letter">D</div>
+        <h4>现象级角色落地配套</h4>
+        <p>现象级电影角色落地城市的"一事一议"配套政策。</p>
+      </div>
+    </div>
+
+    <div class="highlight reveal">
+      <div class="hl-label">重点咨询问题</div>
+      <h3>现象级爆款电影与角色，落地城市的"一事一议"配套</h3>
+      <p>
+        围绕 <strong>20 亿+ 爆款电影</strong> 与 <strong>高光角色</strong> 的城市落地，
+        希望重点了解"一事一议"配套政策的具体路径、支持方式与操作机制。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 联系 ========== -->
+<section class="sec" id="contact" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">07 / CONTACT</span>
+      <h2 class="sec-title">欢迎城市联名，<em>一起发展</em></h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="contact reveal">
+      <div>
+        <h3>让每一个高光角色<br><em>找到属于它的那座城</em></h3>
+        <p>IP总部落地一城，其他高光角色绑定调性一致的城市，联动发展，共同开发。期待与各地政府、产业园区、投资机构及制作团队深度合作。</p>
+      </div>
+
+      <div>
+        <div class="c-list">
+          <div class="c-row">
+            <span class="c-key">联系人</span>
+            <span class="c-val">万新春 / 陈海庭</span>
+          </div>
+          <div class="c-row">
+            <span class="c-key">电话</span>
+            <span class="c-val">17769981203</span>
+          </div>
+          <div class="c-row">
+            <span class="c-key">微信</span>
+            <span class="c-val">XianYouShenJing</span>
+          </div>
+          <div class="c-row">
+            <span class="c-key">邮箱</span>
+            <span class="c-val">xiyoujinchanjie@163.com</span>
+          </div>
+          <div class="c-row">
+            <span class="c-key">城市</span>
+            <span class="c-val">广州<small>拉格朗日光影动画 · 西游金蝉劫项目组</small></span>
+          </div>
+        </div>
+
+        <div class="links">
+          <a class="btn solid" href="https://mp.weixin.qq.com/s/Ba3frFaCciBOOd4y4_RC-A" target="_blank" rel="noopener">
+            微信公众号 <span class="arrow">→</span>
+          </a>
+          <a class="btn" href="https://nexus-nuwy.upma.site/" target="_blank" rel="noopener">
+            IP 网页介绍 <span class="arrow">→</span>
+          </a>
+          <a class="btn" href="https://weibo.com/ttarticle/p/show?id=2309405339116400410737" target="_blank" rel="noopener">
+            微博专栏 <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">拉格朗日光影动画 · 西游金蝉劫项目组</div>
+    <div class="foot-note">《西游金蝉劫》东方神话宇宙 · 100% 版权持有 · 100% 独创</div>
+  </div>
+</footer>
+
+<script>
+// 导航滚动状态
+const nav = document.getElementById('nav');
+const onScroll = () => {
+  if (window.scrollY > 40) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// 滚动显现
+const revealEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        setTimeout(() => el.classList.add('on'), (i % 4) * 70);
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => io.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('on'));
+}
+</script>
+
+</body>
+</html>
