@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西游金蝉劫 · 超级电影IP · BP前置简介</title>
+<style>
+  :root{
+    --bg:#07070c;
+    --bg2:#0e0e18;
+    --card:rgba(255,255,255,.035);
+    --line:rgba(212,175,55,.22);
+    --gold:#d4af37;
+    --gold-l:#f3d98b;
+    --gold-d:#8a6d1f;
+    --red:#c0392b;
+    --red-d:#7d1c14;
+    --txt:#e8e6e1;
+    --txt2:#9a978f;
+    --txt3:#6b6862;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--txt);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--gold);color:#07070c;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  .serif{font-family:"Songti SC","STSong","SimSun",Georgia,serif;}
+  .gold{color:var(--gold);}
+  .gold-grad{
+    background:linear-gradient(100deg,#f7e7b0 0%,#d4af37 38%,#a8862a 62%,#f3d98b 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .sec{padding:96px 0;position:relative;}
+  .sec-head{margin-bottom:52px;}
+  .sec-tag{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:12px;letter-spacing:.28em;color:var(--gold);
+    text-transform:uppercase;margin-bottom:18px;
+  }
+  .sec-tag::before{content:"";width:26px;height:1px;background:var(--gold);opacity:.7;}
+  .sec-title{
+    font-size:clamp(26px,3.4vw,40px);font-weight:700;letter-spacing:.03em;
+    line-height:1.35;
+  }
+  .sec-sub{color:var(--txt2);font-size:15px;margin-top:14px;max-width:760px;}
+
+  /* ============ 封面 ============ */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;
+    padding:110px 0 90px;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 8%, rgba(212,175,55,.14), transparent 70%),
+      radial-gradient(ellipse 70% 55% at 85% 90%, rgba(140,26,20,.20), transparent 72%),
+      linear-gradient(180deg,#07070c 0%,#0b0b14 55%,#07070c 100%);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;opacity:.35;
+    background-image:
+      repeating-linear-gradient(0deg,rgba(212,175,55,.055) 0 1px,transparent 1px 68px),
+      repeating-linear-gradient(90deg,rgba(212,175,55,.055) 0 1px,transparent 1px 68px);
+    mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 20%,transparent 78%);
+    -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 20%,transparent 78%);
+  }
+  .hero .wrap{position:relative;z-index:2;}
+  .hero-badge{
+    display:inline-block;padding:7px 20px;border:1px solid var(--line);
+    border-radius:100px;font-size:12px;letter-spacing:.3em;color:var(--gold-l);
+    background:rgba(212,175,55,.06);margin-bottom:34px;
+  }
+  .hero-title{
+    font-size:clamp(46px,8.4vw,104px);font-weight:800;letter-spacing:.06em;
+    line-height:1.06;margin-bottom:8px;
+  }
+  .hero-title-en{
+    font-size:12px;letter-spacing:.52em;color:var(--txt3);
+    text-transform:uppercase;margin-bottom:36px;padding-left:6px;
+  }
+  .hero-lead{
+    font-size:clamp(16px,1.9vw,21px);color:#cfcbc2;max-width:840px;
+    line-height:2;font-weight:300;
+  }
+  .hero-lead b{color:var(--gold-l);font-weight:600;}
+  .hero-line{
+    width:100%;height:1px;margin:46px 0 34px;
+    background:linear-gradient(90deg,var(--gold),rgba(212,175,55,.12) 42%,transparent);
+  }
+  .hero-kpi{display:flex;flex-wrap:wrap;gap:44px;}
+  .kpi-num{
+    font-size:clamp(28px,3.6vw,42px);font-weight:800;line-height:1;
+    font-family:Georgia,serif;letter-spacing:.02em;
+  }
+  .kpi-lbl{font-size:12.5px;color:var(--txt2);letter-spacing:.14em;margin-top:9px;}
+
+  .scroll-hint{
+    position:absolute;left:50%;bottom:34px;transform:translateX(-50%);
+    font-size:11px;letter-spacing:.3em;color:var(--txt3);z-index:2;
+    animation:float 2.6s ease-in-out infinite;
+  }
+  @keyframes float{0%,100%{transform:translateX(-50%) translateY(0);opacity:.5}50%{transform:translateX(-50%) translateY(8px);opacity:1}}
+
+  /* ============ 卡片 ============ */
+  .grid{display:grid;gap:20px;}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g4{grid-template-columns:repeat(4,1fr);}
+
+  .card{
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:14px;padding:30px 28px;
+    transition:.4s cubic-bezier(.2,.7,.3,1);
+    position:relative;overflow:hidden;
+  }
+  .card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    opacity:0;transition:.4s;
+  }
+  .card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(212,175,55,.34);
+    background:rgba(212,175,55,.045);
+  }
+  .card:hover::before{opacity:.85;}
+  .card h4{font-size:17px;font-weight:700;margin-bottom:12px;letter-spacing:.02em;}
+  .card p{font-size:14px;color:var(--txt2);line-height:1.95;}
+  .card-ico{
+    font-size:22px;margin-bottom:16px;display:block;
+    filter:saturate(.85);
+  }
+
+  /* ============ 数字墙 ============ */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:rgba(212,175,55,.18);
+    border:1px solid rgba(212,175,55,.18);border-radius:14px;overflow:hidden;
+  }
+  .stat{
+    background:#0a0a12;padding:38px 24px;text-align:center;
+    transition:.35s;
+  }
+  .stat:hover{background:rgba(212,175,55,.07);}
+  .stat-n{
+    font-family:Georgia,serif;font-size:clamp(30px,4vw,48px);font-weight:800;
+    line-height:1;letter-spacing:.02em;
+    background:linear-gradient(160deg,#f7e7b0,#d4af37 55%,#9c7c25);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .stat-n small{font-size:.46em;font-weight:600;letter-spacing:0;}
+  .stat-t{font-size:13px;color:var(--txt2);margin-top:14px;letter-spacing:.1em;}
+
+  /* ============ 片单 ============ */
+  .film-list{display:grid;gap:12px;}
+  .film{
+    display:flex;align-items:center;gap:22px;
+    padding:20px 26px;border-radius:12px;
+    background:rgba(255,255,255,.028);
+    border:1px solid rgba(255,255,255,.06);
+    transition:.35s;
+  }
+  .film:hover{
+    border-color:rgba(212,175,55,.36);
+    background:rgba(212,175,55,.05);
+    transform:translateX(6px);
+  }
+  .film-no{
+    font-family:Georgia,serif;font-size:15px;font-weight:700;
+    color:var(--gold-d);min-width:34px;letter-spacing:.06em;
+  }
+  .film-name{font-size:16.5px;font-weight:600;letter-spacing:.03em;flex:1;}
+  .film-tag{
+    font-size:11px;letter-spacing:.16em;padding:5px 13px;border-radius:100px;
+    border:1px solid rgba(212,175,55,.3);color:var(--gold-l);
+    background:rgba(212,175,55,.07);white-space:nowrap;
+  }
+  .film-tag.sub{border-color:rgba(255,255,255,.14);color:var(--txt2);background:rgba(255,255,255,.04);}
+  .film-tag.hot{
+    border-color:rgba(192,57,43,.55);color:#f0a79f;
+    background:rgba(192,57,43,.15);
+  }
+
+  /* ============ 前三部曲 ============ */
+  .tri{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .tri-card{
+    position:relative;border-radius:16px;overflow:hidden;
+    border:1px solid rgba(212,175,55,.24);
+    background:linear-gradient(170deg,rgba(212,175,55,.10),rgba(255,255,255,.02) 46%,rgba(125,28,20,.10));
+    padding:38px 30px 34px;
+    transition:.45s cubic-bezier(.2,.7,.3,1);
+  }
+  .tri-card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,.6);box-shadow:0 24px 60px -24px rgba(212,175,55,.3);}
+  .tri-idx{
+    font-family:Georgia,serif;font-size:60px;font-weight:800;
+    color:rgba(212,175,55,.16);line-height:.9;margin-bottom:14px;
+  }
+  .tri-name{font-size:20px;font-weight:700;letter-spacing:.03em;line-height:1.5;margin-bottom:14px;}
+  .tri-desc{font-size:13.5px;color:var(--txt2);line-height:1.95;}
+  .tri-foot{
+    margin-top:22px;padding-top:18px;border-top:1px solid rgba(212,175,55,.16);
+    font-size:11.5px;letter-spacing:.18em;color:var(--gold);
+  }
+
+  /* ============ 第一部深度拆解 ============ */
+  .deep-card{
+    margin-top:34px;border-radius:18px;overflow:hidden;
+    border:1px solid rgba(212,175,55,.32);
+    background:
+      radial-gradient(ellipse 80% 120% at 0% 0%, rgba(212,175,55,.12), transparent 60%),
+      radial-gradient(ellipse 70% 120% at 100% 100%, rgba(125,28,20,.16), transparent 62%),
+      #0a0a12;
+    padding:44px 46px 40px;
+  }
+  .deep-badge{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:11.5px;letter-spacing:.26em;color:var(--gold);
+    margin-bottom:20px;
+  }
+  .deep-badge::before{
+    content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--gold);box-shadow:0 0 12px var(--gold);
+  }
+  .deep-name{
+    font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:.03em;
+    margin-bottom:26px;
+  }
+
+  .oneliner{
+    position:relative;padding:26px 30px 26px 34px;
+    border-left:2px solid var(--gold);
+    background:rgba(212,175,55,.05);
+    border-radius:0 12px 12px 0;
+    font-size:clamp(14.5px,1.55vw,17px);line-height:2.05;
+    color:#dedad1;font-weight:300;
+  }
+  .oneliner b{color:var(--gold-l);font-weight:600;}
+  .oneliner-label{
+    font-size:11px;letter-spacing:.26em;color:var(--gold-d);
+    margin-bottom:10px;
+  }
+
+  .formula{
+    margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  }
+  .f-item{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:14px 18px;border-radius:10px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.06);
+    font-size:13.5px;color:var(--txt2);line-height:1.75;
+    transition:.35s;
+  }
+  .f-item:hover{background:rgba(212,175,55,.06);border-color:rgba(212,175,55,.3);color:#d7d3c9;}
+  .f-dot{
+    flex:none;width:6px;height:6px;border-radius:50%;margin-top:9px;
+    background:var(--gold);opacity:.75;
+  }
+
+  .formula-sum{
+    margin-top:22px;padding:18px 26px;border-radius:12px;
+    background:linear-gradient(90deg,rgba(212,175,55,.12),rgba(212,175,55,.03));
+    border:1px solid rgba(212,175,55,.24);
+    font-size:15px;letter-spacing:.02em;line-height:1.9;color:#e6e2d8;
+    text-align:center;
+  }
+  .formula-sum b{color:var(--gold-l);}
+
+  .q-block{
+    margin-top:34px;padding-top:30px;
+    border-top:1px dashed rgba(212,175,55,.24);
+  }
+  .q-title{
+    font-size:12px;letter-spacing:.24em;color:var(--gold-d);
+    margin-bottom:18px;
+  }
+  .q-list{display:grid;gap:12px;}
+  .q-item{
+    display:flex;align-items:flex-start;gap:14px;
+    font-size:14.5px;color:#cfcbc2;line-height:1.9;
+  }
+  .q-mark{
+    flex:none;font-family:Georgia,serif;font-size:15px;
+    color:var(--gold);font-weight:700;margin-top:1px;
+  }
+  .q-item b{color:var(--gold-l);font-weight:600;}
+  .q-answer{
+    margin-top:20px;font-size:13.5px;color:var(--txt2);line-height:2;
+  }
+  .q-price{
+    margin-top:22px;text-align:center;
+    font-size:clamp(15px,2vw,19px);font-weight:300;color:#dedad1;
+    line-height:1.9;
+  }
+  .q-price b{color:var(--gold-l);font-weight:700;font-size:1.12em;}
+
+  /* ============ 对比 ============ */
+  .cmp{
+    display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.09);
+    border-radius:14px;overflow:hidden;
+  }
+  .cmp-col{background:#0a0a12;padding:34px 30px;}
+  .cmp-col.good{background:linear-gradient(160deg,rgba(212,175,55,.09),rgba(10,10,18,1) 62%);}
+  .cmp-h{
+    font-size:13px;letter-spacing:.24em;margin-bottom:22px;
+    padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.09);
+  }
+  .cmp-col.bad .cmp-h{color:#8a7c7c;}
+  .cmp-col.good .cmp-h{color:var(--gold);}
+  .cmp-col ul{list-style:none;}
+  .cmp-col li{
+    font-size:14px;color:var(--txt2);line-height:1.9;
+    padding-left:22px;position:relative;margin-bottom:12px;
+  }
+  .cmp-col li::before{content:"—";position:absolute;left:0;color:var(--txt3);}
+  .cmp-col.good li{color:#d7d3c9;}
+  .cmp-col.good li::before{content:"✦";color:var(--gold);font-size:11px;top:1px;}
+
+  /* ============ 商业化 ============ */
+  .biz{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .biz-item{
+    border:1px solid rgba(255,255,255,.07);border-radius:14px;
+    padding:32px 26px;background:var(--card);transition:.4s;
+    position:relative;
+  }
+  .biz-item:hover{border-color:rgba(212,175,55,.36);background:rgba(212,175,55,.05);transform:translateY(-4px);}
+  .biz-k{font-size:11px;letter-spacing:.24em;color:var(--gold-d);margin-bottom:14px;}
+  .biz-t{font-size:16.5px;font-weight:700;margin-bottom:12px;}
+  .biz-p{font-size:13.5px;color:var(--txt2);line-height:1.9;}
+
+  /* ============ 价值观声明 ============ */
+  .value-block{
+    border-radius:18px;padding:52px 48px;
+    background:
+      radial-gradient(ellipse 90% 140% at 50% 0%, rgba(212,175,55,.10), transparent 62%),
+      #0a0a12;
+    border:1px solid rgba(212,175,55,.26);
+    text-align:center;
+  }
+  .value-tag{
+    font-size:12px;letter-spacing:.32em;color:var(--gold);
+    margin-bottom:26px;
+  }
+  .value-main{
+    font-size:clamp(17px,2.3vw,24px);font-weight:300;line-height:2.1;
+    color:#e2ded5;max-width:920px;margin:0 auto;
+  }
+  .value-main b{color:var(--gold-l);font-weight:600;}
+  .value-keys{
+    display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:34px;
+  }
+  .v-key{
+    padding:9px 22px;border-radius:100px;
+    border:1px solid rgba(212,175,55,.3);
+    background:rgba(212,175,55,.06);
+    font-size:13px;color:var(--gold-l);letter-spacing:.08em;
+    transition:.35s;
+  }
+  .v-key:hover{background:rgba(212,175,55,.15);border-color:rgba(212,175,55,.6);}
+
+  /* ============ 制作落款 ============ */
+  .studio{
+    margin-top:44px;text-align:center;
+    padding-top:40px;border-top:1px solid rgba(212,175,55,.16);
+  }
+  .studio-name{
+    font-size:clamp(15px,1.8vw,18px);letter-spacing:.22em;
+    color:var(--gold-l);font-weight:600;margin-bottom:24px;
+  }
+  .studio-lines{
+    font-size:clamp(14px,1.6vw,16px);line-height:2.4;letter-spacing:.1em;
+    color:#c9c5bc;font-weight:300;
+  }
+  .studio-poem{
+    margin-top:32px;font-family:"Songti SC","STSong",Georgia,serif;
+    font-size:clamp(15px,1.9vw,19px);line-height:2.3;letter-spacing:.14em;
+    color:var(--gold-l);
+  }
+  .studio-poem span{display:block;}
+
+  /* ============ 引用块 ============ */
+  .quote{
+    border-left:2px solid var(--gold);
+    padding:26px 0 26px 32px;margin:0;
+    font-size:clamp(16px,2vw,21px);line-height:2;font-weight:300;
+    color:#d9d5cc;
+  }
+  .quote b{color:var(--gold-l);font-weight:600;}
+
+  /* ============ 版权链 ============ */
+  .chain{display:flex;flex-wrap:wrap;gap:14px;}
+  .chain-item{
+    padding:14px 24px;border-radius:100px;
+    border:1px solid rgba(212,175,55,.28);
+    background:rgba(212,175,55,.06);
+    font-size:13.5px;color:var(--gold-l);letter-spacing:.06em;
+    transition:.35s;
+  }
+  .chain-item:hover{background:rgba(212,175,55,.14);border-color:rgba(212,175,55,.6);}
+
+  /* ============ 联系 ============ */
+  .contact{
+    border-top:1px solid rgba(212,175,55,.18);
+    padding:80px 0 70px;text-align:center;
+    background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(212,175,55,.08),transparent 70%);
+  }
+  .contact-mail{
+    display:inline-block;font-family:Georgia,serif;
+    font-size:clamp(18px,2.6vw,28px);letter-spacing:.04em;
+    color:var(--gold-l);text-decoration:none;margin:10px 0 6px;
+    border-bottom:1px solid rgba(212,175,55,.3);padding-bottom:6px;
+    transition:.35s;
+  }
+  .contact-mail:hover{color:#fff;border-color:var(--gold);}
+  .link-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:32px;}
+  .link-row a{
+    font-size:12.5px;color:var(--txt2);text-decoration:none;
+    padding:9px 20px;border:1px solid rgba(255,255,255,.1);
+    border-radius:100px;transition:.35s;letter-spacing:.04em;
+  }
+  .link-row a:hover{color:var(--gold);border-color:rgba(212,175,55,.45);}
+
+  .foot{
+    text-align:center;padding:26px 0 34px;font-size:11.5px;
+    color:var(--txt3);letter-spacing:.14em;
+    border-top:1px solid rgba(255,255,255,.05);
+  }
+
+  /* ============ 入场动画 ============ */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1);}
+  .reveal.on{opacity:1;transform:none;}
+
+  /* ============ 响应式 ============ */
+  @media (max-width:980px){
+    .g4,.stats{grid-template-columns:repeat(2,1fr);}
+    .g3,.tri,.biz{grid-template-columns:1fr;}
+    .cmp{grid-template-columns:1fr;}
+    .formula{grid-template-columns:1fr;}
+    .deep-card{padding:34px 26px 30px;}
+    .value-block{padding:38px 24px;}
+  }
+  @media (max-width:680px){
+    .sec{padding:66px 0;}
+    .wrap{padding:0 20px;}
+    .g2,.g4,.stats{grid-template-columns:1fr;}
+    .hero{min-height:auto;padding:90px 0 70px;}
+    .hero-kpi{gap:28px;}
+    .film{flex-wrap:wrap;gap:10px 14px;padding:16px 18px;}
+    .film-name{flex:1 1 100%;order:3;font-size:15px;}
+    .quote{padding-left:20px;}
+    .scroll-hint{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== 封面 ==================== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-badge">超级电影 IP · 东方神话宇宙</div>
+    <h1 class="hero-title gold-grad serif">西游金蝉劫</h1>
+    <div class="hero-title-en">THE JOURNEY OF THE GOLDEN CICADA</div>
+    <p class="hero-lead">
+      从《西游记》原著文本中，发掘出东方神话宇宙<b>最大一块哲学、情感与故事的宝库</b>。<br>
+      佛哲立本 · 情感筑魂 · 因果为链 —— 搭建一个前因后果逻辑自洽、感人至深的宇宙故事集。<br>
+      写透吴承恩先生<b>五百年未曾写就的故事</b>。
+    </p>
+    <div class="hero-line"></div>
+    <div class="hero-kpi">
+      <div>
+        <div class="kpi-num gold">20<small>部</small></div>
+        <div class="kpi-lbl">大电影剧集 · 剧情定稿</div>
+      </div>
+      <div>
+        <div class="kpi-num gold">100<small>+</small></div>
+        <div class="kpi-lbl">电影、漫剧等作品 · 可扩展</div>
+      </div>
+      <div>
+        <div class="kpi-num gold">20<small>年</small></div>
+        <div class="kpi-lbl">IP 开发周期</div>
+      </div>
+      <div>
+        <div class="kpi-num gold">100<small>%</small></div>
+        <div class="kpi-lbl">独创 · 版权铁证链</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL ↓</div>
+</header>
+
+<!-- ==================== 核心定位 ==================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Positioning</div>
+      <h2 class="sec-title">这不是一部电影，<br>而是一个<span class="gold">可开发二十年</span>的宇宙级 IP 资产。</h2>
+      <p class="sec-sub">漫威式叙事结构：多角色、多主角、全部高光、完整生命弧光、高浓度情感、高全民共情。独立成章，又互相勾连，同一哲学底层，统一情感叙事。</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="card reveal">
+        <span class="card-ico">☸</span>
+        <h4>佛哲立本</h4>
+        <p>以东方佛学哲学为宇宙底层逻辑，有情成佛，哲学统一，世界观一致。不黑化、不贬低、尊佛重道，符合国家主流文化导向。</p>
+      </div>
+      <div class="card reveal">
+        <span class="card-ico">❤</span>
+        <h4>情感筑魂</h4>
+        <p>为西游世界中被一笔带过的扁平角色，补写前世今生。因果为链，逻辑自洽，感情真挚，与观众深度共情。</p>
+      </div>
+      <div class="card reveal">
+        <span class="card-ico">⚔</span>
+        <h4>打斗即叙事</h4>
+        <p>超燃打斗一场不落，但每一场都源于角色命运。打斗不是空洞炫技，而是角色弧光的一部分，看完记得住、有余味。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 规模数字墙 ==================== -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat">
+        <div class="stat-n">10</div>
+        <div class="stat-t">主线大电影 · 已完成定稿</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">10<small>+</small></div>
+        <div class="stat-t">妖族支线故事线 · 已确定</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">100<small>%</small></div>
+        <div class="stat-t">剧情全网公开 · 可查重验证</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">2<small>部/年</small></div>
+        <div class="stat-t">AIGC 赋能 · 年产效率</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 前三部曲（增强版） ==================== -->
+<section class="sec" style="background:linear-gradient(180deg,transparent,rgba(212,175,55,.035),transparent);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">First Trilogy</div>
+      <h2 class="sec-title">前三部曲 · <span class="gold">已全网全球公开剧情</span></h2>
+      <p class="sec-sub">以《金蝉子·前传·渡缘劫》为故事基准线，一部比一部炸裂——这是事实描述，不是夸张，更不是营销话术。</p>
+    </div>
+
+    <div class="tri">
+      <div class="tri-card reveal">
+        <div class="tri-idx">01</div>
+        <div class="tri-name serif">金蝉子 · 前传 · 渡缘劫</div>
+        <div class="tri-desc">整个宇宙的故事基准线与哲学原点。从灵山到人间，从佛前到劫中，为"有情成佛"立下第一块基石。</div>
+        <div class="tri-foot">全宇宙故事基准线</div>
+      </div>
+      <div class="tri-card reveal">
+        <div class="tri-idx">02</div>
+        <div class="tri-name serif">蝎子精 · 女妖王</div>
+        <div class="tri-desc">东方神话女性大女主史诗的开篇。目标：成为中国乃至东亚中华文化圈数十亿国民级爱情图腾。</div>
+        <div class="tri-foot">女性大女主 · 仙妖形象</div>
+      </div>
+      <div class="tri-card reveal">
+        <div class="tri-idx">03</div>
+        <div class="tri-name serif">蝎子精 · 烈焰焚心</div>
+        <div class="tri-desc">"尾钩刻印"名场面的情感引爆点。目标：击穿东亚文化圈的情感共鸣，完成 IP 的彻底破圈。</div>
+        <div class="tri-foot">名场面 · 尾钩刻印</div>
+      </div>
+    </div>
+
+    <!-- ---------- 第一部深度拆解 ---------- -->
+    <div class="deep-card reveal">
+      <div class="deep-badge">第一部 · 深度拆解</div>
+      <div class="deep-name gold-grad serif">金蝉子 · 前传 · 渡缘劫</div>
+
+      <div class="oneliner">
+        <div class="oneliner-label">⚡ 一句话故事</div>
+        一位坚信<b>"有情方能成佛"</b>的少年佛子，堕入十世轮回；<br>
+        他用灵山三百年的神妖情劫，为取经路上的九九八十一难，写下了最痛的<b>【情劫注脚】</b>。
+      </div>
+
+      <div class="formula">
+        <div class="f-item"><span class="f-dot"></span>国民级 IP 前传</div>
+        <div class="f-item"><span class="f-dot"></span>熟悉又空白的国民印象</div>
+        <div class="f-item"><span class="f-dot"></span>战神级完美男主</div>
+        <div class="f-item"><span class="f-dot"></span>两女虐恋：温柔相守型 vs 骄傲求不得型</div>
+        <div class="f-item"><span class="f-dot"></span>男主因情获罪</div>
+        <div class="f-item"><span class="f-dot"></span>一女为爱舍命</div>
+        <div class="f-item"><span class="f-dot"></span>一女踏遍轮回寻找</div>
+        <div class="f-item"><span class="f-dot"></span>结尾留宇宙级续集钩子</div>
+        <div class="f-item"><span class="f-dot"></span>情感驱动的大场面战斗穿插</div>
+        <div class="f-item"><span class="f-dot"></span>小妖搞笑调剂</div>
+      </div>
+
+      <div class="formula-sum">
+        <b>《金蝉子·前传·渡缘劫》</b> = 国民级 IP 前传 + 两女虐恋 + 因情获罪 + 为爱舍命 + 踏遍轮回 + 宇宙级钩子
+      </div>
+
+      <div class="q-block">
+        <div class="q-title">⚡ 西游正典 · 空白的补完</div>
+        <div class="q-list">
+          <div class="q-item">
+            <span class="q-mark">Q1</span>
+            <div>金蝉子为什么被贬轮回？</div>
+          </div>
+          <div class="q-item">
+            <span class="q-mark">Q2</span>
+            <div>蝎子精为什么蜇伤如来？</div>
+          </div>
+          <div class="q-item">
+            <span class="q-mark">Q3</span>
+            <div>白鼠精为什么偷香花烛？</div>
+          </div>
+        </div>
+        <div class="q-answer">
+          以哲理、自洽、完美、甜蜜、爱情、轮回的方式回答了这些问题。<b>西游正典补完。</b>
+        </div>
+        <div class="q-price">
+          这个故事，到底能值多少钱？？
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 片单矩阵 ==================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Slate</div>
+      <h2 class="sec-title">电影片单矩阵</h2>
+      <p class="sec-sub">10 部主线大电影完成定稿，10+ 部妖族支线故事线确定。涵盖玉兔、杏仙、悟空、青狮、九灵元圣等数十个高光角色。<h2>够 20 年以上开发周期。</h2></p>
+    </div>
+
+    <div class="film-list">
+      <div class="film reveal">
+        <span class="film-no">01</span>
+        <span class="film-name serif">金蝉子 · 前传 · 渡缘劫</span>
+        <span class="film-tag">剧情已公开</span>
+      </div>
+      <div class="film reveal">
+        <span class="film-no">02</span>
+        <span class="film-name serif">蝎子精 · 女妖王</span>
+        <span class="film-tag">剧情已公开</span>
+      </div>
+      <div class="film reveal">
+        <span class="film-no">03</span>
+        <span class="film-name serif">蝎子精 · 烈焰焚心</span>
+        <span class="film-tag">剧情已公开</span>
+      </div>
+      <div class="film reveal">
+        <span class="film-no">04</span>
+        <span class="film-name serif">女儿国 · 上</span>
+        <span class="film-tag sub">主线定稿</span>
+      </div>
+      <div class="film reveal">
+        <span class="film-no">05</span>
+        <span class="film-name serif">女儿国 · 中</span>
+        <span class="film-tag sub">主线定稿</span>
+      </div>
+      <div class="film reveal">
+        <span class="film-no">06</span>
+        <span class="film-name serif">女儿国 · 下</span>
+        <span class="film-tag sub">主线定稿</span>
+      </div>
+      <div class="film reveal">
+        <span class="film-no">07</span>
+        <span class="film-name serif">白鼠精 · 痴情 · 香花烛</span>
+        <span class="film-tag sub">主线定稿</span>
+      </div>
+      <div class="film reveal">
+        <span class="film-no">08</span>
+        <span class="film-name serif">白鼠精 · 痴情 · 男儿泪</span>
+        <span class="film-tag sub">主线定稿</span>
+      </div>
+      <div class="film reveal">
+        <span class="film-no">09</span>
+        <span class="film-name serif">赤焰红蟒 · 妖王</span>
+        <span class="film-tag sub">主线定稿</span>
+      </div>
+      <div class="film reveal">
+        <span class="film-no">10</span>
+        <span class="film-name serif">西游 · 金蝉劫 · 有情佛</span>
+        <span class="film-tag hot">宇宙终章</span>
+      </div>
+      <div class="film reveal">
+        <span class="film-no">+</span>
+        <span class="film-name serif">妖族支线：玉兔 · 杏仙 · 悟空 · 八戒 · 青狮 · 九灵元圣 · 黑蟒精 · 蜘蛛精 …</span>
+        <span class="film-tag sub">10+ 部已确定</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 独家角色与名场面 ==================== -->
+<section class="sec" style="background:linear-gradient(180deg,transparent,rgba(125,28,20,.10),transparent);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Exclusive Assets</div>
+      <h2 class="sec-title">独家角色 · <span class="gold">独家名场面</span></h2>
+      <p class="sec-sub">数十个高光独家角色，上百个独家精彩场景。全部为可授权、可衍生、可落地的原创资产。</p>
+    </div>
+
+    <div class="grid g4">
+      <div class="card reveal"><h4>灵山蛰佛</h4><p>独家名场面 · 全宇宙哲学原点</p></div>
+      <div class="card reveal"><h4>尾钩刻印</h4><p>独家名场面 · 情感图腾级符号</p></div>
+      <div class="card reveal"><h4>金蝉子</h4><p>目标：IP 形象 &gt; 孙悟空</p></div>
+      <div class="card reveal"><h4>蝎子精</h4><p>目标：东方神话女性大女主图腾</p></div>
+      <div class="card reveal"><h4>女儿国</h4><p>三部曲 · 完整情感史诗</p></div>
+      <div class="card reveal"><h4>白鼠精</h4><p>双部曲 · 痴情叙事</p></div>
+      <div class="card reveal"><h4>赤焰红蟒 / 黑蟒精</h4><p>妖族支线 · 妖王体系</p></div>
+      <div class="card reveal"><h4>玉兔 · 杏仙 · 青狮</h4><p>全情感弧光、扁平角色的前世今生补写</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 竞争壁垒 ==================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Why Us</div>
+      <h2 class="sec-title">行业普遍通病，<span class="gold">在我们这里不会发生</span></h2>
+    </div>
+
+    <div class="cmp reveal">
+      <div class="cmp-col bad">
+        <div class="cmp-h">行业通病</div>
+        <ul>
+          <li>IP 平移，缺乏原生叙事根基</li>
+          <li>打斗空洞，仅有炫技无叙事</li>
+          <li>情感牵强，观众无法共情</li>
+          <li>逻辑不通，前因后果断裂</li>
+          <li>无统一世界观，各自为战</li>
+          <li>观众不买账，不进场</li>
+          <li>五年磨一部，产能受限</li>
+        </ul>
+      </div>
+      <div class="cmp-col good">
+        <div class="cmp-h">西游金蝉劫</div>
+        <ul>
+          <li>100% 独创，全网可查重</li>
+          <li>打斗绑定角色命运与弧光</li>
+          <li>高浓度情感，高全民共情</li>
+          <li>因果为链，逻辑完全自洽</li>
+          <li>同一哲学底层，世界观统一</li>
+          <li>全部前置开发定稿，不靠猜测</li>
+          <li>AIGC 赋能，一年出两部</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 商业化 ==================== -->
+<section class="sec" style="background:linear-gradient(180deg,transparent,rgba(212,175,55,.04),transparent);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Commercialization</div>
+      <h2 class="sec-title">可供<span class="gold">无限文旅落地</span>的全产业链 IP</h2>
+      <p class="sec-sub">从银幕到实景，从收藏到日常消费，全链路可变现、可授权、可联名。</p>
+    </div>
+
+    <div class="biz">
+      <div class="biz-item reveal">
+        <div class="biz-k">TOURISM</div>
+        <div class="biz-t">超级文旅度假区</div>
+        <div class="biz-p">自营"金蝉宇宙超级文旅度假区"已在项目规划中。所有高光角色与独家场景均可无限落地为实景体验。</div>
+      </div>
+      <div class="biz-item reveal">
+        <div class="biz-k">MERCHANDISE</div>
+        <div class="biz-t">文玩手办 · 消费品</div>
+        <div class="biz-p">数十个独家角色形象，可供无限文玩手办开发，可供无限消费品联名，覆盖全年龄消费场景。</div>
+      </div>
+      <div class="biz-item reveal">
+        <div class="biz-k">BEAUTY & SPIRITS</div>
+        <div class="biz-t">自营联名彩妆 · 酒品</div>
+        <div class="biz-p">自营联名彩妆、自营联名酒品已进入规划，将 IP 美学直接转化为高频消费品类。</div>
+      </div>
+      <div class="biz-item reveal">
+        <div class="biz-k">CITY IP</div>
+        <div class="biz-t">城市联名 · 一城一角</div>
+        <div class="biz-p">IP 总部落地一城，其他高光角色绑定调性一致的城市，联动开发。所有角色聚集一城过于拥挤，分城落地更利于全国联动，长期运营。</div>
+      </div>
+      <div class="biz-item reveal">
+        <div class="biz-k">FORMATS</div>
+        <div class="biz-t">全形态内容矩阵</div>
+        <div class="biz-p">3D 动画、真人电影、漫剧、横屏短剧……上百部电影与视频作品扩展，同一宇宙，多形态输出。</div>
+      </div>
+      <div class="biz-item reveal">
+        <div class="biz-k">REGION</div>
+        <div class="biz-t">粤产电影 · 东风已至</div>
+        <div class="biz-p">2026 年已是粤产电影的爆发之年。气运已至，东风已来——粤产电影能否成为中国电影的珠穆朗玛，看蝎子精能否彻底破圈。《尾钩刻印》击穿观众情感共鸣。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 版权链 ==================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">IP Protection</div>
+      <h2 class="sec-title">100% 版权<span class="gold">铁证链</span></h2>
+      <p class="sec-sub">全系列 100% 独创。剧情已全网、全球信息公开平铺，任何人都可以亲自验证和查重。</p>
+    </div>
+
+    <div class="chain reveal">
+      <div class="chain-item">100% 原创故事 · 全网可查重</div>
+      <div class="chain-item">多本版权证书</div>
+      <div class="chain-item">可信时间戳一堆</div>
+      <div class="chain-item">分阶段国内外服务器存档</div>
+      <div class="chain-item">全网创作留痕</div>
+      <div class="chain-item">剧情全球、全网公开平铺</div>
+	  <div class="chain-item">只要制作权法，伯尔尼公约还在，版权铁证连</div>
+    </div>
+
+    <blockquote class="quote reveal" style="margin-top:52px;">
+      我们在西游记的原著文本中，发掘出了东方神话宇宙<b>最大一块哲学、情感和故事的宝库</b>。<br>
+      没有半点虚言——<b>文本小说都在，请亲自验证</b>。不靠猜测，不靠盲目，靠绝对实力。
+    </blockquote>
+  </div>
+</section>
+
+<!-- ==================== 目标愿景 ==================== -->
+<section class="sec" style="background:linear-gradient(180deg,transparent,rgba(125,28,20,.12),transparent);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Vision</div>
+      <h2 class="sec-title">我们的目标</h2>
+    </div>
+
+    <div class="grid g2">
+      <div class="card reveal">
+        <span class="card-ico">🏆</span>
+        <h4>打造 金蝉子 IP 形象 &gt; 孙悟空 IP 形象</h4>
+        <p>在西游世界中，以更完整的哲学根基与情感叙事，塑造一个具备超越性认知度的核心角色。</p>
+      </div>
+      <div class="card reveal">
+        <span class="card-ico">🌸</span>
+        <h4>打造 蝎子精 IP 形象，成为国民级爱情图腾</h4>
+        <p>成为中国乃至东亚中华文化圈数十亿国民级爱情图腾，走向世界影视舞台的东方神话女性大女主史诗。</p>
+      </div>
+      <div class="card reveal">
+        <span class="card-ico">🎬</span>
+        <h4>《西游金蝉劫》大概率替代《哪吒》的位置</h4>
+        <p>体量和规模是哪吒的十倍。全部前置开发定稿，不用五年出一部——AIGC 下，我们一年出两部。</p>
+      </div>
+      <div class="card reveal">
+        <span class="card-ico">🌏</span>
+        <h4>国民认知升维 · 模糊 IP 完整替代</h4>
+        <p>西游基底，国民尽知。完美留白叙事，正典补齐。让大众脑中原先模糊的角色，获得完整、清晰、动人的生命。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 价值观声明 + 制作落款 ==================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="value-block reveal">
+      <div class="value-tag">OUR CREED · 我们坚持</div>
+      <div class="value-main">
+        我们坚持！<b>正向，不黑化，尊佛，哲理，爱情，自洽，完美，逻辑</b>，<br>
+        甜蜜与虐情共存，轮回与必然照应，<br>
+        讲述这些空白角色的前世今生故事。
+      </div>
+
+      <div class="value-keys">
+        <span class="v-key">正向</span>
+        <span class="v-key">不黑化</span>
+        <span class="v-key">尊佛</span>
+        <span class="v-key">哲理</span>
+        <span class="v-key">爱情</span>
+        <span class="v-key">自洽</span>
+        <span class="v-key">完美</span>
+        <span class="v-key">逻辑</span>
+        <span class="v-key">甜蜜与虐情共存</span>
+        <span class="v-key">轮回与必然照应</span>
+      </div>
+
+      <div class="studio">
+        <div class="studio-name">拉格朗日光影动画 · 西游金蝉劫电影项目组</div>
+        <div class="studio-lines">
+          文稿已定，版权已固，宇宙已成，东风已至。<br>
+          内容为王，践行为先。
+        </div>
+        <div class="studio-poem serif">
+          <span>乘风破浪会有时，</span>
+          <span>西游再起济沧海。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 联系 ==================== -->
+<section class="contact">
+  <div class="wrap">
+    <div class="sec-tag" style="justify-content:center;display:flex;">Contact</div>
+    <h2 class="sec-title reveal" style="margin-bottom:22px;">欢迎城市联名，<span class="gold">一起发展</span></h2>
+    <p style="color:var(--txt2);font-size:14.5px;margin-bottom:34px;">
+      官方联系邮箱
+    </p>
+    <a class="contact-mail reveal" href="mailto:xiyoujinchanjie@163.com">xiyoujinchanjie@163.com</a>
+    <p style="color:var(--txt3);font-size:13px;margin-top:28px;">
+      官方网址：www.jinchanjie.cn（在建）<br>
+      镜像网址：https://xyjcj1.kicp.fun ｜ https://ofirm.org/jcj
+    </p>
+
+    <div class="link-row">
+      <a href="https://mp.weixin.qq.com/s/Ba3frFaCciBOOd4y4_RC-A" target="_blank" rel="noopener">公众号 · 了解《西游金蝉劫》</a>
+      <a href="https://weibo.com/ttarticle/p/show?id=2309405339116400410737" target="_blank" rel="noopener">微博 · 了解《西游金蝉劫》</a>
+      <a href="http://t.cn/AXlZ21QO" target="_blank" rel="noopener">公众号短链</a>
+      <a href="http://t.cn/AX0I9uCa" target="_blank" rel="noopener">微博短链</a>
+    </div>
+
+    <p style="margin-top:44px;color:var(--txt2);font-size:14px;letter-spacing:.06em;">
+      搜索「金蝉子前传渡缘劫」，即可阅读第一部小说。<span class="gold">好不好，看完再评。</span>
+    </p>
+  </div>
+</section>
+
+<footer class="foot">
+  西游金蝉劫 · 超级电影 IP　｜　佛哲立本 · 情感筑魂 · 因果为链　｜　100% 独创 · 版权铁证链
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('on'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var delay = (Array.prototype.indexOf.call(el.parentNode.children, el) % 4) * 70;
+          setTimeout(function () { el.classList.add('on'); }, delay);
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
